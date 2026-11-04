@@ -240,6 +240,91 @@
 </tig>
 </langSet>
 </termEntry>
+<termEntry id="blocklist">
+<descrip>A list of items that are blocked, such as IP addresses or domains.</descrip>
+<descrip type="Usage note">Its opposite is &quot;Allowlist&quot;.</descrip>
+<descrip type="Translation needed">No</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Blocklist</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="blocklist--forbidden-blacklist">
+<langSet xml:lang="en">
+<tig>
+<term>Blocklist</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Blacklist</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="blocklist--forbidden-lista-nera">
+<langSet xml:lang="en">
+<tig>
+<term>Blocklist</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Lista nera</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="allowlist">
+<descrip>A list of items that are always allowed, such as IP addresses or domains, even when a blocklist contains them.</descrip>
+<descrip type="Usage note">Its opposite is &quot;Blocklist&quot;.</descrip>
+<descrip type="Translation needed">No</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Allowlist</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="allowlist--forbidden-whitelist">
+<langSet xml:lang="en">
+<tig>
+<term>Allowlist</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Whitelist</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="allowlist--forbidden-allow-list">
+<langSet xml:lang="en">
+<tig>
+<term>Allowlist</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Allow list</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="allowlist--forbidden-lista-bianca">
+<langSet xml:lang="en">
+<tig>
+<term>Allowlist</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Lista bianca</term>
+</tig>
+</langSet>
+</termEntry>
 <termEntry id="create">
 <descrip>Make a new object that did not exist before, such as a user, a group or a firewall rule.</descrip>
 <descrip type="Usage note">Name the object: &quot;Create user&quot;. Use &quot;Add&quot; when the object already exists and is only associated with another one.</descrip>
@@ -270,9 +355,50 @@
 </termEntry>
 <termEntry id="edit">
 <descrip>Change the data of an object.</descrip>
+<descrip type="Usage note">To replace a single value, such as a password, use &quot;Change&quot;.</descrip>
 <langSet xml:lang="en">
 <tig>
 <term>Edit</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Modifica</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="edit--forbidden-cambia">
+<langSet xml:lang="en">
+<tig>
+<term>Edit</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Cambia</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="change">
+<descrip>Replace a single value with a new one, such as a password, a picture, the language or the number of licenses.</descrip>
+<descrip type="Usage note">&quot;Change password&quot; (&quot;Cambia password&quot;). For the data of an object, use &quot;Edit&quot;. As a noun, &quot;change&quot; is &quot;modifica&quot;: &quot;Change history&quot; (&quot;Cronologia modifiche&quot;).</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Change</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Cambia</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="change--forbidden-modifica">
+<langSet xml:lang="en">
+<tig>
+<term>Change</term>
+<termNote type="administrativeStatus">forbidden</termNote>
 </tig>
 </langSet>
 <langSet xml:lang="it">
@@ -564,6 +690,33 @@
 </tig>
 </langSet>
 </termEntry>
+<termEntry id="cancel">
+<descrip>Abandon an unfinished action, such as a form or a confirmation, without saving anything.</descrip>
+<descrip type="Usage note">In Italian &quot;Cancella&quot; means delete, so it would suggest that data is lost. To dismiss information with no pending changes, use &quot;Close&quot; (&quot;Chiudi&quot;): see Buttons and actions in the guidelines.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Cancel</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Annulla</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="cancel--forbidden-cancella">
+<langSet xml:lang="en">
+<tig>
+<term>Cancel</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Cancella</term>
+</tig>
+</langSet>
+</termEntry>
 <termEntry id="details">
 <descrip>The button that opens the page of an object, in a table row or a card.</descrip>
 <descrip type="Usage note">An exception to the verb rule for buttons, for brevity: always with the eye icon, and with the object name for screen readers. &quot;Show details&quot; is for content that opens in place.</descrip>
@@ -766,6 +919,30 @@
 <langSet xml:lang="en">
 <tig>
 <term>NethServer</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="cluster">
+<descrip>A group of NethServer nodes managed together from one web interface.</descrip>
+<descrip type="Usage note">A cluster has one leader node; the other nodes are worker nodes.</descrip>
+<descrip type="Translation needed">No</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Cluster</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="node">
+<descrip>A server that is part of a NethServer cluster and runs its applications.</descrip>
+<descrip type="Usage note">&quot;Leader node&quot; (&quot;Nodo leader&quot;) manages the cluster; the others are &quot;Worker node&quot; (&quot;Nodo worker&quot;).</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Node</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Nodo</term>
 </tig>
 </langSet>
 </termEntry>

@@ -119,6 +119,26 @@
   avoid:
     en: [Flashstart]
 
+- id: blocklist
+  en: Blocklist
+  untranslatable: true
+  definition: A list of items that are blocked, such as IP addresses or domains.
+  products: [nethsecurity, ns8]
+  avoid:
+    en: [Blacklist, Block list]
+    it: [Blacklist, Lista nera]
+  notes: 'Its opposite is "Allowlist".'
+
+- id: allowlist
+  en: Allowlist
+  untranslatable: true
+  definition: A list of items that are always allowed, such as IP addresses or domains, even when a blocklist contains them.
+  products: [nethsecurity, ns8]
+  avoid:
+    en: [Whitelist, Allow list]
+    it: [Whitelist, Allow list, Lista bianca]
+  notes: 'Its opposite is "Blocklist".'
+
 # Actions
 
 - id: create
@@ -148,6 +168,20 @@
   products: [all]
   avoid:
     en: [Modify]
+    it: [Cambia]
+  notes: 'To replace a single value, such as a password, use "Change".'
+
+- id: change
+  en: Change
+  it: Cambia
+  definition: Replace a single value with a new one, such as a password, a picture, the language or the number of licenses.
+  products: [all]
+  avoid:
+    en: [Modify]
+    it: [Modifica]
+  notes: >-
+    "Change password" ("Cambia password"). For the data of an object, use "Edit". As a noun,
+    "change" is "modifica": "Change history" ("Cronologia modifiche").
 
 - id: delete
   en: Delete
@@ -189,6 +223,8 @@
   it: Archivia
   definition: Take an object out of use without destroying it, so that it can be restored, such as a user, a system or a company.
   products: [my]
+  avoid:
+    en: [Deactivate, Trash, Move to trash]
   notes: >-
     Only in products that keep archived objects. Its opposite is "Restore"; the action that
     removes an archived object for good is "Destroy".
@@ -198,6 +234,8 @@
   it: Ripristina
   definition: Bring back something kept earlier, such as an archived object or the configuration saved in a backup.
   products: [all]
+  avoid:
+    en: [Unarchive, Recover, Reactivate, Undelete]
   notes: '"Restore user" ("Ripristina utente"), "Restore backup" ("Ripristina backup"). For default values, use "Reset".'
 
 - id: destroy
@@ -205,6 +243,8 @@
   it: Elimina definitivamente
   definition: Permanently delete an archived object, which can no longer be restored.
   products: [my]
+  avoid:
+    en: [Purge, Erase, Delete permanently, Permanently delete]
   notes: >-
     Only in products that archive objects before deleting them, where it takes the place of
     "Delete". In Italian, drop "definitivamente" when the object follows: "Destroy user"
@@ -254,6 +294,19 @@
   notes: >-
     "Reset filters" ("Reimposta filtri"), "Reset selection" ("Reimposta selezione"), "Reset
     password" ("Reimposta password"). In Italian, "Ripristina" is for restoring a backup.
+
+- id: cancel
+  en: Cancel
+  it: Annulla
+  definition: Abandon an unfinished action, such as a form or a confirmation, without saving anything.
+  products: [all]
+  avoid:
+    en: [Abort, Dismiss]
+    it: [Cancella]
+  notes: >-
+    In Italian "Cancella" means delete, so it would suggest that data is lost. To dismiss
+    information with no pending changes, use "Close" ("Chiudi"): see Buttons and actions in the
+    guidelines.
 
 - id: details
   en: Details
@@ -347,6 +400,20 @@
   avoid:
     en: [Nethserver, NS8]
   notes: '"NethServer 8", with the version, is also correct. Do not shorten it to "NS8".'
+
+- id: cluster
+  en: Cluster
+  untranslatable: true
+  definition: A group of NethServer nodes managed together from one web interface.
+  products: [ns8, my]
+  notes: 'A cluster has one leader node; the other nodes are worker nodes.'
+
+- id: node
+  en: Node
+  it: Nodo
+  definition: A server that is part of a NethServer cluster and runs its applications.
+  products: [ns8, my]
+  notes: '"Leader node" ("Nodo leader") manages the cluster; the others are "Worker node" ("Nodo worker").'
 
 - id: nethsecurity
   en: NethSecurity
