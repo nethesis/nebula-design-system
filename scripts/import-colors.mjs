@@ -37,7 +37,19 @@ const reference = (token, ref) => {
   return collection === 'Primitive' ? name : ref
 }
 
-const semantic = raw.semantic.map(([name, lightRef, lightHex, darkRef, darkHex, description]) => {
+// Groups renamed here until the Figma file is fixed (see figma-fixes.md).
+const RENAMED_GROUPS = [
+  ['Product Primary/Website and My Nethesis/', 'Product Primary/My Nethesis/']
+]
+const rename = (name) => {
+  for (const [from, to] of RENAMED_GROUPS) {
+    if (name.startsWith(from)) return to + name.slice(from.length)
+  }
+  return name
+}
+
+const semantic = raw.semantic.map(([figmaName, lightRef, lightHex, darkRef, darkHex, description]) => {
+  const name = rename(figmaName)
   for (const hex of [lightHex, darkHex]) {
     if (!HEX.test(hex)) errors.push(`${name}: invalid color ${hex}`)
   }

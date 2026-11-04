@@ -140,54 +140,6 @@ export const TEXT_STYLE_GROUPS: { title: string; styles: TextStyle[] }[] = [
         weight: 'Medium'
       }
     ]
-  },
-  {
-    title: 'Website',
-    styles: [
-      {
-        token: 'Website/H1',
-        className: 'text-4xl font-medium',
-        size: 36,
-        lineHeight: 40,
-        weight: 'Medium'
-      },
-      {
-        token: 'Website/H2',
-        className: 'text-3xl font-medium',
-        size: 30,
-        lineHeight: 36,
-        weight: 'Medium'
-      },
-      { token: 'Website/H3', className: null, size: 28, lineHeight: 36, weight: 'Medium' },
-      {
-        token: 'Website/H4',
-        className: 'text-2xl font-medium',
-        size: 24,
-        lineHeight: 32,
-        weight: 'Medium'
-      },
-      {
-        token: 'Website/H5',
-        className: 'text-xl font-medium',
-        size: 20,
-        lineHeight: 28,
-        weight: 'Medium'
-      },
-      {
-        token: 'Website/Paragraph',
-        className: 'text-base',
-        size: 16,
-        lineHeight: 24,
-        weight: 'Regular'
-      },
-      {
-        token: 'UI/Button/xl website',
-        className: 'text-base font-medium',
-        size: 16,
-        lineHeight: 24,
-        weight: 'Medium'
-      }
-    ]
   }
 ]
 
@@ -266,7 +218,7 @@ export const FOCUS_RINGS = [
   { name: 'NethVoice', ring: '#10b981', primary: '#047857', palette: 'emerald' },
   { name: 'NethLink', ring: '#3b82f6', primary: '#1d4ed8', palette: 'blue' },
   { name: 'NethService', ring: '#f97316', primary: '#c2410c', palette: 'orange' },
-  { name: 'Website and My Nethesis', ring: '#0ea5e9', primary: '#0369a1', palette: 'sky' }
+  { name: 'My Nethesis', ring: '#0ea5e9', primary: '#0369a1', palette: 'sky' }
 ]
 
 export const STATUS_FOCUS_RINGS = [

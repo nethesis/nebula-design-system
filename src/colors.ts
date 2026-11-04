@@ -53,7 +53,7 @@ const PRODUCT_PALETTES: Record<string, string> = {
   NethLink: 'blue',
   NethService: 'orange',
   NethSpot: 'purple',
-  'Website and My Nethesis': 'sky',
+  'My Nethesis': 'sky',
   MyNethesis: 'sky'
 }
 

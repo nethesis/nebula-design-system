@@ -554,10 +554,10 @@
   {"name":"Surface/Button/Phone island/Close hover","light":{"ref":"Red/800","hex":"#991b1b"},"dark":{"ref":"Red/300","hex":"#fca5a5"},"description":""},
   {"name":"Icon/Phone island/Record bg","light":{"ref":"White","hex":"#ffffff"},"dark":{"ref":"Red/700","hex":"#b91c1c"},"description":""},
   {"name":"Icon/Phone island/Record centre","light":{"ref":"Red/700","hex":"#b91c1c"},"dark":{"ref":"White","hex":"#ffffff"},"description":""},
-  {"name":"Product Primary/Website and My Nethesis/Active","light":{"ref":"Sky/700","hex":"#0369a1"},"dark":{"ref":"Sky/500","hex":"#0ea5e9"},"description":"Primary active NethService components like buttons, checkbox, radio buttons"},
-  {"name":"Product Primary/Website and My Nethesis/Hover","light":{"ref":"Sky/900","hex":"#0c4a6e"},"dark":{"ref":"Sky/300","hex":"#7dd3fc"},"description":"Hover for primary NethService components like buttons, checkbox, radio buttons"},
-  {"name":"Product Primary/Website and My Nethesis/Focus","light":{"ref":"Sky/500","hex":"#0ea5e9"},"dark":{"ref":"Sky/200","hex":"#bae6fd"},"description":"Focus NethService components"},
-  {"name":"Product Primary/Website and My Nethesis/Favicon","light":{"ref":"Sky/600","hex":"#0284c7"},"dark":{"ref":"Sky/600","hex":"#0284c7"},"description":"Focus NethService components"},
-  {"name":"Product Primary/Website and My Nethesis/Logo","light":{"ref":"Nethesis/Gray MyNethesis","hex":"#1e1e1c"},"dark":{"ref":"White","hex":"#ffffff"},"description":"Focus NethService components"}
+  {"name":"Product Primary/My Nethesis/Active","light":{"ref":"Sky/700","hex":"#0369a1"},"dark":{"ref":"Sky/500","hex":"#0ea5e9"},"description":"Primary active NethService components like buttons, checkbox, radio buttons"},
+  {"name":"Product Primary/My Nethesis/Hover","light":{"ref":"Sky/900","hex":"#0c4a6e"},"dark":{"ref":"Sky/300","hex":"#7dd3fc"},"description":"Hover for primary NethService components like buttons, checkbox, radio buttons"},
+  {"name":"Product Primary/My Nethesis/Focus","light":{"ref":"Sky/500","hex":"#0ea5e9"},"dark":{"ref":"Sky/200","hex":"#bae6fd"},"description":"Focus NethService components"},
+  {"name":"Product Primary/My Nethesis/Favicon","light":{"ref":"Sky/600","hex":"#0284c7"},"dark":{"ref":"Sky/600","hex":"#0284c7"},"description":"Focus NethService components"},
+  {"name":"Product Primary/My Nethesis/Logo","light":{"ref":"Nethesis/Gray MyNethesis","hex":"#1e1e1c"},"dark":{"ref":"White","hex":"#ffffff"},"description":"Focus NethService components"}
 ]
 }

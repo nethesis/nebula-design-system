@@ -36,7 +36,7 @@ so that it agrees with this guide. Remove an item once it is done.
 - [ ] **Semantic colors** variables, descriptions copied from other tokens:
   - the Favicon and Placeholder tokens of NethSecurity, NethVoice, NethLink and NethService say
     "Focus … components";
-  - the Website and My Nethesis tokens mention NethService;
+  - the My Nethesis tokens mention NethService;
   - `Text/Warning` says "on rose background";
   - `Elevation/L0`, `L2`, `L2 invert`, `L3` and `L4` all say "content on S0 (es: cards)";
   - `Border/Ring/Toast` and the `Border/Accent` tokens say "components like InlineNotification";
@@ -65,6 +65,11 @@ so that it agrees with this guide. Remove an item once it is done.
   template text ("This would be the description…").
 - [ ] **Checkbox** and **Combobox** pages: "less than 6 options" and "more than 6 options" leave
   out exactly 6.
+- [ ] **Website** text styles: remove `Website/H1` to `Website/H5`, `Website/Paragraph` and
+  `UI/Button/xl website`.
+- [ ] **Semantic colors** variables: rename the `Product Primary/Website and My Nethesis` group to
+  `Product Primary/My Nethesis`. Until then, `scripts/import-colors.mjs` renames it on import:
+  remove the rename from `RENAMED_GROUPS` once Figma is fixed.
 
 ## Questions for the designer
 
