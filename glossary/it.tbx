@@ -744,6 +744,60 @@
 </tig>
 </langSet>
 </termEntry>
+<termEntry id="show">
+<descrip>Make content visible in place, such as a password, more rows or the notifications.</descrip>
+<descrip type="Usage note">Its opposite is &quot;Hide&quot; (&quot;Nascondi&quot;). &quot;Show more&quot; (&quot;Mostra di più&quot;), &quot;Show password&quot; (&quot;Mostra password&quot;). To open the page of an object, use &quot;Details&quot;; to open another page, use &quot;Go to&quot;.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Show</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Mostra</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="show--forbidden-visualizza">
+<langSet xml:lang="en">
+<tig>
+<term>Show</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Visualizza</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="show--forbidden-vedi">
+<langSet xml:lang="en">
+<tig>
+<term>Show</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Vedi</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="hide">
+<descrip>Make content that was shown in place invisible again, such as a password.</descrip>
+<descrip type="Usage note">Its opposite is &quot;Show&quot; (&quot;Mostra&quot;). &quot;Hide password&quot; (&quot;Nascondi password&quot;).</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Hide</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Nascondi</term>
+</tig>
+</langSet>
+</termEntry>
 <termEntry id="sign-in">
 <descrip>Enter a product with your credentials.</descrip>
 <descrip type="Usage note">&quot;Login&quot; is fine as a noun or modifier: &quot;Login failed&quot;, &quot;last login&quot;, &quot;root login&quot;. Queue login in NethVoice is a different concept: agents &quot;log in to&quot; and &quot;log out of&quot; a queue.</descrip>
@@ -943,6 +997,69 @@
 <langSet xml:lang="it">
 <tig>
 <term>Nodo</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="hostname">
+<descrip>The name of a server or a unit on the network, such as a node or a NethSecurity unit.</descrip>
+<descrip type="Usage note">Lowercase inside a sentence: &quot;Change the hostname&quot; (&quot;Cambia il nome host&quot;).</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Hostname</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Nome host</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="hostname--forbidden-hostname">
+<langSet xml:lang="en">
+<tig>
+<term>Hostname</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Hostname</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="storage">
+<descrip>The disk space where a system keeps its data, such as logs, backups or the data of its applications.</descrip>
+<descrip type="Usage note">In Italian it is masculine: &quot;lo storage&quot;, &quot;Storage locale&quot;.</descrip>
+<descrip type="Translation needed">No</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Storage</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="storage--forbidden-archiviazione">
+<langSet xml:lang="en">
+<tig>
+<term>Storage</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Archiviazione</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="storage--forbidden-spazio-di-archiviazione">
+<langSet xml:lang="en">
+<tig>
+<term>Storage</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Spazio di archiviazione</term>
 </tig>
 </langSet>
 </termEntry>

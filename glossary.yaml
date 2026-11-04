@@ -320,6 +320,25 @@
     An exception to the verb rule for buttons, for brevity: always with the eye icon, and with the
     object name for screen readers. "Show details" is for content that opens in place.
 
+- id: show
+  en: Show
+  it: Mostra
+  definition: Make content visible in place, such as a password, more rows or the notifications.
+  products: [all]
+  avoid:
+    en: [View, See]
+    it: [Visualizza, Vedi]
+  notes: >-
+    Its opposite is "Hide" ("Nascondi"). "Show more" ("Mostra di più"), "Show password" ("Mostra
+    password"). To open the page of an object, use "Details"; to open another page, use "Go to".
+
+- id: hide
+  en: Hide
+  it: Nascondi
+  definition: Make content that was shown in place invisible again, such as a password.
+  products: [all]
+  notes: 'Its opposite is "Show" ("Mostra"). "Hide password" ("Nascondi password").'
+
 - id: sign-in
   en: Sign in
   it: Accedi
@@ -414,6 +433,25 @@
   definition: A server that is part of a NethServer cluster and runs its applications.
   products: [ns8, my]
   notes: '"Leader node" ("Nodo leader") manages the cluster; the others are "Worker node" ("Nodo worker").'
+
+- id: hostname
+  en: Hostname
+  it: Nome host
+  definition: The name of a server or a unit on the network, such as a node or a NethSecurity unit.
+  products: [ns8, nethsecurity, nethvoice]
+  avoid:
+    en: [Host name]
+    it: [Hostname]
+  notes: 'Lowercase inside a sentence: "Change the hostname" ("Cambia il nome host").'
+
+- id: storage
+  en: Storage
+  untranslatable: true
+  definition: The disk space where a system keeps its data, such as logs, backups or the data of its applications.
+  products: [ns8, nethsecurity, my]
+  avoid:
+    it: [Archiviazione, Spazio di archiviazione]
+  notes: 'In Italian it is masculine: "lo storage", "Storage locale".'
 
 - id: nethsecurity
   en: NethSecurity
