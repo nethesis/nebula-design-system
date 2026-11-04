@@ -88,8 +88,7 @@ Start with a verb and name the object when the context is not obvious. Keep labe
 | Do | Don't |
 | --- | --- |
 | Create user | New, OK, Yes |
-| Delete | Confirm |
-| Save changes | Submit, Proceed |
+| Export to PDF | Confirm, Submit |
 
 Use the [glossary](?page=glossary) verbs: **Create** a new object, **Add** an existing one, **Edit**, **Delete** to destroy, **Remove** from a list, **Uninstall** an application.
 
@@ -109,11 +108,17 @@ For links and buttons that take the user somewhere else:
 | Go to Settings | Open Settings |
 | Open Wikipedia | Go to Wikipedia |
 
-Exception for brevity: in a table row or a card, the button that opens the page of the object is `Details` (`Dettagli`), with the eye icon. Add the object name for screen readers, after the visible label: "Details Alice Fox". Use `Show details` only for content that opens in place.
+A label is usually a verb and an object, but a few labels are shorter because the context already makes the action clear.
+
+- **Save** (`Salva`) confirms an edit drawer. The title already names the action and the object, so the button doesn't repeat them: the drawer `Edit user` ends with `Save`. The drawer `Create user` follows the rule and ends with `Create user`.
+- **Details** (`Dettagli`), with the eye icon, opens the page of the object from a table row or a card. The row or the card already shows which object it is. Add the object name for screen readers, after the visible label: "Details Alice Fox". Use `Show details` only for content that opens in place.
+- **Actions in the dropdown menu of a row or a card** omit the object, because the menu belongs to that row or card: `Edit` (`Modifica`), `Delete` (`Elimina`). The confirmation that follows names the object, as in the title `Delete user`.
 
 | Do | Don't |
 | --- | --- |
+| Save (edit drawer) | Edit user, Save changes |
 | Details | View, See details, View details |
+| Edit, Delete (dropdown menu) | Edit user, Delete user |
 
 Icon buttons need a tooltip, and screen readers read the same text. Describe the action, not the icon: a short verb phrase, naming the item when the context doesn't, with no final period.
 
