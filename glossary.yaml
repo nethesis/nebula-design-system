@@ -353,9 +353,10 @@
 - id: collapse
   en: Collapse
   it: Comprimi
-  definition: Close a section, a card or a group so that only its title stays visible.
+  definition: Reduce a section, a card or a group to its title, hiding its content.
   products: [all]
   avoid:
+    en: [Close, Reduce]
     it: [Collassa, Riduci, Chiudi]
   notes: 'Its opposite is "Expand" ("Espandi"). "Collapse all cards" ("Comprimi tutte le card"). To make content disappear entirely, use "Hide".'
 
@@ -416,6 +417,18 @@
     en: [User name]
     it: [Utente, Username]
   notes: 'Translate it also in short labels: "Username and password" is "Nome utente e password", not "Utente e password".'
+
+- id: two-factor-authentication
+  en: Two-factor authentication
+  it: Autenticazione a due fattori
+  definition: A sign-in that asks for a second proof besides the password, such as a code from an authenticator app.
+  products: [ns8, nethsecurity, nethvoice]
+  avoid:
+    en: [Two-Factor Authentication, Two factor authentication, Two-step verification]
+    it: [Autenticazione a 2 fattori, Doppio fattore]
+  notes: >-
+    Sentence case: "Two-factor authentication". In short labels, after the full name appears on the
+    page, "2FA" is fine: "Revoke 2FA" ("Revoca 2FA").
 
 # Monitoring
 

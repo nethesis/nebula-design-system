@@ -826,7 +826,7 @@
 </langSet>
 </termEntry>
 <termEntry id="collapse">
-<descrip>Close a section, a card or a group so that only its title stays visible.</descrip>
+<descrip>Reduce a section, a card or a group to its title, hiding its content.</descrip>
 <descrip type="Usage note">Its opposite is &quot;Expand&quot; (&quot;Espandi&quot;). &quot;Collapse all cards&quot; (&quot;Comprimi tutte le card&quot;). To make content disappear entirely, use &quot;Hide&quot;.</descrip>
 <langSet xml:lang="en">
 <tig>
@@ -1036,6 +1036,46 @@
 <langSet xml:lang="it">
 <tig>
 <term>Username</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="two-factor-authentication">
+<descrip>A sign-in that asks for a second proof besides the password, such as a code from an authenticator app.</descrip>
+<descrip type="Usage note">Sentence case: &quot;Two-factor authentication&quot;. In short labels, after the full name appears on the page, &quot;2FA&quot; is fine: &quot;Revoke 2FA&quot; (&quot;Revoca 2FA&quot;).</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Two-factor authentication</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Autenticazione a due fattori</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="two-factor-authentication--forbidden-autenticazione-a-2-fattori">
+<langSet xml:lang="en">
+<tig>
+<term>Two-factor authentication</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Autenticazione a 2 fattori</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="two-factor-authentication--forbidden-doppio-fattore">
+<langSet xml:lang="en">
+<tig>
+<term>Two-factor authentication</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Doppio fattore</term>
 </tig>
 </langSet>
 </termEntry>
