@@ -176,6 +176,33 @@
 </tig>
 </langSet>
 </termEntry>
+<termEntry id="tier">
+<descrip>The size of an add-on sold by size, that is how many devices or applications it covers.</descrip>
+<descrip type="Usage note">A system that goes beyond its tier is &quot;Over the tier&quot; (&quot;Oltre la fascia&quot;). For the level of a subscription, such as Community or Enterprise, use &quot;Plan&quot; (&quot;Piano&quot;).</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Tier</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Fascia</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="tier--forbidden-livello">
+<langSet xml:lang="en">
+<tig>
+<term>Tier</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Livello</term>
+</tig>
+</langSet>
+</termEntry>
 <termEntry id="nethshop">
 <descrip>The Nethesis online shop for Nethesis products and services, such as add-ons, appliances and training.</descrip>
 <descrip type="Translation needed">No</descrip>
@@ -795,6 +822,34 @@
 <langSet xml:lang="it">
 <tig>
 <term>Nascondi</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="download">
+<descrip>Save a file from the product to the user's computer, such as a backup or a report.</descrip>
+<descrip type="Usage note">Its opposite is &quot;Upload&quot; (&quot;Carica&quot;). As a noun for network traffic, it stays in English: &quot;Download speed&quot; (&quot;Velocità di download&quot;).</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Download</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Scarica</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="upload">
+<descrip>Send a file from the user's computer to the product, such as a certificate or a backup.</descrip>
+<descrip type="Usage note">Its opposite is &quot;Download&quot; (&quot;Scarica&quot;). As a noun for network traffic, it stays in English: &quot;Upload speed&quot; (&quot;Velocità di upload&quot;).</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Upload</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Carica</term>
 </tig>
 </langSet>
 </termEntry>

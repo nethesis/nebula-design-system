@@ -73,6 +73,17 @@
     it: [Servizio aggiuntivo]
   notes: 'The Italian plural does not change: "gli add-on".'
 
+- id: tier
+  en: Tier
+  it: Fascia
+  definition: The size of an add-on sold by size, that is how many devices or applications it covers.
+  products: [my]
+  avoid:
+    it: [Livello]
+  notes: >-
+    A system that goes beyond its tier is "Over the tier" ("Oltre la fascia"). For the level of a
+    subscription, such as Community or Enterprise, use "Plan" ("Piano").
+
 - id: nethshop
   en: NethShop
   untranslatable: true
@@ -338,6 +349,24 @@
   definition: Make content that was shown in place invisible again, such as a password.
   products: [all]
   notes: 'Its opposite is "Show" ("Mostra"). "Hide password" ("Nascondi password").'
+
+- id: download
+  en: Download
+  it: Scarica
+  definition: Save a file from the product to the user's computer, such as a backup or a report.
+  products: [all]
+  notes: >-
+    Its opposite is "Upload" ("Carica"). As a noun for network traffic, it stays in English:
+    "Download speed" ("Velocità di download").
+
+- id: upload
+  en: Upload
+  it: Carica
+  definition: Send a file from the user's computer to the product, such as a certificate or a backup.
+  products: [all]
+  notes: >-
+    Its opposite is "Download" ("Scarica"). As a noun for network traffic, it stays in English:
+    "Upload speed" ("Velocità di upload").
 
 - id: sign-in
   en: Sign in
