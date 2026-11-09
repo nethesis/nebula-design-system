@@ -258,7 +258,21 @@ Keep the title on one line and the description to one sentence. Say clearly what
 
 ## Italian translation
 
-- Use the informal imperative (*tu*): `Inserisci`, `Seleziona`, `Controlla`. Don't use the infinitive (`Inserire`) or the formal form (`Inserisca`).
+Verbs:
+
+- Use the informal imperative (*tu*) for the verb that names an action or speaks to the user: buttons, menu items, links, titles of dialogs and drawers, tooltips of icon buttons, instructions in helper texts and messages. `Crea utente`, `Inserisci`, `Seleziona`, `Controlla`. Don't use the formal form (`Inserisca`).
+- Use the infinitive only where Italian grammar needs it: after `Impossibile`, after `per`, and after another verb (`Prova a modificare`, `Puoi scaricare`). A label is never an infinitive: `Scarica`, not `Scaricare`.
+- A title that describes an operation in progress is a noun, not a verb: `Restoring {app} to {node}` is `Ripristino di {app} su {node}`.
+
+| Do | Don't |
+| --- | --- |
+| Crea utente | Creare utente, Crei utente |
+| Mostra meno | Mostrare meno |
+| Digita 'Alice Fox' per confermare | Digitare 'Alice Fox' per confermare |
+| Ripristino di WebTop su Nodo 1 | Ripristinando WebTop su Nodo 1 |
+
+Other rules:
+
 - Keep the English capitalization: sentence case. Write the name of a page, menu item or tab exactly as its Italian label: `Vai alla Dashboard`, `Vai alle Impostazioni`. Translate **Go to** as *Vai a* and **Open** as *Apri*.
 - Don't translate the terms marked *Keep in English* in the [glossary](?page=glossary). Translate everything else, including `Download` (`Scarica`) and `Upload` (`Carica`).
 - For notifications about an object, use the definite article: `L'utente <name> è stato creato`, `La regola <name> è stata eliminata`.
