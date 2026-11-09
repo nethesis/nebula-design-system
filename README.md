@@ -90,10 +90,15 @@ Nethesis component there.
 
 ## Development
 
+Use the Node.js version in `.nvmrc` (Renovate keeps it up to date). With nvm or fnm:
+
 ```sh
+nvm install   # reads .nvmrc, installs that version and switches to it
 npm install
 npm run dev
 ```
+
+In a new shell, run `nvm use`: nvm doesn't switch version on its own when you enter the folder.
 
 The dev server runs on http://localhost:5179 and regenerates the data whenever
 `glossary.yaml` or `icons.yaml` is saved: validation errors appear in the terminal and in the browser.
