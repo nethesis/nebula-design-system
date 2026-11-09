@@ -825,6 +825,73 @@
 </tig>
 </langSet>
 </termEntry>
+<termEntry id="collapse">
+<descrip>Close a section, a card or a group so that only its title stays visible.</descrip>
+<descrip type="Usage note">Its opposite is &quot;Expand&quot; (&quot;Espandi&quot;). &quot;Collapse all cards&quot; (&quot;Comprimi tutte le card&quot;). To make content disappear entirely, use &quot;Hide&quot;.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Collapse</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Comprimi</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="collapse--forbidden-collassa">
+<langSet xml:lang="en">
+<tig>
+<term>Collapse</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Collassa</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="collapse--forbidden-riduci">
+<langSet xml:lang="en">
+<tig>
+<term>Collapse</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Riduci</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="collapse--forbidden-chiudi">
+<langSet xml:lang="en">
+<tig>
+<term>Collapse</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Chiudi</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="expand">
+<descrip>Open a collapsed section, card or group to show its content.</descrip>
+<descrip type="Usage note">Its opposite is &quot;Collapse&quot; (&quot;Comprimi&quot;). &quot;Expand all cards&quot; (&quot;Espandi tutte le card&quot;).</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Expand</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Espandi</term>
+</tig>
+</langSet>
+</termEntry>
 <termEntry id="download">
 <descrip>Save a file from the product to the user's computer, such as a backup or a report.</descrip>
 <descrip type="Usage note">Its opposite is &quot;Upload&quot; (&quot;Carica&quot;). As a noun for network traffic, it stays in English: &quot;Download speed&quot; (&quot;Velocità di download&quot;).</descrip>

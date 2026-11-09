@@ -350,6 +350,22 @@
   products: [all]
   notes: 'Its opposite is "Show" ("Mostra"). "Hide password" ("Nascondi password").'
 
+- id: collapse
+  en: Collapse
+  it: Comprimi
+  definition: Close a section, a card or a group so that only its title stays visible.
+  products: [all]
+  avoid:
+    it: [Collassa, Riduci, Chiudi]
+  notes: 'Its opposite is "Expand" ("Espandi"). "Collapse all cards" ("Comprimi tutte le card"). To make content disappear entirely, use "Hide".'
+
+- id: expand
+  en: Expand
+  it: Espandi
+  definition: Open a collapsed section, card or group to show its content.
+  products: [all]
+  notes: 'Its opposite is "Collapse" ("Comprimi"). "Expand all cards" ("Espandi tutte le card").'
+
 - id: download
   en: Download
   it: Scarica
