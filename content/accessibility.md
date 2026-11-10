@@ -39,6 +39,9 @@ your own markup or build with another stack.
 - **Everything works with the keyboard.** An action is a button or a link, never a click handler
   on a `div`, a `span` or a table row. When a whole row or card opens something, its main
   action is also a button or a link inside it, such as **Details**.
+- **A link has an address.** `NeLink` renders an `<a>`, which the keyboard skips without an
+  `href`: give it the `href` of the page it opens. For an action that opens a modal or a
+  drawer, or runs something, use a button (`NeButton` with `kind="tertiary"`).
 - **The focus ring is always visible.** Don't remove the outline or the ring of an interactive
   element without the focus ring of [Spacing and border](?page=spacing-and-border) in its place.
 - **Modals and drawers keep the focus inside** while they are open, close with Esc and give the
@@ -52,6 +55,10 @@ your own markup or build with another stack.
 - **An icon button has an accessible name** that matches its tooltip, as in
   [Buttons and actions](?page=writing-guidelines#buttons-and-actions). An icon next to a text is
   decoration: hide it from screen readers with `aria-hidden="true"`.
+- **The accessible name includes the visible text**, best at its start, so that people who use
+  voice control can say what they see. An `aria-label` replaces the text of the element: don't
+  put one on a link or a button that already shows text, such as `3 active alerts`. To add
+  context, put hidden text after the visible one, as for **Details**.
 - **Text for screen readers only is translated** like the visible text. The `Ne*` components take
   it from props that end in `Label`, such as `closeAriaLabel`, with English defaults: pass them in
   the language of the interface.
