@@ -22,11 +22,9 @@ your own markup or build with another stack.
   `Archived` with its icon.
 - **The placeholder is not enough**: `Text/Placeholder` is lighter than the other Text tokens.
   Never put information only in a placeholder (see [Forms](?page=writing-guidelines#forms)).
-- **Color is never the only signal.** About one man in twelve has trouble telling some colors
-  apart, mostly red from green; screen readers don't read colors; a screen in the sun or in
-  grayscale hides them. A status also has a text or an icon: a badge has a label, a notification
-  has an icon and a title, a field with an error has its validation message, not just a red
-  border.
+- **Color is never the only signal.** A status also has a text or an icon: a badge has a label, a
+  notification has an icon and a title, a field with an error has its validation message, not just
+  a red border.
 
 | Do | Don't |
 | --- | --- |
