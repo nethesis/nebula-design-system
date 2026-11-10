@@ -9,6 +9,7 @@
 //                          published by the Storybook of vue-components
 //   writing-guidelines.md  the writing guidelines, as markdown
 //   introduction.md        the introduction, as markdown
+//   accessibility.md       the accessibility rules, as markdown
 //   glossary.json          the glossary
 //   icons.json             which icon to use for each meaning
 //   colors.json            the color tokens, with their Tailwind classes
@@ -87,7 +88,8 @@ export const PAGE_FILES: Record<string, string> = {
   typography: 'foundations.json',
   iconography: 'icons.json',
   'spacing-and-border': 'foundations.json',
-  'elevation-and-shadow': 'foundations.json'
+  'elevation-and-shadow': 'foundations.json',
+  accessibility: 'accessibility.md'
 }
 
 const markdown = (path: string) =>
@@ -235,6 +237,7 @@ The pages of the site (${SITE}) are built in the browser. Read these files inste
 - [Writing guidelines](writing-guidelines.md): how to write interface text, from voice and tone to buttons, forms, empty states, modals and notifications
 - [Glossary](glossary.json): approved terms, Italian translations and terms to avoid
 - [Icons](icons.json): which icon to use for each meaning, and the icons to avoid
+- [Accessibility](accessibility.md): the choices Nebula makes to meet WCAG, for contrast, color, keyboard, focus and screen readers
 
 ## Components
 
@@ -255,6 +258,7 @@ export const SOURCES: Record<string, () => string> = {
   'llms.txt': () => LLMS,
   'writing-guidelines.md': () => markdown('content/writing-guidelines.md'),
   'introduction.md': () => markdown('content/introduction.md'),
+  'accessibility.md': () => markdown('content/accessibility.md'),
   'glossary.json': () => json(glossary(), 2),
   'icons.json': () => json(icons(), 2),
   'colors.json': () => json(colors(), 4),

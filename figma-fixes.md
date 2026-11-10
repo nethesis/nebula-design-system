@@ -49,6 +49,21 @@ so that it agrees with this guide. Remove an item once it is done.
 - [ ] **Elevation and shadow** page: the variables include `Elevation/L4` (gray-300, dark gray-600),
   which the page does not show.
 
+## Contrast
+
+The [Accessibility](https://nethesis.github.io/nebula-design-system/?page=accessibility) page asks
+for text with a contrast of at least 4.5:1 (WCAG AA). These Text tokens don't reach it on the page
+and card backgrounds (`Elevation/L1` and `Elevation/L0`):
+
+- [ ] `Text/Secondary`, dark theme: Indigo/500 is 4.5:1 on L0 and 4.0:1 on L1. Indigo/400
+  reaches 5.9:1 on L1.
+- [ ] `Text/Link/Nethesis`, light theme: Nethesis/Light blue is 3.0:1 on L0.
+- [ ] `Text/Placeholder`: Gray/400 is 2.5:1 on white in the light theme, Gray/500 is 4.2:1 on
+  Gray/950 in the dark theme, and WCAG counts placeholders as text. Gray/500 in the light theme
+  (4.8:1) would reach it; in the dark theme Gray/400 (7.9:1) is already `Text/Tertiary neutral`,
+  so the placeholder would look like real text. To decide with the designer. vue-components uses
+  `placeholder:text-gray-400 dark:placeholder:text-gray-500` and would change too.
+
 ## To complete or remove
 
 - [ ] Guideline frames still with the template text: **Card**, **Side drawer**, **Table**,

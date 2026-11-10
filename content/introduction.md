@@ -19,7 +19,8 @@ It applies to the user interfaces of NethSecurity, NethVoice and My Nethesis, an
   avoid. Weblate uses it when translating Nethesis products.
 - Foundations: [colors](?page=colors), [typography](?page=typography),
   [iconography](?page=iconography), [spacing and border](?page=spacing-and-border),
-  [elevation and shadow](?page=elevation-and-shadow).
+  [elevation and shadow](?page=elevation-and-shadow), and
+  [accessibility](?page=accessibility).
 
 ## NethServer 8
 

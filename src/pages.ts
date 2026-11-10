@@ -11,7 +11,8 @@ import {
   faLayerGroup,
   faPalette,
   faPenNib,
-  faRulerCombined
+  faRulerCombined,
+  faUniversalAccess
 } from '@fortawesome/free-solid-svg-icons'
 import IntroductionView from './components/IntroductionView.vue'
 import GuidelinesView from './components/GuidelinesView.vue'
@@ -113,6 +114,14 @@ export const PAGE_GROUPS: PageGroup[] = [
         description: 'Surface levels and shadows that give depth to the interface.',
         icon: faLayerGroup,
         component: defineAsyncComponent(() => import('./components/ElevationView.vue'))
+      },
+      {
+        id: 'accessibility',
+        title: 'Accessibility',
+        description:
+          'The choices that Nebula makes to meet WCAG: contrast, color, keyboard, focus and screen readers.',
+        icon: faUniversalAccess,
+        component: defineAsyncComponent(() => import('./components/AccessibilityView.vue'))
       }
     ]
   }
