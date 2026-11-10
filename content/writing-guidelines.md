@@ -64,7 +64,7 @@ When a sentence names a specific page, menu item or tab, write it exactly as it 
 
 - **Prefer active voice** for instructions and actions. Passive voice is fine when the affected object matters more than who acted: `User Alice Fox has been created.`
 - **Name the affected item when it helps.** Keep titles short and reusable, and put the name in the description. Don't repeat the name when the context already makes the item clear.
-- **Limit technical language** to what users need to understand or solve the problem. Explain a term on first use when the audience may not know it. Don't show implementation details, error codes or raw server messages as the main message.
+- **Limit technical language** to what users need to understand or solve the problem. Explain a term on first use when the audience may not know it. Don't show implementation details or error codes as the main message (see [Error messages](#error-messages) for server messages).
 
 ## Titles and descriptions
 
@@ -236,6 +236,16 @@ From the [*Inline error notification* pattern](https://nethesis.github.io/vue-co
 - Title: `Cannot <verb> <object>`, for example `Cannot save phonebook contact`. Keep it specific even when the cause is unknown.
 - Description: the cause and what to do: `Network error. Check your connection and reload the page.`
 - Use `Something went wrong.` as description only when the cause is really unknown.
+- Server errors, by kind:
+  - **About a field**: the field shows a text from an i18n key built from the server message. A missing key shows as the key itself, which tells the developer what to add.
+  - **About the state of an object, with no field**, such as `customer is already suspended`: show the server message as it is, with a capital first letter. These messages are rare, in English only and can hold names or numbers, so a key does not fit them; the server writes them for the user, by these rules. If one comes up in normal use, give it a field or check it in the interface first.
+  - **Network errors and server faults (5xx)**: a fixed text in every language, never the server message, which can hold internal details.
+
+| Do | Don't |
+| --- | --- |
+| Email address already in use. Enter another one. | email already exists |
+| Network error. Check your connection and reload the page. | Network Error |
+| Something went wrong. | failed to query organizations: connection refused |
 
 ### Success notifications
 
