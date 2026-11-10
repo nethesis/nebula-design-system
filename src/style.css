@@ -75,6 +75,13 @@
   code {
     @apply rounded bg-gray-100 px-1 py-0.5 text-[0.8125rem] dark:bg-gray-800;
   }
+  /* a code block, as the package list of the Iconography page */
+  pre {
+    @apply mb-4 max-w-3xl overflow-x-auto rounded-md bg-gray-100 p-4 text-[0.8125rem] leading-5 dark:bg-gray-800;
+  }
+  pre code {
+    @apply bg-transparent p-0;
+  }
   /* more space around tables than between paragraphs, so they stand apart */
   .table-frame {
     @apply my-6;

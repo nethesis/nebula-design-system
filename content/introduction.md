@@ -22,6 +22,22 @@ It applies to the user interfaces of NethSecurity, NethVoice and My Nethesis, an
   [elevation and shadow](?page=elevation-and-shadow), and
   [accessibility](?page=accessibility).
 
+## Use it with a coding agent
+
+The `nebula-frontend` skill makes a coding agent follow Nebula when it writes or reviews a
+frontend. It reads the rules from this site and from the Storybook, so it is always up to date.
+It is in the `frontend-skills` plugin of [NethServer/agents](https://github.com/NethServer/agents),
+for Claude Code only for now. In a Claude Code session, run:
+
+```
+/plugin marketplace add NethServer/agents
+/plugin install frontend-skills@nethserver
+/reload-plugins
+```
+
+Other agents can read the same rules from [`llms.txt`](https://nethesis.github.io/nebula-design-system/llms.txt), the index of the files this
+site publishes for them.
+
 ## NethServer 8
 
 NethServer 8 uses the Carbon Design System, not Nebula: only the
