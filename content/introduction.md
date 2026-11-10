@@ -8,8 +8,14 @@ The Nebula Design System is made of three parts, to use together:
 - **[Nebula Figma file](https://www.figma.com/design/ZRZzzlqb9GfB9Xdz6iGufh/Nebula-Design-System)**: the designs,
   open to the members of the Nethesis Figma team.
 
-It applies to the user interfaces of NethSecurity, NethVoice and My Nethesis, and in part to
-[NethServer 8](#nethserver-8).
+It applies to the user interfaces of Nethesis products, to different extents:
+
+- **Fully**: NethSecurity and My Nethesis, built with Vue and `@nethesis/vue-components`.
+- **Without the components**: NethVoice CTI and NethLink, built with React and Tailwind CSS. The
+  writing guidelines, the glossary, the foundations and accessibility apply; vue-components does
+  not.
+- **Text only**: [NethServer 8](#nethserver-8), which uses Carbon, and NethService, built on
+  WebTop. The writing guidelines and the glossary apply.
 
 ## What you find here
 
