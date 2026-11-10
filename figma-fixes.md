@@ -38,7 +38,6 @@ so that it agrees with this guide. Remove an item once it is done.
     "Focus … components";
   - the My Nethesis tokens mention NethService;
   - `Text/Warning` says "on rose background";
-  - `Elevation/L0`, `L2`, `L2 invert`, `L3` and `L4` all say "content on S0 (es: cards)";
   - `Border/Ring/Toast` and the `Border/Accent` tokens say "components like InlineNotification";
   - 29 `Surface` tokens (Rounded icon, Phone island, Toggle, Skeleton, Scrollbar, the status
     surfaces…) and the 5 `Text/Calls and status` tokens say "Icons or content not text", the
@@ -48,6 +47,9 @@ so that it agrees with this guide. Remove an item once it is done.
   `colors.json` show the descriptions to designers and coding agents.
 - [ ] **Elevation and shadow** page: the variables include `Elevation/L4` (gray-300, dark gray-600),
   which the page does not show.
+- [ ] **Elevation and shadow** page, Shadow Dark table: the second shadow of sm, md, lg and xl is
+  written `#374151` (gray-700), while the `Shadow dark/*` effect styles use `#4B5563` (gray-600)
+  for both shadows, as the site does.
 
 ## Contrast
 

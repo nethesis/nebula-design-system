@@ -162,7 +162,7 @@ function foundations() {
     },
     elevationAndShadow: {
       source: page('elevation-and-shadow'),
-      note: 'Each elevation level, from L0 to L4, is a surface color of the gray palette, for the backgrounds of the page, the top bar, the sidebar and the cards; L2 invert uses the L0 color to stand out on an L1 surface. Shadows apply to components such as cards, buttons, modals and tooltips; in the dark theme they are gray instead of black.',
+      note: 'Each elevation level, from L0 to L4, is a surface color of the gray palette, and its use says where it goes: L0 for the sidebar and the top bar, L1 for the page and the drawer, each next level for content on the previous one; L2 invert uses the L0 color to stand out on an L1 surface. Shadows apply to components such as cards, buttons, modals and tooltips; in the dark theme they are gray instead of black.',
       elevation: ELEVATION,
       shadows: SHADOWS
     }
