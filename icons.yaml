@@ -116,10 +116,13 @@
   use: Export data to a PDF file.
 
 - id: refresh
-  meaning: Refresh
+  meaning: Refresh or reload
   icon: arrows-rotate
   category: actions
-  use: Load the data of a page or a list again.
+  use: >-
+    Get the latest data of a table, a list or a widget (Refresh), or load the whole page again
+    (Reload).
+  glossary: [refresh, reload]
   avoid: [rotate, arrow-rotate-right]
 
 - id: update
