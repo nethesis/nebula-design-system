@@ -116,10 +116,19 @@
   use: Export data to a PDF file.
 
 - id: refresh
-  meaning: Refresh
+  meaning: Refresh data
   icon: arrows-rotate
   category: actions
-  use: Load the data of a page or a list again.
+  use: Get the latest data of a table, a list or a widget.
+  glossary: [refresh]
+  avoid: [rotate, arrow-rotate-right]
+
+- id: reload
+  meaning: Reload page
+  icon: arrows-rotate
+  category: actions
+  use: Load the whole page again, for example after a network error.
+  glossary: [reload]
   avoid: [rotate, arrow-rotate-right]
 
 - id: update
@@ -282,8 +291,18 @@
   meaning: Help
   icon: circle-question
   category: interface
-  use: Open help, or a tooltip with more information about a field.
+  use: The button of the top bar that opens the product documentation.
+  notFor: A tooltip with more information, which uses circle-info.
   avoid: [question]
+
+- id: more-information
+  meaning: More information
+  icon: circle-info
+  category: interface
+  use: >-
+    Show a tooltip with more information, often next to the label of a field or of another
+    component, as in NeTooltip.
+  avoid: [circle-question, question]
 
 - id: show-password
   meaning: Show password

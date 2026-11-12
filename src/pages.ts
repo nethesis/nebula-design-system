@@ -12,6 +12,7 @@ import {
   faPalette,
   faPenNib,
   faRulerCombined,
+  faSpinner,
   faUniversalAccess
 } from '@fortawesome/free-solid-svg-icons'
 import IntroductionView from './components/IntroductionView.vue'
@@ -122,6 +123,14 @@ export const PAGE_GROUPS: PageGroup[] = [
           'The choices that Nebula makes to meet WCAG: contrast, color, keyboard, focus and screen readers.',
         icon: faUniversalAccess,
         component: defineAsyncComponent(() => import('./components/AccessibilityView.vue'))
+      },
+      {
+        id: 'loading-and-errors',
+        title: 'Loading and errors',
+        description:
+          'How a page shows that its data is loading, could not be loaded or is empty, and the state of an action.',
+        icon: faSpinner,
+        component: defineAsyncComponent(() => import('./components/LoadingAndErrorsView.vue'))
       }
     ]
   }
