@@ -352,6 +352,42 @@
 </tig>
 </langSet>
 </termEntry>
+<termEntry id="feed">
+<descrip>A list kept up to date by its provider, such as a blocklist of malicious IP addresses, that a security service downloads regularly.</descrip>
+<descrip type="Usage note">Example: &quot;Blocklist feed&quot;, &quot;Threat Intelligence Feed&quot;. &quot;Source&quot; is right for the source of traffic, such as a source address or a source zone, or of a backup. The Italian plural does not change: &quot;i feed&quot;.</descrip>
+<descrip type="Translation needed">No</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Feed</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="feed--forbidden-sorgente">
+<langSet xml:lang="en">
+<tig>
+<term>Feed</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Sorgente</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="feed--forbidden-sorgente-blocklist">
+<langSet xml:lang="en">
+<tig>
+<term>Feed</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Sorgente blocklist</term>
+</tig>
+</langSet>
+</termEntry>
 <termEntry id="create">
 <descrip>Make a new object that did not exist before, such as a user, a group or a firewall rule.</descrip>
 <descrip type="Usage note">Name the object: &quot;Create user&quot;. Use &quot;Add&quot; when the object already exists and is only associated with another one.</descrip>
@@ -714,6 +750,60 @@
 <langSet xml:lang="it">
 <tig>
 <term>Ripristina</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="refresh">
+<descrip>Get the latest data of a container, such as a table, a dashboard or a widget, without resetting the rest of the page, its filters or its scroll position.</descrip>
+<descrip type="Usage note">When there is room, name what is refreshed: &quot;Refresh data&quot; (&quot;Aggiorna dati&quot;), &quot;Refresh table&quot; (&quot;Aggiorna tabella&quot;). For the whole page, use &quot;Reload&quot;.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Refresh</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Aggiorna</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="refresh--forbidden-ricarica">
+<langSet xml:lang="en">
+<tig>
+<term>Refresh</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Ricarica</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="reload">
+<descrip>Load the whole page or view again from scratch, which resets its state, for example after a network error.</descrip>
+<descrip type="Usage note">&quot;Reload page&quot; (&quot;Ricarica pagina&quot;). To get the latest data of a table or a widget only, use &quot;Refresh&quot;.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Reload</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Ricarica</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="reload--forbidden-aggiorna">
+<langSet xml:lang="en">
+<tig>
+<term>Reload</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Aggiorna</term>
 </tig>
 </langSet>
 </termEntry>

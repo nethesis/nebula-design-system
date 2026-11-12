@@ -150,6 +150,21 @@
     it: [Whitelist, Allow list, Lista bianca]
   notes: 'Its opposite is "Blocklist".'
 
+- id: feed
+  en: Feed
+  untranslatable: true
+  definition: >-
+    A list kept up to date by its provider, such as a blocklist of malicious IP addresses, that a
+    security service downloads regularly.
+  products: [nethsecurity, ns8]
+  avoid:
+    en: [Source, Blocklist source]
+    it: [Sorgente, Sorgente blocklist]
+  notes: >-
+    Example: "Blocklist feed", "Threat Intelligence Feed". "Source" is right for the source of
+    traffic, such as a source address or a source zone, or of a backup. The Italian plural does
+    not change: "i feed".
+
 # Actions
 
 - id: create
@@ -305,6 +320,34 @@
   notes: >-
     "Reset filters" ("Reimposta filtri"), "Reset selection" ("Reimposta selezione"), "Reset
     password" ("Reimposta password"). In Italian, "Ripristina" is for restoring a backup.
+
+- id: refresh
+  en: Refresh
+  it: Aggiorna
+  definition: >-
+    Get the latest data of a container, such as a table, a dashboard or a widget, without
+    resetting the rest of the page, its filters or its scroll position.
+  products: [all]
+  avoid:
+    en: [Reload]
+    it: [Ricarica]
+  notes: >-
+    When there is room, name what is refreshed: "Refresh data" ("Aggiorna dati"), "Refresh
+    table" ("Aggiorna tabella"). For the whole page, use "Reload".
+
+- id: reload
+  en: Reload
+  it: Ricarica
+  definition: >-
+    Load the whole page or view again from scratch, which resets its state, for example after a
+    network error.
+  products: [all]
+  avoid:
+    en: [Refresh]
+    it: [Aggiorna]
+  notes: >-
+    "Reload page" ("Ricarica pagina"). To get the latest data of a table or a widget only, use
+    "Refresh".
 
 - id: cancel
   en: Cancel
