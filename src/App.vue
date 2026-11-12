@@ -9,6 +9,7 @@ import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessu
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { NeInlineNotification } from '@nethesis/vue-components'
+import OnThisPage from './components/OnThisPage.vue'
 import SideNav from './components/SideNav.vue'
 import TopBar from './components/TopBar.vue'
 import { usePageSections } from './composables/usePageSections'
@@ -21,7 +22,7 @@ const sidebarOpen = ref(false)
 const visit = ref(0)
 const pageTitle = ref<HTMLElement>()
 const notForNethServer8 = computed(() => !!groupOf(currentPage.value)?.notForNethServer8)
-// the sections of the current page, listed in the sidebar
+// the sections of the current page, listed in On this page
 const { sections, activeSection, holdActiveSection } = usePageSections('main')
 
 // links made before the sidebar get the current address
@@ -185,12 +186,7 @@ onUnmounted(() => window.removeEventListener('popstate', onPopState))
                 <FontAwesomeIcon :icon="faXmark" class="size-6 text-white" aria-hidden="true" />
               </button>
             </div>
-            <SideNav
-              :current="currentPage"
-              :sections="sections"
-              :active-section="activeSection"
-              @navigate="navigate"
-            />
+            <SideNav :current="currentPage" @navigate="navigate" />
           </DialogPanel>
         </TransitionChild>
       </div>
@@ -199,12 +195,7 @@ onUnmounted(() => window.removeEventListener('popstate', onPopState))
 
   <!-- sidebar for large screens -->
   <div class="hidden lg:fixed lg:inset-y-0 lg:z-40 lg:flex lg:w-72 lg:flex-col">
-    <SideNav
-      :current="currentPage"
-      :sections="sections"
-      :active-section="activeSection"
-      @navigate="navigate"
-    />
+    <SideNav :current="currentPage" @navigate="navigate" />
   </div>
 
   <div class="lg:pl-72">
@@ -214,33 +205,53 @@ onUnmounted(() => window.removeEventListener('popstate', onPopState))
     />
 
     <main id="main" class="px-4 py-10 sm:px-6 lg:px-8" @click="followPageLink">
-      <div class="mx-auto max-w-7xl">
-        <header class="mb-8">
-          <h1
-            ref="pageTitle"
-            tabindex="-1"
-            class="text-2xl font-medium text-gray-900 outline-none dark:text-gray-50"
-          >
-            {{ currentPage.title }}
-          </h1>
-          <p class="mt-2 max-w-2xl text-sm leading-6 text-gray-500 dark:text-gray-400">
-            {{ currentPage.description }}
-          </p>
-          <NeInlineNotification
-            v-if="notForNethServer8"
-            kind="info"
-            title="Not for NethServer 8"
-            class="mt-6 max-w-3xl"
-          >
-            <template #description>
-              NethServer 8 uses the Carbon Design System instead: see the
-              <a href="?page=introduction#nethserver-8" class="font-medium underline"
-                >introduction</a
-              >.
-            </template>
-          </NeInlineNotification>
-        </header>
-        <component :is="currentPage.component" :key="`${currentPage.id}-${visit}`" />
+      <div class="mx-auto flex max-w-7xl gap-x-8">
+        <div class="min-w-0 flex-1">
+          <header class="mb-8">
+            <h1
+              ref="pageTitle"
+              tabindex="-1"
+              class="text-2xl font-medium text-gray-900 outline-none dark:text-gray-50"
+            >
+              {{ currentPage.title }}
+            </h1>
+            <p class="mt-2 max-w-2xl text-sm leading-6 text-gray-500 dark:text-gray-400">
+              {{ currentPage.description }}
+            </p>
+            <NeInlineNotification
+              v-if="notForNethServer8"
+              kind="info"
+              title="Not for NethServer 8"
+              class="mt-6 max-w-3xl"
+            >
+              <template #description>
+                NethServer 8 uses the Carbon Design System instead: see the
+                <a href="?page=introduction#nethserver-8" class="font-medium underline"
+                  >introduction</a
+                >.
+              </template>
+            </NeInlineNotification>
+            <OnThisPage
+              :page="currentPage"
+              :sections="sections"
+              :active-section="activeSection"
+              layout="button"
+              class="mt-6 2xl:hidden"
+              @navigate="navigate"
+            />
+          </header>
+          <component :is="currentPage.component" :key="`${currentPage.id}-${visit}`" />
+        </div>
+        <!-- on wide screens, the sections of the page in a column on the right -->
+        <aside class="hidden w-56 shrink-0 2xl:block">
+          <OnThisPage
+            :page="currentPage"
+            :sections="sections"
+            :active-section="activeSection"
+            layout="column"
+            @navigate="navigate"
+          />
+        </aside>
       </div>
     </main>
   </div>
