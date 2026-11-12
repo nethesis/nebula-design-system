@@ -68,7 +68,7 @@ export const PAGE_GROUPS: PageGroup[] = [
         id: 'glossary',
         title: 'Glossary',
         description:
-          'Approved terms, with their Italian translations and the terms to avoid. Weblate uses it when translating Nethesis products.',
+          'Approved terms, with their Italian translations and the terms to avoid.',
         icon: faBook,
         component: GlossaryView
       }

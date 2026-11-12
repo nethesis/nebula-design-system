@@ -25,7 +25,7 @@ and the glossary apply to it.
 | `glossary.yaml` | The glossary: single source of truth, edited through pull requests. The comment at the top describes the fields |
 | `icons.yaml` | The icon dictionary: which icon to use for each meaning, shown on the Iconography page. The comment at the top describes the fields |
 | `content/*.md` | The text pages (introduction, writing guidelines): plain markdown, no HTML or images. Tables with a "Do \| Don't" header are shown with check and cross marks. Link other pages with `?page=<id>`, for example `[glossary](?page=glossary)` |
-| `glossary/it.tbx` | Italian glossary for Weblate, generated from `glossary.yaml` (do not edit) |
+| `glossary/it.tbx` | Italian glossary in the TermBase eXchange format, generated from `glossary.yaml` (do not edit) |
 | `scripts/build-data.mjs` | Validates `glossary.yaml` and `icons.yaml` with `scripts/validate-data.mjs` (every icon must exist in its package; tests in `validate-data.test.mjs`) and generates the TBX files and the page data |
 | `scripts/vite-plugin-markdown.mjs` | Compiles each `content/*.md` into a Vue component, rejecting raw HTML and unsafe links, and gives the search the text of each section (tests in `vite-plugin-markdown.test.mjs`) |
 | `scripts/vite-plugin-glossary-watch.mjs` | Dev server only: reruns `build-data.mjs` when `glossary.yaml` or `icons.yaml` is saved |
@@ -63,10 +63,11 @@ Each file has a `source`, the page of the site it comes from, and each glossary 
    commit it.
 3. Open a pull request. CI validates the glossary and the guidelines, and fails if the TBX files
    are not up to date.
-4. On merge, CI publishes the page and Weblate reads the new `glossary/it.tbx`.
+4. On merge, CI publishes the page.
 
-`glossary.yaml` contains approved terms only: every entry is exported to Weblate, so add a term
-once it has been agreed. Translations listed under `avoid.it` become forbidden translations.
+`glossary.yaml` contains approved terms only: every entry is published, so add a term once it
+has been agreed. In the TBX file, the translations listed under `avoid.it` become forbidden
+translations.
 
 ## Colors
 
@@ -76,17 +77,6 @@ The Colors page reads `data/colors.json`. To update it after a change in Figma:
    on the Nebula Figma file, and save the returned JSON to a file.
 2. Run `npm run import:colors -- <file>`: it validates the export and rewrites `data/colors.json`.
 3. Review the diff and commit it.
-
-## Weblate
-
-The glossary is a component of the `ns8` project on hosted.weblate.org, so it applies to every
-Nethesis component there.
-
-- File format: TermBase eXchange file
-- File mask: `glossary/*.tbx`
-- Monolingual base language file: empty
-- "Use as a glossary": on
-- Lock the component, or restrict its permissions: changes come from this repository only.
 
 ## Development
 

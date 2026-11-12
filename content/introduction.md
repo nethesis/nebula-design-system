@@ -22,7 +22,7 @@ It applies to the user interfaces of Nethesis products, to different extents:
 - [Writing guidelines](?page=writing-guidelines): how to write interface text, from voice and
   tone to the text of buttons, forms, empty states, modals and notifications.
 - [Glossary](?page=glossary): the approved terms, with their Italian translations and the terms to
-  avoid. Weblate uses it when translating Nethesis products.
+  avoid.
 - Foundations: [colors](?page=colors), [typography](?page=typography),
   [iconography](?page=iconography), [spacing and border](?page=spacing-and-border),
   [elevation and shadow](?page=elevation-and-shadow), and
@@ -33,12 +33,20 @@ It applies to the user interfaces of Nethesis products, to different extents:
 The `nebula-frontend` skill makes a coding agent follow Nebula when it writes or reviews a
 frontend. It reads the rules from this site and from the Storybook, so it is always up to date.
 It is in the `frontend-skills` plugin of [NethServer/agents](https://github.com/NethServer/agents),
-for Claude Code only for now. In a Claude Code session, run:
+and has been tested in Claude Code and Codex. Other agents that support the
+[Agent Skills](https://agentskills.io/) format may run it too. In a Claude Code session, run:
 
 ```
 /plugin marketplace add NethServer/agents
 /plugin install frontend-skills@nethserver
 /reload-plugins
+```
+
+In Codex, run these commands in a terminal, then start a new session:
+
+```
+codex plugin marketplace add NethServer/agents
+codex plugin add frontend-skills@nethserver
 ```
 
 Other agents can read the same rules from [`llms.txt`](https://nethesis.github.io/nebula-design-system/llms.txt), the index of the files this
