@@ -10,6 +10,7 @@
 //   writing-guidelines.md  the writing guidelines, as markdown
 //   introduction.md        the introduction, as markdown
 //   accessibility.md       the accessibility rules, as markdown
+//   loading-and-errors.md  the loading, error and empty states, as markdown
 //   glossary.json          the glossary
 //   icons.json             which icon to use for each meaning
 //   colors.json            the color tokens, with their Tailwind classes
@@ -89,7 +90,8 @@ export const PAGE_FILES: Record<string, string> = {
   iconography: 'icons.json',
   'spacing-and-border': 'foundations.json',
   'elevation-and-shadow': 'foundations.json',
-  accessibility: 'accessibility.md'
+  accessibility: 'accessibility.md',
+  'loading-and-errors': 'loading-and-errors.md'
 }
 
 const markdown = (path: string) =>
@@ -238,6 +240,7 @@ The pages of the site (${SITE}) are built in the browser. Read these files inste
 - [Glossary](glossary.json): approved terms, Italian translations and terms to avoid
 - [Icons](icons.json): which icon to use for each meaning, and the icons to avoid
 - [Accessibility](accessibility.md): the choices Nebula makes to meet WCAG, for contrast, color, keyboard, focus and screen readers
+- [Loading and errors](loading-and-errors.md): how a page shows loading, errors, empty lists and the state of an action
 
 ## Components
 
@@ -259,6 +262,7 @@ export const SOURCES: Record<string, () => string> = {
   'writing-guidelines.md': () => markdown('content/writing-guidelines.md'),
   'introduction.md': () => markdown('content/introduction.md'),
   'accessibility.md': () => markdown('content/accessibility.md'),
+  'loading-and-errors.md': () => markdown('content/loading-and-errors.md'),
   'glossary.json': () => json(glossary(), 2),
   'icons.json': () => json(icons(), 2),
   'colors.json': () => json(colors(), 4),

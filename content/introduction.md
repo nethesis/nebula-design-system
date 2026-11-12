@@ -25,8 +25,8 @@ It applies to the user interfaces of Nethesis products, to different extents:
   avoid.
 - Foundations: [colors](?page=colors), [typography](?page=typography),
   [iconography](?page=iconography), [spacing and border](?page=spacing-and-border),
-  [elevation and shadow](?page=elevation-and-shadow), and
-  [accessibility](?page=accessibility).
+  [elevation and shadow](?page=elevation-and-shadow), [accessibility](?page=accessibility), and
+  [loading and errors](?page=loading-and-errors).
 
 ## Use it with a coding agent
 
