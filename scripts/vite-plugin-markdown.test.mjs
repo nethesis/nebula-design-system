@@ -76,6 +76,14 @@ test('tables get the table classes, and Do and Don\'t tables the do-dont class',
   assert.equal(sfc.match(/<div class="table-frame"><table class="ds-table">/g).length, 1)
 })
 
+test('an example block becomes a named placeholder, and nothing else', () => {
+  const { errors, sfc } = renderMarkdown('```example\ncard-actions\n```')
+  assert.deepEqual(errors, [])
+  assert.match(sfc, /<div class="example" data-example="card-actions"><\/div>/)
+  assert.notDeepEqual(renderMarkdown('```example\n<b>x</b>\n```').errors, [])
+  assert.deepEqual(markdownSections('## A\n\n```example\ncard-actions\n```').at(-1).text, '')
+})
+
 test('the search gets each section as plain text', () => {
   const sections = markdownSections(
     "# Page\n\nIntro with a [link](?page=glossary).\n\n## First\n\n- **Bold** item\n- `code`\n\n| Do | Don't |\n| --- | --- |\n| a | b |\n\n### Inner\n\nText.\n\n## Second\n\nMore."

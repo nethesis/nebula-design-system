@@ -11,6 +11,7 @@
 //   introduction.md        the introduction, as markdown
 //   accessibility.md       the accessibility rules, as markdown
 //   loading-and-errors.md  the loading, error and empty states, as markdown
+//   layout.md              where the parts of a page go, as markdown
 //   glossary.json          the glossary
 //   icons.json             which icon to use for each meaning
 //   colors.json            the color tokens, with their Tailwind classes
@@ -91,14 +92,18 @@ export const PAGE_FILES: Record<string, string> = {
   'spacing-and-border': 'foundations.json',
   'elevation-and-shadow': 'foundations.json',
   accessibility: 'accessibility.md',
-  'loading-and-errors': 'loading-and-errors.md'
+  'loading-and-errors': 'loading-and-errors.md',
+  layout: 'layout.md'
 }
 
+// the examples of the site are not in the published markdown
 const markdown = (path: string) =>
-  file(path).replace(/\]\(\?page=([a-z-]+)(#[a-z0-9-]+)?\)/g, (_, id: string, anchor = '') => {
-    if (!PAGE_FILES[id]) throw new Error(`${path}: no published file for ?page=${id}`)
-    return `](${PAGE_FILES[id]}${anchor})`
-  })
+  file(path)
+    .replace(/```example\n[a-z0-9-]+\n```\n\n?/g, '')
+    .replace(/\]\(\?page=([a-z-]+)(#[a-z0-9-]+)?\)/g, (_, id: string, anchor = '') => {
+      if (!PAGE_FILES[id]) throw new Error(`${path}: no published file for ?page=${id}`)
+      return `](${PAGE_FILES[id]}${anchor})`
+    })
 
 // a CSS rem value, such as 0.125rem
 const rem = (px: number) => `${px / 16}rem`
@@ -241,6 +246,7 @@ The pages of the site (${SITE}) are built in the browser. Read these files inste
 - [Icons](icons.json): which icon to use for each meaning, and the icons to avoid
 - [Accessibility](accessibility.md): the choices Nebula makes to meet WCAG, for contrast, color, keyboard, focus and screen readers
 - [Loading and errors](loading-and-errors.md): how a page shows loading, errors, empty lists and the state of an action
+- [Layout](layout.md): where the parts of a page go: the page header, the buttons of cards and dialogs, small screens
 
 ## Components
 
@@ -263,6 +269,7 @@ export const SOURCES: Record<string, () => string> = {
   'introduction.md': () => markdown('content/introduction.md'),
   'accessibility.md': () => markdown('content/accessibility.md'),
   'loading-and-errors.md': () => markdown('content/loading-and-errors.md'),
+  'layout.md': () => markdown('content/layout.md'),
   'glossary.json': () => json(glossary(), 2),
   'icons.json': () => json(icons(), 2),
   'colors.json': () => json(colors(), 4),

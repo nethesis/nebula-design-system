@@ -9,6 +9,7 @@ import {
   faHouse,
   faIcons,
   faLayerGroup,
+  faTableColumns,
   faPalette,
   faPenNib,
   faRulerCombined,
@@ -115,6 +116,14 @@ export const PAGE_GROUPS: PageGroup[] = [
         description: 'Surface levels and shadows that give depth to the interface.',
         icon: faLayerGroup,
         component: defineAsyncComponent(() => import('./components/ElevationView.vue'))
+      },
+      {
+        id: 'layout',
+        title: 'Layout',
+        description:
+          'Where the parts of a page go: the page header, the buttons of cards and dialogs, small screens.',
+        icon: faTableColumns,
+        component: defineAsyncComponent(() => import('./components/LayoutView.vue'))
       },
       {
         id: 'accessibility',
