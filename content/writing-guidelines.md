@@ -46,10 +46,10 @@ Use sentence case everywhere: page titles, buttons, labels, tabs, menu items, ta
 
 When a sentence names a specific page, menu item or tab, write it exactly as it appears in the user interface. When the same word is used as a common noun, write it in lowercase.
 
-| Do | Don't |
-| --- | --- |
-| Go to Dashboard | Go to dashboard |
-| The dashboard shows the cluster status | The Dashboard shows the cluster status |
+| Where | Do | Don't |
+| --- | --- | --- |
+| Name of a page | Go to Dashboard | Go to dashboard |
+| Common noun | The dashboard shows the cluster status | The Dashboard shows the cluster status |
 
 ## Punctuation
 
@@ -110,15 +110,17 @@ For links and buttons that take the user somewhere else:
 
 A label is usually a verb and an object, but a few labels are shorter because the context already makes the action clear.
 
-- **Save** (`Salva`) confirms an edit drawer. The title already names the action and the object, so the button doesn't repeat them: the drawer `Edit user` ends with `Save`. The drawer `Create user` follows the rule and ends with `Create user`.
+- **The button that confirms a drawer or a modal** repeats only the verb of the title, because the title already names the object: the drawer `Create user` ends with `Create` (`Crea`), the modal `Delete user` with `Delete` (`Elimina`). An edit drawer ends with **Save** (`Salva`): the drawer `Edit user` ends with `Save`.
 - **Details** (`Dettagli`), with the eye icon, opens the page of the object from a table row or a card. The row or the card already shows which object it is. Add the object name for screen readers, after the visible label: "Details Alice Fox". Use `Show details` only for content that opens in place.
 - **Actions in the dropdown menu of a row or a card** omit the object, because the menu belongs to that row or card: `Edit` (`Modifica`), `Delete` (`Elimina`). The confirmation that follows names the object, as in the title `Delete user`.
 
-| Do | Don't |
-| --- | --- |
-| Save (edit drawer) | Edit user, Save changes |
-| Details | View, See details, View details |
-| Edit, Delete (dropdown menu) | Edit user, Delete user |
+| Where | Do | Don't |
+| --- | --- | --- |
+| Drawer *Create user* | Create | Create user |
+| Modal *Delete user* | Delete | Delete user |
+| Drawer *Edit user* | Save | Edit user, Save changes |
+| Row or card | Details | View, See details, View details |
+| Menu of a row or a card | Edit, Delete | Edit user, Delete user |
 
 Icon buttons need a tooltip, and screen readers read the same text. Describe the action, not the icon: a short verb phrase, naming the item when the context doesn't, with no final period.
 
@@ -172,15 +174,15 @@ From the [*Table page* pattern](https://nethesis.github.io/vue-components/?path=
 
 The label of a dropdown filter names the data category, with a noun and the same term used in the table. Keep its options parallel in grammar and level of detail.
 
-| Do | Don't |
-| --- | --- |
-| Reset filters (for a table with several filters) | Clear filters |
-| Reset selection (inside a dropdown filter with something selected by default) | Clear selection |
-| Clear selection (inside a dropdown filter with nothing selected by default) | Reset selection |
-| Clear filter (for a table with only a text filter) | Reset filters |
-| Clear filter (for a collection with only a text filter) | Clear filters |
-| Company | Filter by company |
-| Status | Select status |
+| Where | Do | Don't |
+| --- | --- | --- |
+| Table with several filters | Reset filters | Clear filters |
+| Dropdown filter with something selected by default | Reset selection | Clear selection |
+| Dropdown filter with nothing selected by default | Clear selection | Reset selection |
+| Table with only a text filter | Clear filter | Reset filters |
+| Collection with only a text filter | Clear filter | Clear filters |
+| Label of a dropdown filter | Company | Filter by company |
+| Label of a dropdown filter | Status | Select status |
 
 ## Empty states
 

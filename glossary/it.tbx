@@ -390,7 +390,7 @@
 </termEntry>
 <termEntry id="create">
 <descrip>Make a new object that did not exist before, such as a user, a group or a firewall rule.</descrip>
-<descrip type="Usage note">Name the object: &quot;Create user&quot;. Use &quot;Add&quot; when the object already exists and is only associated with another one.</descrip>
+<descrip type="Usage note">Name the object in the button that starts the action: &quot;Create user&quot;. The button that confirms it, at the end of the drawer, is only &quot;Create&quot;. Use &quot;Add&quot; when the object already exists and is only associated with another one.</descrip>
 <langSet xml:lang="en">
 <tig>
 <term>Create</term>

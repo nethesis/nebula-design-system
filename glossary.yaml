@@ -175,8 +175,9 @@
   avoid:
     en: [New, Add]
   notes: >-
-    Name the object: "Create user". Use "Add" when the object already exists and is only
-    associated with another one.
+    Name the object in the button that starts the action: "Create user". The button that
+    confirms it, at the end of the drawer, is only "Create". Use "Add" when the object already
+    exists and is only associated with another one.
 
 - id: add
   en: Add
