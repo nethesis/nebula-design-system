@@ -26,11 +26,11 @@ your own markup or build with another stack.
   notification has an icon and a title, a field with an error has its validation message, not just
   a red border.
 
-| Do | Don't |
-| --- | --- |
-| `text-gray-600 dark:text-gray-400` for less important text | `text-gray-900/60`, `opacity-70` |
-| A badge that says `Expired` | A red dot alone |
-| An archived row in `Text/Tertiary neutral`, with the `Archived` status | An archived row with `opacity-50` |
+| Where | Do | Don't |
+| --- | --- | --- |
+| Less important text | `text-gray-600 dark:text-gray-400` | `text-gray-900/60`, `opacity-70` |
+| Status | A badge that says `Expired` | A red dot alone |
+| Archived row | `Text/Tertiary neutral`, with the `Archived` status | `opacity-50` |
 
 ## Keyboard and focus
 

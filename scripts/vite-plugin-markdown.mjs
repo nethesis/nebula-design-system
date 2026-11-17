@@ -18,7 +18,8 @@
 //
 // Tables get the look of the other tables of the site (ds-table in a
 // table-frame), and those whose header is "Do | Don't" also the do-dont class,
-// styled with check and cross marks.
+// styled with check and cross marks. A "Where | Do | Don't" table also gets
+// the with-where class: its first column says where the examples apply.
 //
 // A code block of the language "example" holds only the name of an example,
 // such as card-actions: it becomes an empty element with that name, where the
@@ -64,7 +65,7 @@ const ALLOWED = {
   code: { class: /^language-[a-z0-9-]+$/ },
   pre: {},
   div: { class: /^(table-frame|example)$/, 'data-example': /^[a-z0-9-]+$/ },
-  table: { class: /^ds-table( do-dont)?$/ },
+  table: { class: /^ds-table( do-dont( with-where)?)?$/ },
   thead: {},
   tbody: {},
   tr: {},
@@ -114,7 +115,10 @@ export function renderMarkdown(markdown, filename = 'page.md') {
       table(token) {
         const html = Renderer.prototype.table.call(this, token)
         const header = token.header.map((cell) => plainText(cell.tokens))
-        const classes = header.join('|') === "Do|Don't" ? 'ds-table do-dont' : 'ds-table'
+        const classes = {
+          "Do|Don't": 'ds-table do-dont',
+          "Where|Do|Don't": 'ds-table do-dont with-where'
+        }[header.join('|')] ?? 'ds-table'
         return `<div class="table-frame">${html.replace(/^<table>/, `<table class="${classes}">`)}</div>\n`
       },
       heading({ tokens, depth }) {

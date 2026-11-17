@@ -46,9 +46,9 @@ Show `NeEmptyState` only after a load that succeeded with no items, as in
 [Empty states](?page=writing-guidelines#empty-states). Never show it while the data is loading
 or after an error: users would believe that there is nothing.
 
-| Do | Don't |
-| --- | --- |
-| A skeleton in place of the table on the first load | A spinner over the whole page |
-| The table stays, with `Updating…` while it refreshes | The table goes back to the skeleton on every refresh |
-| `Cannot retrieve customers`, with the cause | `No customers` after a load that failed |
-| **Save** shows its loading state until the server answers | **Save** can be pressed again while the first save runs |
+| Where | Do | Don't |
+| --- | --- | --- |
+| First load | A skeleton in place of the table | A spinner over the whole page |
+| Refresh | The table stays, with `Updating…` | The table goes back to the skeleton |
+| Load that failed | `Cannot retrieve customers`, with the cause | `No customers` |
+| Save | **Save** shows its loading state until the server answers | **Save** can be pressed again while the first save runs |

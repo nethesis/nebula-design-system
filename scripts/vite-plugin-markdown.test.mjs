@@ -70,9 +70,12 @@ test('external links open in a new tab', () => {
 })
 
 test('tables get the table classes, and Do and Don\'t tables the do-dont class', () => {
-  const { errors, sfc } = renderMarkdown("| Do | Don't |\n| --- | --- |\n| a | b |\n\n| A | B |\n| --- | --- |\n| c | d |")
+  const { errors, sfc } = renderMarkdown(
+    "| Do | Don't |\n| --- | --- |\n| a | b |\n\n| Where | Do | Don't |\n| --- | --- | --- |\n| w | e | f |\n\n| A | B |\n| --- | --- |\n| c | d |"
+  )
   assert.deepEqual(errors, [])
   assert.equal(sfc.match(/<div class="table-frame"><table class="ds-table do-dont">/g).length, 1)
+  assert.equal(sfc.match(/<table class="ds-table do-dont with-where">/g).length, 1)
   assert.equal(sfc.match(/<div class="table-frame"><table class="ds-table">/g).length, 1)
 })
 
