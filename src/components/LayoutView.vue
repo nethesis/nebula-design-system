@@ -25,6 +25,8 @@ const cardMenu = [
 ]
 
 const frame = 'rounded-md border border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-900'
+const placeholder =
+  'mt-6 flex h-24 items-center justify-center rounded-md border border-dashed border-gray-300 text-sm text-gray-500 dark:border-gray-600 dark:text-gray-400'
 const caption = 'mb-2 flex items-center gap-2 text-xs font-medium'
 </script>
 
@@ -47,6 +49,7 @@ const caption = 'mb-2 flex items-center gap-2 text-xs font-medium'
             </div>
             <NeButton kind="primary" class="shrink-0">Create user</NeButton>
           </div>
+          <p :class="placeholder">Table of users</p>
         </div>
       </div>
       <div class="max-w-xs">
@@ -57,6 +60,7 @@ const caption = 'mb-2 flex items-center gap-2 text-xs font-medium'
             List of users, including their role and status.
           </p>
           <NeButton kind="primary" class="mt-4">Create user</NeButton>
+          <p :class="placeholder">Table of users</p>
         </div>
       </div>
     </div>
