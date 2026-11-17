@@ -552,7 +552,7 @@
 </termEntry>
 <termEntry id="delete">
 <descrip>Permanently destroy an object, such as a contact, a firewall rule or a user.</descrip>
-<descrip type="Usage note">Use &quot;Remove&quot; when the object only leaves a list or an association and still exists, for example a user removed from a group. For applications, use &quot;Uninstall&quot;. When the deletion has consequences beyond the object itself, ask for confirmation first: see Delete confirmation in the guidelines. In My Nethesis, which archives objects before deleting them, the permanent action is &quot;Destroy&quot;.</descrip>
+<descrip type="Usage note">Use &quot;Remove&quot; when the object only leaves a list or an association and still exists, for example a user removed from a group. For applications, use &quot;Uninstall&quot;. When the deletion has consequences beyond the object itself, ask for confirmation first: see Delete confirmation in the guidelines. In My Nethesis, which can archive objects instead of deleting them, the permanent action is &quot;Destroy&quot;.</descrip>
 <langSet xml:lang="en">
 <tig>
 <term>Delete</term>
@@ -659,7 +659,7 @@
 </termEntry>
 <termEntry id="archive">
 <descrip>Take an object out of use without destroying it, so that it can be restored, such as a user, a system or a company.</descrip>
-<descrip type="Usage note">Only in products that keep archived objects. Its opposite is &quot;Restore&quot;; the action that removes an archived object for good is &quot;Destroy&quot;.</descrip>
+<descrip type="Usage note">Only in products that keep archived objects. Its opposite is &quot;Restore&quot;. Archiving is not needed before &quot;Destroy&quot;, which deletes an object for good, archived or not.</descrip>
 <langSet xml:lang="en">
 <tig>
 <term>Archive</term>
@@ -686,8 +686,8 @@
 </langSet>
 </termEntry>
 <termEntry id="destroy">
-<descrip>Permanently delete an archived object, which can no longer be restored.</descrip>
-<descrip type="Usage note">Only in products that archive objects before deleting them, where it takes the place of &quot;Delete&quot;. In Italian, drop &quot;definitivamente&quot; when the object follows: &quot;Destroy user&quot; (&quot;Elimina utente&quot;).</descrip>
+<descrip>Permanently delete an object, archived or not, which can no longer be restored.</descrip>
+<descrip type="Usage note">Only in products that can archive objects, where it takes the place of &quot;Delete&quot;. In Italian, drop &quot;definitivamente&quot; when the object follows: &quot;Destroy user&quot; (&quot;Elimina utente&quot;).</descrip>
 <langSet xml:lang="en">
 <tig>
 <term>Destroy</term>

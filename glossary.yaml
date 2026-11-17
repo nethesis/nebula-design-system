@@ -259,8 +259,8 @@
     Use "Remove" when the object only leaves a list or an association and still exists, for
     example a user removed from a group. For applications, use "Uninstall". When the deletion
     has consequences beyond the object itself, ask for confirmation first: see Delete confirmation
-    in the guidelines. In My Nethesis, which archives objects before deleting them, the permanent
-    action is "Destroy".
+    in the guidelines. In My Nethesis, which can archive objects instead of deleting them, the
+    permanent action is "Destroy".
 
 - id: remove
   en: Remove
@@ -290,8 +290,8 @@
   avoid:
     en: [Deactivate, Trash, Move to trash]
   notes: >-
-    Only in products that keep archived objects. Its opposite is "Restore"; the action that
-    removes an archived object for good is "Destroy".
+    Only in products that keep archived objects. Its opposite is "Restore". Archiving is not
+    needed before "Destroy", which deletes an object for good, archived or not.
 
 - id: restore
   en: Restore
@@ -307,13 +307,12 @@
 - id: destroy
   en: Destroy
   it: Elimina definitivamente
-  definition: Permanently delete an archived object, which can no longer be restored.
+  definition: Permanently delete an object, archived or not, which can no longer be restored.
   products: [my]
   avoid:
     en: [Purge, Erase, Delete permanently, Permanently delete]
   notes: >-
-    Only in products that archive objects before deleting them, where it takes the place of
-    "Delete". In Italian, drop "definitivamente" when the object follows: "Destroy user"
+    Only in products that can archive objects, where it takes the place of "Delete". In Italian, drop "definitivamente" when the object follows: "Destroy user"
     ("Elimina utente").
 
 - id: suspend
