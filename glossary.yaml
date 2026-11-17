@@ -73,6 +73,13 @@
     it: [Servizio aggiuntivo]
   notes: 'The Italian plural does not change: "gli add-on".'
 
+- id: renewal
+  en: Renewal
+  it: Rinnovo
+  definition: The extension of an add-on for a new period, when the current one ends.
+  products: [my]
+  notes: '"Valid until 31/12/2027, renewal continues" ("Valido fino al 31/12/2027, il rinnovo continua").'
+
 - id: tier
   en: Tier
   it: Fascia
@@ -101,6 +108,36 @@
     en: [Organization]
     it: [Organizzazione]
   notes: 'Use "Company" for the generic case; use "Distributor", "Reseller" or "Customer" when the level matters.'
+
+- id: distributor
+  en: Distributor
+  it: Distributore
+  definition: The first level of the companies in My Nethesis, which manages resellers and customers.
+  products: [my]
+
+- id: reseller
+  en: Reseller
+  it: Rivenditore
+  definition: The second level of the companies in My Nethesis, managed by a distributor, which manages its customers.
+  products: [my]
+
+- id: customer
+  en: Customer
+  it: Cliente
+  definition: The last level of the companies in My Nethesis, managed by a reseller or a distributor.
+  products: [my]
+
+- id: manager
+  en: Manager
+  it: Gestore
+  definition: The distributor or the reseller that manages a reseller or a customer in My Nethesis.
+  products: [my]
+  avoid:
+    en: [Parent, Parent company, Owner]
+    it: [Azienda madre]
+  notes: >-
+    "Managed by" ("Gestito da"), "Change manager" ("Cambia gestore"). "Owner" is another
+    concept: the owner company, at the top of the hierarchy.
 
 # Features
 
@@ -263,7 +300,9 @@
   products: [all]
   avoid:
     en: [Unarchive, Recover, Reactivate, Undelete]
-  notes: '"Restore user" ("Ripristina utente"), "Restore backup" ("Ripristina backup"). For default values, use "Reset".'
+  notes: >-
+    "Restore user" ("Ripristina utente"), "Restore backup" ("Ripristina backup"). For default
+    values, use "Reset". In My Nethesis, "Reactivate" undoes a suspension, not an archiving.
 
 - id: destroy
   en: Destroy
@@ -276,6 +315,26 @@
     Only in products that archive objects before deleting them, where it takes the place of
     "Delete". In Italian, drop "definitivamente" when the object follows: "Destroy user"
     ("Elimina utente").
+
+- id: suspend
+  en: Suspend
+  it: Sospendi
+  definition: >-
+    Block a company, a user or a system until it is reactivated: a suspended user cannot sign in,
+    a suspended system gets no updates or support.
+  products: [my]
+  notes: >-
+    Suspending a company also suspends its users and systems. The resulting state is
+    "Suspended" ("Sospeso"). To undo it, use "Reactivate".
+
+- id: reactivate
+  en: Reactivate
+  it: Riattiva
+  definition: Undo a suspension or a revocation, such as a suspended user or a revoked add-on, which works again.
+  products: [my]
+  notes: >-
+    For an archived object, use "Restore". In Italian, "Riattiva" also translates "Unmute", for
+    alerts.
 
 - id: enable
   en: Enable
@@ -484,6 +543,24 @@
   avoid:
     en: [Alarm]
 
+- id: mute
+  en: Mute
+  it: Silenzia
+  definition: Stop the notifications of an alert until a date, without solving its cause.
+  products: [my]
+  avoid:
+    en: [Silence]
+  notes: 'The resulting state is "Muted" ("Silenziato"): "Mute alert" ("Silenzia allarme").'
+
+- id: unmute
+  en: Unmute
+  it: Riattiva
+  definition: Restart the notifications of a muted alert.
+  products: [my]
+  avoid:
+    en: [Unsilence]
+  notes: '"Unmute alert" ("Riattiva allarme"). "Riattiva" also translates "Reactivate".'
+
 # Backup
 
 - id: backup-destination
@@ -632,6 +709,32 @@
     Use "Instance" only when the context strictly requires one specific copy of an application,
     and "Application" would be misleading: for example, to choose among several copies of the
     same application ("Choose a NethVoice instance"). In every other case, use "Application".
+
+- id: clone
+  en: Clone
+  it: Clona
+  definition: >-
+    Make a copy of an application and its data on a node of the cluster, also the same node. The
+    original application is left untouched.
+  products: [ns8]
+  avoid:
+    en: [Copy, Duplicate]
+    it: [Copia, Duplica]
+  notes: '"Clone application" ("Clona applicazione"). The copy is a new instance, with its own name.'
+
+- id: move
+  en: Move
+  it: Sposta
+  definition: >-
+    Bring an application and its data to another node of the cluster. The application on the old
+    node is removed.
+  products: [ns8]
+  avoid:
+    en: [Migrate, Transfer]
+    it: [Migra, Trasferisci]
+  notes: >-
+    "Move application" ("Sposta applicazione"). "Migrate" is for the migration from NethServer 7
+    and to the new My Nethesis. The moved application is a new instance, with its own name.
 
 - id: webtop
   en: WebTop
