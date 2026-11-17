@@ -45,6 +45,9 @@ your own markup or build with another stack.
 - **Modals and drawers keep the focus inside** while they are open, close with Esc and give the
   focus back to the element that opened them. `NeModal` and `NeSideDrawer` already do it: use them
   instead of your own overlay.
+- **A failed validation moves the focus to the first invalid field**, so that keyboard and screen
+  reader users reach the error at once. Use `focusElement` of `@nethesis/vue-components`, as in the
+  [*Create item drawer* pattern](https://nethesis.github.io/vue-components/?path=/story/patterns-create-item-drawer--standard).
 
 ## Screen readers
 
