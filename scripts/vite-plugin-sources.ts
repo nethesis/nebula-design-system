@@ -112,7 +112,7 @@ function colors() {
   return {
     source: page('colors'),
     exportedAt: EXPORTED_AT,
-    note: 'Use these semantic tokens, not the colors of the palettes. light and dark are the values of a token in the two themes; tailwind is the Tailwind color to use in code. In code, the primary palette is the palette of the product, so the Product Primary and product link tokens use primary-* colors. classes are the Tailwind classes for both themes; they are null when the utility depends on the component (text, background, border…) or when a value has no Tailwind color: then build them from the two tailwind colors, as in text-primary-700 dark:text-primary-500. link is the token in the Colors page, to cite in reviews.',
+    note: 'Use these semantic tokens, not the colors of the palettes. light and dark are the values of a token in the two themes; tailwind is the Tailwind color to use in code. In code, the primary palette is the palette of the product, so the Product Primary and product link tokens use primary-* colors. Text in the primary color looks like a link: use it only for text that does something when clicked. classes are the Tailwind classes for both themes; they are null when the utility depends on the component (text, background, border…) or when a value has no Tailwind color: then build them from the two tailwind colors, as in text-primary-700 dark:text-primary-500. link is the token in the Colors page, to cite in reviews.',
     groups: GROUPS.map((group) => ({
       ...group,
       link: page('colors', groupAnchor(group.name)),
