@@ -335,6 +335,32 @@
     For an archived object, use "Restore". In Italian, "Riattiva" also translates "Unmute", for
     alerts.
 
+- id: assign
+  en: Assign
+  it: Assegna
+  definition: Give an object to a user, a company or an application, such as an alert to a user or a license of an add-on to an application.
+  products: [my]
+  avoid:
+    en: [Allocate]
+    it: [Attribuisci]
+  notes: >-
+    The resulting state is "Assigned" ("Assegnato"), and "Unassigned" ("Non assegnato") when
+    there is none. To undo it, use "Release".
+
+- id: release
+  en: Release
+  it: Rilascia
+  definition: Undo an assignment, such as an alert taken by a user or a license of an add-on given to an application, which becomes available again.
+  products: [my]
+  avoid:
+    en: [Free, Unassign]
+    it: [Disassegna, Annulla assegnazione]
+  notes: >-
+    In English, "Free" reads as "free of charge": "Release license", not "Free license". "Free"
+    stays right in other meanings, such as free disk space. In Italian, a license is "Libera
+    licenza", because "rilasciare una licenza" means granting one. The state "Unassigned" is
+    fine.
+
 - id: enable
   en: Enable
   it: Abilita

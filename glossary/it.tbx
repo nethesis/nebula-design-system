@@ -727,6 +727,73 @@
 </tig>
 </langSet>
 </termEntry>
+<termEntry id="assign">
+<descrip>Give an object to a user, a company or an application, such as an alert to a user or a license of an add-on to an application.</descrip>
+<descrip type="Usage note">The resulting state is &quot;Assigned&quot; (&quot;Assegnato&quot;), and &quot;Unassigned&quot; (&quot;Non assegnato&quot;) when there is none. To undo it, use &quot;Release&quot;.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Assign</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Assegna</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="assign--forbidden-attribuisci">
+<langSet xml:lang="en">
+<tig>
+<term>Assign</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Attribuisci</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="release">
+<descrip>Undo an assignment, such as an alert taken by a user or a license of an add-on given to an application, which becomes available again.</descrip>
+<descrip type="Usage note">In English, &quot;Free&quot; reads as &quot;free of charge&quot;: &quot;Release license&quot;, not &quot;Free license&quot;. &quot;Free&quot; stays right in other meanings, such as free disk space. In Italian, a license is &quot;Libera licenza&quot;, because &quot;rilasciare una licenza&quot; means granting one. The state &quot;Unassigned&quot; is fine.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Release</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Rilascia</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="release--forbidden-disassegna">
+<langSet xml:lang="en">
+<tig>
+<term>Release</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Disassegna</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="release--forbidden-annulla-assegnazione">
+<langSet xml:lang="en">
+<tig>
+<term>Release</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Annulla assegnazione</term>
+</tig>
+</langSet>
+</termEntry>
 <termEntry id="enable">
 <descrip>Turn on a feature or an option.</descrip>
 <descrip type="Usage note">The resulting state is &quot;Enabled&quot; (&quot;Abilitato&quot;, not &quot;Attivato&quot;).</descrip>
