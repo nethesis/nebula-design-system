@@ -246,7 +246,7 @@ The pages of the site (${SITE}) are built in the browser. Read these files inste
 - [Icons](icons.json): which icon to use for each meaning, and the icons to avoid
 - [Accessibility](accessibility.md): the choices Nebula makes to meet WCAG, for contrast, color, keyboard, focus and screen readers
 - [Loading and errors](loading-and-errors.md): how a page shows loading, errors, empty lists and the state of an action
-- [Layout](layout.md): where the parts of a page go: the app shell with the side menu and the top bar, the page header, the buttons of cards and dialogs, small screens
+- [Layout](layout.md): where the parts of a page go: the app shell with the side menu and the top bar, the page header, the buttons of cards and dialogs, small screens, toasts
 
 ## Components
 

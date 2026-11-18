@@ -121,7 +121,7 @@ export const PAGE_GROUPS: PageGroup[] = [
         id: 'layout',
         title: 'Layout',
         description:
-          'Where the parts of a page go: the app shell with the side menu and the top bar, the page header, the buttons of cards and dialogs, small screens.',
+          'Where the parts of a page go: the app shell with the side menu and the top bar, the page header, the buttons of cards and dialogs, small screens, toasts.',
         icon: faTableColumns,
         component: defineAsyncComponent(() => import('./components/LayoutView.vue'))
       },

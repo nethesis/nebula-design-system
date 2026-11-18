@@ -47,7 +47,8 @@ app-shell
   also read by screen readers (`sr-only`). In this order:
   - **Help**: a link to the documentation of the product, in a new tab. A product can add
     buttons before it, such as *Ask AI* in My Nethesis.
-  - **Notifications**: opens a side drawer on the right. The bell shakes when a notification
+  - **Notifications**, only in a product with a notifications drawer: opens the drawer on the
+    right, which lists the [toasts](#toasts) shown so far. The bell shakes when a notification
     arrives, and shows no dot.
   - **Account**: the avatar of the user and a chevron. It opens a menu aligned to the right, with
     the name and the email of the user at the top, then items such as the account page and the
@@ -60,7 +61,7 @@ app-shell
 - It starts with the [page header](#page-header). A detail page has a breadcrumb above the
   title, which leads back to the list, as in My Nethesis. Views of the same page are tabs
   (`NeTabs`) below the title, as *Firewall rules* in NethSecurity.
-- Toasts appear in the top right corner, below the top bar.
+- Toasts appear over the page, as [Toasts](#toasts) says.
 
 ## Page header
 
@@ -106,7 +107,12 @@ one-primary
   [*Table page* pattern](https://nethesis.github.io/vue-components/?path=/story/patterns-table-page--standard)
   for a page that lists objects.
 
-## Toasts after a dialog
+## Toasts
 
-After closing a modal or a drawer, show the toast once the closing animation has ended, about
-500 ms later: otherwise it appears while the dialog is still moving.
+- Toasts are temporary: they appear in the top right corner of the screen, below the top bar,
+  and close by themselves after 5 seconds, 10 seconds for an error, or with their close button.
+- Several toasts stack one below the other, aligned to the right, with the newest at the top.
+- A product can also keep its toasts in a notifications drawer, opened from the top bar, where
+  the user can read them again later. The drawer is optional.
+- After closing a modal or a drawer, show the toast once the closing animation has ended, about
+  500 ms later: otherwise it appears while the dialog is still moving.
