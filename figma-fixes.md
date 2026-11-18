@@ -66,6 +66,12 @@ and card backgrounds (`Elevation/L1` and `Elevation/L0`):
   so the placeholder would look like real text. To decide with the designer. vue-components uses
   `placeholder:text-gray-400 dark:placeholder:text-gray-500` and would change too.
 
+## Sizes to correct
+
+- [ ] **Main sidebar** page, *Main sidebar + labels*: the sidebar is 300 px wide and its labels
+  16 px. The guide (Layout, *App shell*) and the products use 288 px (`w-72`) and 14 px labels
+  (`text-sm`).
+
 ## To complete or remove
 
 - [ ] Guideline frames still with the template text: **Card**, **Side drawer**, **Table**,
