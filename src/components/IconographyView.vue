@@ -235,6 +235,10 @@ const PACKAGES = ICON_PACKAGES.map(({ name, version }) => `"${name}": "${version
       Use the same icon for the same meaning in every product. When a meaning is missing, choose a
       Font Awesome Solid icon that no other meaning uses, and ask the UX team to add it here.
     </p>
+    <p>
+      Inside a badge, do not use the <code>circle-*</code> icons: use the same icon without the
+      circle, such as <code>check</code> instead of <code>circle-check</code>.
+    </p>
     <NeTextInput
       v-model="textFilter"
       is-search

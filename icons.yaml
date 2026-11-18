@@ -385,6 +385,7 @@
   use: The status of an enabled feature or object.
   avoid: [check]
   glossary: [enable]
+  notes: In a badge, check, because circle icons are not used in badges.
 
 - id: disabled
   meaning: Disabled
@@ -393,6 +394,7 @@
   use: The status of a disabled feature or object.
   avoid: [xmark, ban]
   glossary: [disable]
+  notes: In a badge, xmark, because circle icons are not used in badges.
 
 # Sidebar sections: the Light icon when the section is not active, the Solid
 # icon when it is.

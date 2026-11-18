@@ -69,6 +69,11 @@ and card backgrounds (`Elevation/L1` and `Elevation/L0`):
   so the placeholder would look like real text. To decide with the designer. vue-components uses
   `placeholder:text-gray-400 dark:placeholder:text-gray-500` and would change too.
 
+## Icons to correct
+
+- [ ] **Badge** page: the badges use `circle-check` (7) and `circle-xmark` (4). The guide does not
+  use the `circle-*` icons inside a badge: `check` and `xmark` instead.
+
 ## Sizes to correct
 
 - [ ] **Main sidebar** page, *Main sidebar + labels*: the sidebar is 300 px wide and its labels
