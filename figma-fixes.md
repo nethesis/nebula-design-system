@@ -50,6 +50,9 @@ so that it agrees with this guide. Remove an item once it is done.
 - [ ] **Elevation and shadow** page, Shadow Dark table: the second shadow of sm, md, lg and xl is
   written `#374151` (gray-700), while the `Shadow dark/*` effect styles use `#4B5563` (gray-600)
   for both shadows, as the site does.
+- [ ] **Inline notification** page: "Keep titles concise (max one line)" and "Use concise titles
+  and optional descriptions with one sentence" set fixed limits. The guide asks only for a short
+  title, with the details in the description, which can take more than one sentence.
 
 ## Contrast
 

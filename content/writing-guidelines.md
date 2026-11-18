@@ -261,7 +261,7 @@ From the [*Success toast notification* pattern](https://nethesis.github.io/vue-c
 
 ### Inline notifications
 
-Keep the title on one line and the description to one sentence. Say clearly what to do when the notification reports a problem or a required step.
+Keep the title short, and give the details in the description. Say clearly what to do when the notification reports a problem or a required step.
 
 ## Numbers, dates and units
 
