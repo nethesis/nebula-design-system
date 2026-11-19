@@ -242,13 +242,11 @@ const caption = 'mb-2 flex items-center gap-2 text-xs font-medium'
       <div>
         <p :class="[caption, 'text-gray-600 dark:text-gray-300']">Wide screens</p>
         <div :class="frame">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="text-xl font-medium text-gray-900 dark:text-gray-50">Users</p>
-              <p class="mt-1 text-gray-600 dark:text-gray-300">
-                List of users, including their role and status.
-              </p>
-            </div>
+          <p class="text-xl font-medium text-gray-900 dark:text-gray-50">Users</p>
+          <div class="mt-1 flex items-center justify-between gap-4">
+            <p class="text-gray-600 dark:text-gray-300">
+              List of users, including their role and status.
+            </p>
             <NeButton kind="primary" class="shrink-0">Create user</NeButton>
           </div>
           <p :class="placeholder">Table of users</p>

@@ -69,12 +69,15 @@ From the [*Table page* pattern](https://nethesis.github.io/vue-components/?path=
 The text of the title and of the description follows the
 [writing guidelines](?page=writing-guidelines#page-header).
 
-- The primary action, such as `Create user`, goes on the right of the title, or of the
-  description when there is no title.
-- On small screens it goes after the description.
-- When there is no description, it goes on the right of the table toolbar, or above it on small
-  screens.
-- When there are no objects yet, it goes only in the empty state.
+- The actions of the page, the `primary` button such as `Create user` and, when there is one,
+  a second button, go on the right of the description, aligned with it.
+- When the page has a title but no description, they go on the right of the title.
+- When it has neither a title nor a description, and the page shows a table, a primary action
+  about the objects of the table, such as creating a new one, can go on the right of the table
+  toolbar, or above it on small screens.
+- On small screens they go after the description, or after the title.
+- When a page that lists objects has none yet, the primary action that creates them goes only
+  in the empty state.
 
 ```example
 page-header
@@ -114,8 +117,8 @@ form-in-page
 ## Buttons
 
 - Buttons are left-aligned, like the content they belong to, as in cards and in forms in a page.
-  They go on the right only in the footer of a modal or a drawer, and for the primary action of
-  the [page header](#page-header).
+  They go on the right only in the footer of a modal or a drawer, and for the actions of the
+  [page header](#page-header).
 - Only one `primary` button in a view or a dialog: the others are `secondary` or `tertiary`.
 - A button that confirms a destructive action is `danger`, in place of the `primary`.
 
