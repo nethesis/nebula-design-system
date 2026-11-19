@@ -49,27 +49,29 @@
   }
 }
 
-/* content/*.md rendered to HTML */
+/* content/*.md rendered to HTML. The examples that the views put in its
+   [data-example] elements keep the styles of their components: the rules of
+   the text don't reach them. */
 .markdown {
   @apply max-w-3xl text-sm leading-6 text-gray-700 dark:text-gray-200;
 
   h1 {
     @apply hidden;
   }
-  h2 {
+  h2:not([data-example] *) {
     @apply mt-10 mb-3 scroll-mt-20 text-lg font-medium text-gray-900 dark:text-gray-50;
   }
-  h3 {
+  h3:not([data-example] *) {
     @apply mt-6 mb-2 scroll-mt-20 font-medium text-gray-900 dark:text-gray-50;
   }
-  p,
-  ul {
+  p:not([data-example] *),
+  ul:not([data-example] *) {
     @apply mb-4;
   }
-  ul {
+  ul:not([data-example] *) {
     @apply list-disc space-y-1 pl-5;
   }
-  a {
+  a:not([data-example] *) {
     @apply text-primary-700 underline dark:text-primary-500;
   }
   code {
