@@ -269,6 +269,20 @@ Keep the title short, and give the details in the description. Say clearly what 
 - Put a space between a number and its unit: `10 GB`, `30 s`.
 - Use the 24-hour clock in Italian.
 
+## Text for translation
+
+Every text of the interface is translated. Write it so that translators can work on it, and so that a change in the code or in a label doesn't require changing the translations.
+
+- **Put values in parameters.** A value that is not text to translate, such as a number, a size, a minimum length, a name or an address, goes in the text as a parameter, never written into it: `Password must contain at least {min} characters`. Translators can't change or mistype the value, and when it changes in the code, no translation has to change.
+- **Link the labels you name.** A text that names another element of the interface, such as a button, a menu item, a filter or a page, links that element's label instead of repeating its words. When the label changes, every text that names it changes too, in every language. Link the label as the interface shows it, without changing its case (see [Capitalization](#capitalization)).
+- **Keep parameters and links in the translation.** Translate the text around them, and don't translate, rename or remove a parameter or a link.
+
+| Do | Don't |
+| --- | --- |
+| Password must contain at least {min} characters | Password must contain at least 8 characters |
+| Then choose *Change manager* again (with *Change manager* linked to the button's label) | Then choose Change manager again (with the label copied) |
+| La password deve contenere almeno {min} caratteri | La password deve contenere almeno {minimo} caratteri |
+
 ## Italian translation
 
 Verbs:

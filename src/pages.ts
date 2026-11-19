@@ -62,7 +62,7 @@ export const PAGE_GROUPS: PageGroup[] = [
         title: 'Writing guidelines',
         navLabel: 'Guidelines',
         description:
-          'How to write the text of user interfaces: voice and tone, capitalization and punctuation, and the text of buttons, forms, empty states, modals and notifications.',
+          'How to write the text of user interfaces: voice and tone, capitalization and punctuation, the text of buttons, forms, empty states, modals and notifications, and text ready for translation.',
         icon: faPenNib,
         component: GuidelinesView
       },
