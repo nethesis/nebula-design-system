@@ -82,8 +82,8 @@ page-header
 
 ## Cards
 
-- The action buttons of a card, such as the button that opens what the card shows, are usually
-  left-aligned, like the text above them, not pushed to the right edge.
+- A button inside a card is left-aligned, like the rest of the content of the card, not pushed
+  to the right edge.
 - The menu of actions of the card stays in its top right corner: the `menuItems` of `NeCard`.
 
 ```example
@@ -113,6 +113,9 @@ form-in-page
 
 ## Buttons
 
+- Buttons are left-aligned, like the content they belong to, as in cards and in forms in a page.
+  They go on the right only in the footer of a modal or a drawer, and for the primary action of
+  the [page header](#page-header).
 - Only one `primary` button in a view or a dialog: the others are `secondary` or `tertiary`.
 - A button that confirms a destructive action is `danger`, in place of the `primary`.
 
