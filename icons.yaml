@@ -27,7 +27,7 @@
 #   meaning: Delete
 #   icon: trash
 #   category: actions
-#   use: Permanently destroy an object.
+#   use: Delete an object.
 #   notFor: Taking an object out of a list.
 #   glossary: [delete]
 
@@ -62,9 +62,19 @@
   meaning: Delete
   icon: trash
   category: actions
-  use: Permanently destroy an object.
+  use: Delete an object.
   notFor: Taking an object out of a list or an association.
   glossary: [delete]
+
+- id: destroy
+  meaning: Destroy
+  icon: bomb
+  category: actions
+  use: >-
+    Delete an object for good, in products where Delete is a soft delete that keeps the object
+    so that it can be restored, such as My Nethesis.
+  notFor: A Delete that is already permanent, which uses trash.
+  glossary: [destroy]
 
 - id: remove
   meaning: Remove
@@ -143,10 +153,10 @@
   icon: arrow-rotate-left
   category: actions
   use: >-
-    Bring back a previous state, such as a backup, or the default values, such as a factory
-    reset.
+    Bring back a previous state, such as a backup or a soft-deleted object, or the default values,
+    such as a factory reset.
   avoid: [rotate-left]
-  glossary: [reset]
+  glossary: [restore, reset]
 
 - id: save
   meaning: Save
@@ -175,12 +185,6 @@
   category: actions
   use: Revoke or block access, such as an API key or an add-on.
   notFor: The disabled status.
-
-- id: archive
-  meaning: Archive
-  icon: box-archive
-  category: actions
-  use: Move an object to the archive, from where it can be restored.
 
 - id: suspend
   meaning: Suspend

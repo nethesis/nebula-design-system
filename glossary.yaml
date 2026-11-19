@@ -21,7 +21,7 @@
 # - id: delete
 #   en: Delete
 #   it: Elimina
-#   definition: Permanently destroy an object, such as a contact, a firewall rule or a user.
+#   definition: Delete an object, such as a contact, a firewall rule or a user.
 #   products: [all]
 #   avoid:
 #     it: [Cancella]
@@ -250,17 +250,18 @@
 - id: delete
   en: Delete
   it: Elimina
-  definition: Permanently destroy an object, such as a contact, a firewall rule or a user.
+  definition: Delete an object, such as a contact, a firewall rule or a user.
   products: [all]
   avoid:
-    en: [Remove]
-    it: [Cancella, Rimuovi]
+    en: [Remove, Archive]
+    it: [Cancella, Rimuovi, Archivia]
   notes: >-
     Use "Remove" when the object only leaves a list or an association and still exists, for
     example a user removed from a group. For applications, use "Uninstall". When the deletion
     has consequences beyond the object itself, ask for confirmation first: see Delete confirmation
-    in the guidelines. In My Nethesis, which can archive objects instead of deleting them, the
-    permanent action is "Destroy".
+    in the guidelines. In My Nethesis, "Delete" is a soft delete: the object is kept, marked as
+    deleted, and can be restored; "Destroy" deletes it for good. "Archive" is avoided only as an action on an object: it
+    stays right for a file, such as a backup archive.
 
 - id: remove
   en: Remove
@@ -282,38 +283,29 @@
     it: [Elimina, Rimuovi]
   notes: 'Name the application: "Uninstall mail1".'
 
-- id: archive
-  en: Archive
-  it: Archivia
-  definition: Take an object out of use without destroying it, so that it can be restored, such as a user, a system or a company.
-  products: [my]
-  avoid:
-    en: [Deactivate, Trash, Move to trash]
-  notes: >-
-    Only in products that keep archived objects. Its opposite is "Restore". Archiving is not
-    needed before "Destroy", which deletes an object for good, archived or not.
-
 - id: restore
   en: Restore
   it: Ripristina
-  definition: Bring back something kept earlier, such as an archived object or the configuration saved in a backup.
+  definition: Bring back something kept earlier, such as a soft-deleted object (deleted but kept, as in My Nethesis) or the configuration saved in a backup.
   products: [all]
   avoid:
-    en: [Unarchive, Recover, Reactivate, Undelete]
+    en: [Recover, Reactivate, Undelete]
   notes: >-
     "Restore user" ("Ripristina utente"), "Restore backup" ("Ripristina backup"). For default
-    values, use "Reset". In My Nethesis, "Reactivate" undoes a suspension, not an archiving.
+    values, use "Reset". In My Nethesis, "Reactivate" undoes a suspension, not a deletion.
 
 - id: destroy
   en: Destroy
-  it: Elimina definitivamente
-  definition: Permanently delete an object, archived or not, which can no longer be restored.
+  it: Distruggi
+  definition: Permanently delete an object, also one already soft-deleted (deleted but kept so that it can be restored), which can then no longer be restored.
   products: [my]
   avoid:
     en: [Purge, Erase, Delete permanently, Permanently delete]
+    it: [Elimina, Elimina definitivamente, Cancella definitivamente]
   notes: >-
-    Only in products that can archive objects, where it takes the place of "Delete". In Italian, drop "definitivamente" when the object follows: "Destroy user"
-    ("Elimina utente").
+    Only in products where "Delete" is a soft delete, which keeps the object so that it can be
+    restored, today My Nethesis. Elsewhere, "Delete" is already permanent: use it instead.
+    "Destroy user" ("Distruggi utente"), "User destroyed" ("Utente distrutto").
 
 - id: suspend
   en: Suspend
@@ -332,7 +324,7 @@
   definition: Undo a suspension or a revocation, such as a suspended user or a revoked add-on, which works again.
   products: [my]
   notes: >-
-    For an archived object, use "Restore". In Italian, "Riattiva" also translates "Unmute", for
+    For a soft-deleted object, use "Restore". In Italian, "Riattiva" also translates "Unmute", for
     alerts.
 
 - id: assign

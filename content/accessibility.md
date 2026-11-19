@@ -15,11 +15,12 @@ your own markup or build with another stack.
   depends on the background behind it and can't be checked once for the token. Use a lighter Text
   token instead. Opacity is only for disabled controls (`disabled:opacity-50`), which WCAG doesn't
   require to meet a contrast ratio.
-- **An archived item is not disabled**, and neither is an item that is turned off, such as a
-  disabled rule. Its row still has actions, such as restore or destroy, and its text is still
-  read. Don't dim it with opacity: use the `Text/Tertiary neutral` token for its text and
-  `Icon/Tertiary neutral` for its icons, and say its status in the status column, such as
-  `Archived` with its icon.
+- **A soft-deleted item is not disabled**: an item that is deleted but kept, so that it can be
+  restored, as in My Nethesis, where only staff users see it. Neither is an item that is turned
+  off, such as a disabled rule. Its row still has actions, such as restore or destroy, and its
+  text is still read. Don't dim it with opacity: use the `Text/Tertiary neutral` token for its
+  text and `Icon/Tertiary neutral` for its icons, and say its status in the status column, such
+  as `Deleted` with its icon.
 - **The placeholder is not enough**: `Text/Placeholder` is lighter than the other Text tokens.
   Never put information only in a placeholder (see [Forms](?page=writing-guidelines#forms)).
 - **Color is never the only signal.** A status also has a text or an icon: a badge has a label, a
@@ -30,7 +31,7 @@ your own markup or build with another stack.
 | --- | --- | --- |
 | Less important text | `text-gray-600 dark:text-gray-400` | `text-gray-900/60`, `opacity-70` |
 | Status | A badge that says `Expired` | A red dot alone |
-| Archived row | `Text/Tertiary neutral`, with the `Archived` status | `opacity-50` |
+| Soft-deleted row | `Text/Tertiary neutral`, with the `Deleted` status | `opacity-50` |
 
 ## Keyboard and focus
 

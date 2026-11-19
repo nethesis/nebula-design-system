@@ -90,7 +90,7 @@ Start with a verb and name the object when the context is not obvious. Keep labe
 | Create user | New, OK, Yes |
 | Export to PDF | Confirm, Submit |
 
-Use the [glossary](?page=glossary) verbs: **Create** a new object, **Add** an existing one, **Edit**, **Delete** to destroy, **Remove** from a list, **Uninstall** an application.
+Use the [glossary](?page=glossary) verbs: **Create** a new object, **Add** an existing one, **Edit**, **Delete**, **Remove** from a list, **Uninstall** an application.
 
 Recurring actions:
 
@@ -223,11 +223,11 @@ From the [*Delete item modal* pattern](https://nethesis.github.io/vue-components
 - Buttons: `Delete` (danger) and `Cancel`.
 - When deletion has consequences beyond the object itself, for example it destroys data, removes many objects or breaks something that depends on it, ask the user to type the name: `Type 'Alice Fox' to confirm`. Don't ask it for routine deletions.
 
-### Archive and destroy confirmation
+### Delete and destroy confirmation
 
-In products that can archive objects as well as destroy them, such as My Nethesis (see [Archive](?page=glossary#term-archive) in the glossary):
+In products where "Delete" is a soft delete, such as My Nethesis, the deleted object is kept and can be restored, and "Destroy" deletes it for good, soft-deleted or not (see [Destroy](?page=glossary#term-destroy) in the glossary). Only staff users, of the owner organization, see the soft-deleted objects and the Restore and Destroy actions. For the other users, Delete is final.
 
-- Archive: title `Archive <object type>`. In the description, name the object, say what stops working and that it can be restored: `System Server01 will be archived. It will no longer receive updates, and you won't be able to request support for it. You can restore it later.` Buttons: `Archive` (primary) and `Cancel`. Archiving can be undone, so don't ask to type the name.
+- Delete (soft delete): for the user it is a deletion like any other, so follow Delete confirmation, including when to ask to type the name. The description says what stops working. Don't say that the object can be restored, and don't say that it is deleted permanently: `System Server01 will be deleted. It will no longer receive updates, and you won't be able to request support for it.`
 - Destroy: as in Delete confirmation, with the title `Destroy <object type>` and a `Destroy` (danger) button. Say that it cannot be undone: `Customer Acme will be permanently destroyed, with its users and systems. This cannot be undone.` Ask to type the name when it destroys other objects too.
 
 ## Notifications
