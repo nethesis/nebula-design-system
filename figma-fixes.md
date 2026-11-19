@@ -45,6 +45,9 @@ so that it agrees with this guide. Remove an item once it is done.
 - [ ] **Semantic colors** variables: 163 of the 251 tokens have no description, among them 52 of the
   56 `Icon` tokens, 30 of the 47 `Text` tokens and all the `Utility` tokens. The site and
   `colors.json` show the descriptions to designers and coding agents.
+- [ ] **Semantic colors** variables: the `Product Primary/<product>/Focus` tokens are shade 200 in
+  the dark theme, while vue-components and My Nethesis use shade 300
+  (`dark:focus:ring-primary-300`), as the site does. Change them to shade 300.
 - [ ] **Elevation and shadow** page: the variables include `Elevation/L4` (gray-300, dark gray-600),
   which the page does not show.
 - [ ] **Elevation and shadow** page, Shadow Dark table: the second shadow of sm, md, lg and xl is

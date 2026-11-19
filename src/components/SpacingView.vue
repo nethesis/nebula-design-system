@@ -129,7 +129,9 @@ import {
       In code, the primary palette is the palette of the product, so the same classes work in every
       product: <code>ring-2 ring-primary-500</code> for focus ring 1 and
       <code>ring-2 ring-primary-500 ring-offset-2</code> for focus ring 2, after the
-      <code>focus:</code> or <code>focus-visible:</code> prefix.
+      <code>focus:</code> or <code>focus-visible:</code> prefix. In the dark theme the ring takes
+      shade 300 (<code>dark:focus:ring-primary-300</code>), and the gap of focus ring 2 takes the
+      color of the background, such as <code>dark:focus:ring-offset-primary-950</code>.
     </p>
     <div class="table-frame">
       <table class="ds-table">

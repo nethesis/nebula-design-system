@@ -158,7 +158,7 @@ function foundations() {
       radii: RADII.map((radius) => ({ ...radius, rem: radius.px === 9999 ? null : rem(radius.px) })),
       borderWidths: BORDER_WIDTHS,
       focusRing: {
-        note: 'The focus ring shows which element has the keyboard focus. Focus ring 1 is a 2 px ring around the element; focus ring 2 leaves a 2 px gap between the element and the ring. In code, the primary palette is the palette of the product, so the classes are the same in every product: focus-visible:ring-2 focus-visible:ring-primary-500 for focus ring 1, plus focus-visible:ring-offset-2 for focus ring 2. On a status color, focus ring 2 uses the classes of that status. styles are the box-shadow values of the Figma effect styles.',
+        note: 'The focus ring shows which element has the keyboard focus. Focus ring 1 is a 2 px ring around the element; focus ring 2 leaves a 2 px gap between the element and the ring. In code, the primary palette is the palette of the product, so the classes are the same in every product: focus-visible:ring-2 focus-visible:ring-primary-500 for focus ring 1, plus focus-visible:ring-offset-2 for focus ring 2. In the dark theme the ring takes shade 300 (dark:focus-visible:ring-primary-300) and the gap the color of the background (dark:focus-visible:ring-offset-primary-950). On a status color, focus ring 2 uses the classes of that status. styles are the box-shadow values of the Figma effect styles.',
         styles: {
           'Focus ring/1': focusRing1('<ring color>'),
           'Focus ring/2': focusRing2('<ring color>', '<gap color, white by default>')
