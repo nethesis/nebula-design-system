@@ -24,7 +24,7 @@ jobs:
       # data and the files for coding agents work
       - run: npm test
       - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         if: github.event_name == 'push'
         with:
           path: dist
