@@ -27,7 +27,7 @@
 #   meaning: Delete
 #   icon: trash
 #   category: actions
-#   use: Permanently destroy an object.
+#   use: Delete an object.
 #   notFor: Taking an object out of a list.
 #   glossary: [delete]
 
@@ -62,9 +62,19 @@
   meaning: Delete
   icon: trash
   category: actions
-  use: Permanently destroy an object.
+  use: Delete an object.
   notFor: Taking an object out of a list or an association.
   glossary: [delete]
+
+- id: destroy
+  meaning: Destroy
+  icon: bomb
+  category: actions
+  use: >-
+    Delete an object for good, in products where Delete is a soft delete that keeps the object
+    so that it can be restored, such as My Nethesis.
+  notFor: A Delete that is already permanent, which uses trash.
+  glossary: [destroy]
 
 - id: remove
   meaning: Remove
@@ -116,10 +126,19 @@
   use: Export data to a PDF file.
 
 - id: refresh
-  meaning: Refresh
+  meaning: Refresh data
   icon: arrows-rotate
   category: actions
-  use: Load the data of a page or a list again.
+  use: Get the latest data of a table, a list or a widget.
+  glossary: [refresh]
+  avoid: [rotate, arrow-rotate-right]
+
+- id: reload
+  meaning: Reload page
+  icon: arrows-rotate
+  category: actions
+  use: Load the whole page again, for example after a network error.
+  glossary: [reload]
   avoid: [rotate, arrow-rotate-right]
 
 - id: update
@@ -134,10 +153,10 @@
   icon: arrow-rotate-left
   category: actions
   use: >-
-    Bring back a previous state, such as a backup, or the default values, such as a factory
-    reset.
+    Bring back a previous state, such as a backup or a soft-deleted object, or the default values,
+    such as a factory reset.
   avoid: [rotate-left]
-  glossary: [reset]
+  glossary: [restore, reset]
 
 - id: save
   meaning: Save
@@ -166,12 +185,6 @@
   category: actions
   use: Revoke or block access, such as an API key or an add-on.
   notFor: The disabled status.
-
-- id: archive
-  meaning: Archive
-  icon: box-archive
-  category: actions
-  use: Move an object to the archive, from where it can be restored.
 
 - id: suspend
   meaning: Suspend
@@ -282,8 +295,18 @@
   meaning: Help
   icon: circle-question
   category: interface
-  use: Open help, or a tooltip with more information about a field.
+  use: The button of the top bar that opens the product documentation.
+  notFor: A tooltip with more information, which uses circle-info.
   avoid: [question]
+
+- id: more-information
+  meaning: More information
+  icon: circle-info
+  category: interface
+  use: >-
+    Show a tooltip with more information, often next to the label of a field or of another
+    component, as in NeTooltip.
+  avoid: [circle-question, question]
 
 - id: show-password
   meaning: Show password
@@ -366,6 +389,7 @@
   use: The status of an enabled feature or object.
   avoid: [check]
   glossary: [enable]
+  notes: In a badge, check, because circle icons are not used in badges.
 
 - id: disabled
   meaning: Disabled
@@ -374,6 +398,7 @@
   use: The status of a disabled feature or object.
   avoid: [xmark, ban]
   glossary: [disable]
+  notes: In a badge, xmark, because circle icons are not used in badges.
 
 # Sidebar sections: the Light icon when the section is not active, the Solid
 # icon when it is.

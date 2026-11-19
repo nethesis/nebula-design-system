@@ -45,11 +45,17 @@ so that it agrees with this guide. Remove an item once it is done.
 - [ ] **Semantic colors** variables: 163 of the 251 tokens have no description, among them 52 of the
   56 `Icon` tokens, 30 of the 47 `Text` tokens and all the `Utility` tokens. The site and
   `colors.json` show the descriptions to designers and coding agents.
+- [ ] **Semantic colors** variables: the `Product Primary/<product>/Focus` tokens are shade 200 in
+  the dark theme, while vue-components and My Nethesis use shade 300
+  (`dark:focus:ring-primary-300`), as the site does. Change them to shade 300.
 - [ ] **Elevation and shadow** page: the variables include `Elevation/L4` (gray-300, dark gray-600),
   which the page does not show.
 - [ ] **Elevation and shadow** page, Shadow Dark table: the second shadow of sm, md, lg and xl is
   written `#374151` (gray-700), while the `Shadow dark/*` effect styles use `#4B5563` (gray-600)
   for both shadows, as the site does.
+- [ ] **Inline notification** page: "Keep titles concise (max one line)" and "Use concise titles
+  and optional descriptions with one sentence" set fixed limits. The guide asks only for a short
+  title, with the details in the description, which can take more than one sentence.
 
 ## Contrast
 
@@ -65,6 +71,17 @@ and card backgrounds (`Elevation/L1` and `Elevation/L0`):
   (4.8:1) would reach it; in the dark theme Gray/400 (7.9:1) is already `Text/Tertiary neutral`,
   so the placeholder would look like real text. To decide with the designer. vue-components uses
   `placeholder:text-gray-400 dark:placeholder:text-gray-500` and would change too.
+
+## Icons to correct
+
+- [ ] **Badge** page: the badges use `circle-check` (7) and `circle-xmark` (4). The guide does not
+  use the `circle-*` icons inside a badge: `check` and `xmark` instead.
+
+## Sizes to correct
+
+- [ ] **Main sidebar** page, *Main sidebar + labels*: the sidebar is 300 px wide and its labels
+  16 px. The guide (Layout, *App shell*) and the products use 288 px (`w-72`) and 14 px labels
+  (`text-sm`).
 
 ## To complete or remove
 

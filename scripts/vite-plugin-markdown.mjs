@@ -18,7 +18,12 @@
 //
 // Tables get the look of the other tables of the site (ds-table in a
 // table-frame), and those whose header is "Do | Don't" also the do-dont class,
-// styled with check and cross marks.
+// styled with check and cross marks. A "Where | Do | Don't" table also gets
+// the with-where class: its first column says where the examples apply.
+//
+// A code block of the language "example" holds only the name of an example,
+// such as card-actions: it becomes an empty element with that name, where the
+// Vue component of the page shows the example built with real components.
 //
 // Imported with ?search (content/page.md?search), a page is instead a list of
 // its sections in plain text, for the search of the site.
@@ -59,8 +64,8 @@ const ALLOWED = {
   del: {},
   code: { class: /^language-[a-z0-9-]+$/ },
   pre: {},
-  div: { class: /^table-frame$/ },
-  table: { class: /^ds-table( do-dont)?$/ },
+  div: { class: /^(table-frame|example)$/, 'data-example': /^[a-z0-9-]+$/ },
+  table: { class: /^ds-table( do-dont( with-where)?)?$/ },
   thead: {},
   tbody: {},
   tr: {},
@@ -101,10 +106,19 @@ export function renderMarkdown(markdown, filename = 'page.md') {
       }
     },
     renderer: {
+      code(token) {
+        if (token.lang !== 'example') return false
+        const name = token.text.trim()
+        if (!/^[a-z0-9-]+$/.test(name)) errors.push(`bad example name: ${name}`)
+        return `<div class="example" data-example="${escape(name)}"></div>\n`
+      },
       table(token) {
         const html = Renderer.prototype.table.call(this, token)
         const header = token.header.map((cell) => plainText(cell.tokens))
-        const classes = header.join('|') === "Do|Don't" ? 'ds-table do-dont' : 'ds-table'
+        const classes = {
+          "Do|Don't": 'ds-table do-dont',
+          "Where|Do|Don't": 'ds-table do-dont with-where'
+        }[header.join('|')] ?? 'ds-table'
         return `<div class="table-frame">${html.replace(/^<table>/, `<table class="${classes}">`)}</div>\n`
       },
       heading({ tokens, depth }) {
@@ -163,6 +177,7 @@ const sectionText = (token) => {
     return [...token.header, ...token.rows.flat()].map((cell) => plainText(cell.tokens)).join(' ')
   }
   if (token.type === 'space' || token.type === 'hr') return ''
+  if (token.type === 'code' && token.lang === 'example') return ''
   return token.tokens ? plainText(token.tokens) : (token.text ?? '')
 }
 const blockText = (tokens) => tokens.map(sectionText).join(' ')

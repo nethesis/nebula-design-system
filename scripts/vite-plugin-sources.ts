@@ -10,6 +10,8 @@
 //   writing-guidelines.md  the writing guidelines, as markdown
 //   introduction.md        the introduction, as markdown
 //   accessibility.md       the accessibility rules, as markdown
+//   loading-and-errors.md  the loading, error and empty states, as markdown
+//   layout.md              where the parts of a page go, as markdown
 //   glossary.json          the glossary
 //   icons.json             which icon to use for each meaning
 //   colors.json            the color tokens, with their Tailwind classes
@@ -89,14 +91,19 @@ export const PAGE_FILES: Record<string, string> = {
   iconography: 'icons.json',
   'spacing-and-border': 'foundations.json',
   'elevation-and-shadow': 'foundations.json',
-  accessibility: 'accessibility.md'
+  accessibility: 'accessibility.md',
+  'loading-and-errors': 'loading-and-errors.md',
+  layout: 'layout.md'
 }
 
+// the examples of the site are not in the published markdown
 const markdown = (path: string) =>
-  file(path).replace(/\]\(\?page=([a-z-]+)(#[a-z0-9-]+)?\)/g, (_, id: string, anchor = '') => {
-    if (!PAGE_FILES[id]) throw new Error(`${path}: no published file for ?page=${id}`)
-    return `](${PAGE_FILES[id]}${anchor})`
-  })
+  file(path)
+    .replace(/```example\n[a-z0-9-]+\n```\n\n?/g, '')
+    .replace(/\]\(\?page=([a-z-]+)(#[a-z0-9-]+)?\)/g, (_, id: string, anchor = '') => {
+      if (!PAGE_FILES[id]) throw new Error(`${path}: no published file for ?page=${id}`)
+      return `](${PAGE_FILES[id]}${anchor})`
+    })
 
 // a CSS rem value, such as 0.125rem
 const rem = (px: number) => `${px / 16}rem`
@@ -105,7 +112,7 @@ function colors() {
   return {
     source: page('colors'),
     exportedAt: EXPORTED_AT,
-    note: 'Use these semantic tokens, not the colors of the palettes. light and dark are the values of a token in the two themes; tailwind is the Tailwind color to use in code. In code, the primary palette is the palette of the product, so the Product Primary and product link tokens use primary-* colors. classes are the Tailwind classes for both themes; they are null when the utility depends on the component (text, background, border…) or when a value has no Tailwind color: then build them from the two tailwind colors, as in text-primary-700 dark:text-primary-500. link is the token in the Colors page, to cite in reviews.',
+    note: 'Use these semantic tokens, not the colors of the palettes. light and dark are the values of a token in the two themes; tailwind is the Tailwind color to use in code. In code, the primary palette is the palette of the product, so the Product Primary and product link tokens use primary-* colors. Text in the primary color looks like a link: use it only for text that does something when clicked. classes are the Tailwind classes for both themes; they are null when the utility depends on the component (text, background, border…) or when a value has no Tailwind color: then build them from the two tailwind colors, as in text-primary-700 dark:text-primary-500. link is the token in the Colors page, to cite in reviews.',
     groups: GROUPS.map((group) => ({
       ...group,
       link: page('colors', groupAnchor(group.name)),
@@ -151,7 +158,7 @@ function foundations() {
       radii: RADII.map((radius) => ({ ...radius, rem: radius.px === 9999 ? null : rem(radius.px) })),
       borderWidths: BORDER_WIDTHS,
       focusRing: {
-        note: 'The focus ring shows which element has the keyboard focus. Focus ring 1 is a 2 px ring around the element; focus ring 2 leaves a 2 px gap between the element and the ring. In code, the primary palette is the palette of the product, so the classes are the same in every product: focus-visible:ring-2 focus-visible:ring-primary-500 for focus ring 1, plus focus-visible:ring-offset-2 for focus ring 2. On a status color, focus ring 2 uses the classes of that status. styles are the box-shadow values of the Figma effect styles.',
+        note: 'The focus ring shows which element has the keyboard focus. Focus ring 1 is a 2 px ring around the element; focus ring 2 leaves a 2 px gap between the element and the ring. In code, the primary palette is the palette of the product, so the classes are the same in every product: focus-visible:ring-2 focus-visible:ring-primary-500 for focus ring 1, plus focus-visible:ring-offset-2 for focus ring 2. In the dark theme the ring takes shade 300 (dark:focus-visible:ring-primary-300) and the gap the color of the background (dark:focus-visible:ring-offset-primary-950). On a status color, focus ring 2 uses the classes of that status. styles are the box-shadow values of the Figma effect styles.',
         styles: {
           'Focus ring/1': focusRing1('<ring color>'),
           'Focus ring/2': focusRing2('<ring color>', '<gap color, white by default>')
@@ -195,7 +202,7 @@ function icons() {
       .sort()
   return {
     source: page('iconography', 'icon-meanings'),
-    note: 'Use the same icon for the same meaning in every product; NethServer 8 modules, which follow the Carbon Design System, are excluded. icon is the kebab-case name: import it as fa + PascalCase (circle-plus: faCirclePlus) from the package of its pack, and pass the imported object to FontAwesomeIcon. Sidebar entries use the ns-light icon for the inactive section and the solid one for the active section. avoid lists the Font Awesome Solid icons not to use for that meaning. products lists the products that use the entry; without it, the entry applies to every product. glossary lists the terms of the glossary for the actions and objects of the entry. link is the entry in the Iconography page, to cite in reviews. When a meaning is missing, choose a Font Awesome Solid icon that no other meaning uses. Do not use the custom icons listed in customIconsWithoutMeaning: they have no agreed meaning yet.',
+    note: 'Use the same icon for the same meaning in every product; NethServer 8 modules, which follow the Carbon Design System, are excluded. icon is the kebab-case name: import it as fa + PascalCase (circle-plus: faCirclePlus) from the package of its pack, and pass the imported object to FontAwesomeIcon. Sidebar entries use the ns-light icon for the inactive section and the solid one for the active section. avoid lists the Font Awesome Solid icons not to use for that meaning. products lists the products that use the entry; without it, the entry applies to every product. glossary lists the terms of the glossary for the actions and objects of the entry. link is the entry in the Iconography page, to cite in reviews. When a meaning is missing, choose a Font Awesome Solid icon that no other meaning uses. Do not use the custom icons listed in customIconsWithoutMeaning: they have no agreed meaning yet. Inside a badge, do not use the circle-* icons: use the same icon without the circle, such as check instead of circle-check.',
     packs: Object.fromEntries(
       ICON_PACKAGES.map(({ pack, name }) => [pack, { label: ICON_PACK_LABELS[pack], package: name }])
     ),
@@ -234,10 +241,12 @@ The pages of the site (${SITE}) are built in the browser. Read these files inste
 
 ## Rules
 
-- [Writing guidelines](writing-guidelines.md): how to write interface text, from voice and tone to buttons, forms, empty states, modals and notifications
+- [Writing guidelines](writing-guidelines.md): how to write interface text, from voice and tone to buttons, forms, empty states, modals and notifications, and text ready for translation (parameters, links to other labels)
 - [Glossary](glossary.json): approved terms, Italian translations and terms to avoid
 - [Icons](icons.json): which icon to use for each meaning, and the icons to avoid
 - [Accessibility](accessibility.md): the choices Nebula makes to meet WCAG, for contrast, color, keyboard, focus and screen readers
+- [Loading and errors](loading-and-errors.md): how a page shows loading, errors, empty lists and the state of an action
+- [Layout](layout.md): where the parts of a page go: the app shell with the side menu and the top bar, the page header, the buttons of cards and dialogs, forms in a page, small screens, toasts
 
 ## Components
 
@@ -259,6 +268,8 @@ export const SOURCES: Record<string, () => string> = {
   'writing-guidelines.md': () => markdown('content/writing-guidelines.md'),
   'introduction.md': () => markdown('content/introduction.md'),
   'accessibility.md': () => markdown('content/accessibility.md'),
+  'loading-and-errors.md': () => markdown('content/loading-and-errors.md'),
+  'layout.md': () => markdown('content/layout.md'),
   'glossary.json': () => json(glossary(), 2),
   'icons.json': () => json(icons(), 2),
   'colors.json': () => json(colors(), 4),

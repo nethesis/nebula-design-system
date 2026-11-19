@@ -46,10 +46,10 @@ Use sentence case everywhere: page titles, buttons, labels, tabs, menu items, ta
 
 When a sentence names a specific page, menu item or tab, write it exactly as it appears in the user interface. When the same word is used as a common noun, write it in lowercase.
 
-| Do | Don't |
-| --- | --- |
-| Go to Dashboard | Go to dashboard |
-| The dashboard shows the cluster status | The Dashboard shows the cluster status |
+| Where | Do | Don't |
+| --- | --- | --- |
+| Name of a page | Go to Dashboard | Go to dashboard |
+| Common noun | The dashboard shows the cluster status | The Dashboard shows the cluster status |
 
 ## Punctuation
 
@@ -90,7 +90,7 @@ Start with a verb and name the object when the context is not obvious. Keep labe
 | Create user | New, OK, Yes |
 | Export to PDF | Confirm, Submit |
 
-Use the [glossary](?page=glossary) verbs: **Create** a new object, **Add** an existing one, **Edit**, **Delete** to destroy, **Remove** from a list, **Uninstall** an application.
+Use the [glossary](?page=glossary) verbs: **Create** a new object, **Add** an existing one, **Edit**, **Delete**, **Remove** from a list, **Uninstall** an application.
 
 Recurring actions:
 
@@ -110,15 +110,17 @@ For links and buttons that take the user somewhere else:
 
 A label is usually a verb and an object, but a few labels are shorter because the context already makes the action clear.
 
-- **Save** (`Salva`) confirms an edit drawer. The title already names the action and the object, so the button doesn't repeat them: the drawer `Edit user` ends with `Save`. The drawer `Create user` follows the rule and ends with `Create user`.
+- **The button that confirms a drawer or a modal** repeats only the verb of the title, because the title already names the object: the drawer `Create user` ends with `Create` (`Crea`), the modal `Delete user` with `Delete` (`Elimina`). An edit drawer ends with **Save** (`Salva`): the drawer `Edit user` ends with `Save`.
 - **Details** (`Dettagli`), with the eye icon, opens the page of the object from a table row or a card. The row or the card already shows which object it is. Add the object name for screen readers, after the visible label: "Details Alice Fox". Use `Show details` only for content that opens in place.
 - **Actions in the dropdown menu of a row or a card** omit the object, because the menu belongs to that row or card: `Edit` (`Modifica`), `Delete` (`Elimina`). The confirmation that follows names the object, as in the title `Delete user`.
 
-| Do | Don't |
-| --- | --- |
-| Save (edit drawer) | Edit user, Save changes |
-| Details | View, See details, View details |
-| Edit, Delete (dropdown menu) | Edit user, Delete user |
+| Where | Do | Don't |
+| --- | --- | --- |
+| Drawer *Create user* | Create | Create user |
+| Modal *Delete user* | Delete | Delete user |
+| Drawer *Edit user* | Save | Edit user, Save changes |
+| Row or card | Details | View, See details, View details |
+| Menu of a row or a card | Edit, Delete | Edit user, Delete user |
 
 Icon buttons need a tooltip, and screen readers read the same text. Describe the action, not the icon: a short verb phrase, naming the item when the context doesn't, with no final period.
 
@@ -134,14 +136,15 @@ From the [*New password form*](https://nethesis.github.io/vue-components/?path=/
 - **Labels** are nouns that name the information or setting, not the way to enter it: `Username`, `Language`, `Admin password`. Use the same terms as the table columns and the detail views. A label can be a short instruction when a noun would be unclear, as in `Confirm new password`.
 - **Helper text** says why the information is needed, how it is used or which format is expected. Don't repeat the label, and show the requirements before an error happens. Keep it true both when the field is empty and when it is filled.
 - **Placeholders** show an example or the expected format (`e.g. name@example.com`), or say briefly what to do (`Filter users`). Never use a placeholder instead of a label, and don't repeat the label.
-- **Validation messages** say what is wrong and, when useful, how to fix it. Prefer an instruction (`Enter a valid email address`); when no instruction fits, state the problem neutrally (`Passwords do not match`). Don't blame users, and don't use `Invalid value` when the requirement is known.
+- **Validation messages** are either a simple instruction that says how to fix the value (`Enter a valid email address`) or a clear statement of what is wrong, without an imperative (`This name is already in use`, `Passwords do not match`). Don't blame users, and don't use `Invalid value` when the requirement is known. After a failed validation, the focus moves to the first invalid field: see [Accessibility](?page=accessibility#keyboard-and-focus).
 - Mark optional fields, not required ones. When a required field is empty, say `Required`, or give a positive instruction that names what is missing: `Enter a username`, `Select a language`, `Enter an integer number`.
 
 Validation messages:
 
 | Do | Don't |
 | --- | --- |
-| Enter a valid email address | Email address is not valid |
+| Enter a valid email address | Wrong input |
+| This name is already in use | Name conflict |
 | Password must contain at least 8 characters | Invalid value |
 | Passwords do not match | You entered two different passwords |
 
@@ -151,7 +154,7 @@ From the [*Table page* pattern](https://nethesis.github.io/vue-components/?path=
 
 - Title: the name of the page in the menu, so users recognize where they are. For a list, it is usually the plural object (`Users`).
 - Description: one sentence that says what the page shows or is for. For a list, a good pattern is `List of <objects>, including <main attributes>.`
-- Primary action: `Create <object>`, on the right of the title, or of the description when there is no title. On small screens it goes after the description. When there is no description, it goes on the right of the table toolbar, or above it on small screens. When there are no objects yet, it goes only in the empty state.
+- Primary action: `Create <object>`. Where it goes is in [Layout](?page=layout#page-header).
 - Text filter placeholder: `Filter <objects>`.
 
 ## Table filters
@@ -171,15 +174,15 @@ From the [*Table page* pattern](https://nethesis.github.io/vue-components/?path=
 
 The label of a dropdown filter names the data category, with a noun and the same term used in the table. Keep its options parallel in grammar and level of detail.
 
-| Do | Don't |
-| --- | --- |
-| Reset filters (for a table with several filters) | Clear filters |
-| Reset selection (inside a dropdown filter with something selected by default) | Clear selection |
-| Clear selection (inside a dropdown filter with nothing selected by default) | Reset selection |
-| Clear filter (for a table with only a text filter) | Reset filters |
-| Clear filter (for a collection with only a text filter) | Clear filters |
-| Company | Filter by company |
-| Status | Select status |
+| Where | Do | Don't |
+| --- | --- | --- |
+| Table with several filters | Reset filters | Clear filters |
+| Dropdown filter with something selected by default | Reset selection | Clear selection |
+| Dropdown filter with nothing selected by default | Clear selection | Reset selection |
+| Table with only a text filter | Clear filter | Reset filters |
+| Collection with only a text filter | Clear filter | Clear filters |
+| Label of a dropdown filter | Company | Filter by company |
+| Label of a dropdown filter | Status | Select status |
 
 ## Empty states
 
@@ -220,11 +223,11 @@ From the [*Delete item modal* pattern](https://nethesis.github.io/vue-components
 - Buttons: `Delete` (danger) and `Cancel`.
 - When deletion has consequences beyond the object itself, for example it destroys data, removes many objects or breaks something that depends on it, ask the user to type the name: `Type 'Alice Fox' to confirm`. Don't ask it for routine deletions.
 
-### Archive and destroy confirmation
+### Delete and destroy confirmation
 
-In products that archive objects before destroying them, such as My Nethesis (see [Archive](?page=glossary#term-archive) in the glossary):
+In products where "Delete" is a soft delete, such as My Nethesis, the deleted object is kept and can be restored, and "Destroy" deletes it for good, soft-deleted or not (see [Destroy](?page=glossary#term-destroy) in the glossary). Only staff users, of the owner organization, see the soft-deleted objects and the Restore and Destroy actions. For the other users, Delete is final.
 
-- Archive: title `Archive <object type>`. In the description, name the object, say what stops working and that it can be restored: `System Server01 will be archived. It will no longer receive updates, and you won't be able to request support for it. You can restore it later.` Buttons: `Archive` (primary) and `Cancel`. Archiving can be undone, so don't ask to type the name.
+- Delete (soft delete): for the user it is a deletion like any other, so follow Delete confirmation, including when to ask to type the name. The description says what stops working. Don't say that the object can be restored, and don't say that it is deleted permanently: `System Server01 will be deleted. It will no longer receive updates, and you won't be able to request support for it.`
 - Destroy: as in Delete confirmation, with the title `Destroy <object type>` and a `Destroy` (danger) button. Say that it cannot be undone: `Customer Acme will be permanently destroyed, with its users and systems. This cannot be undone.` Ask to type the name when it destroys other objects too.
 
 ## Notifications
@@ -258,13 +261,27 @@ From the [*Success toast notification* pattern](https://nethesis.github.io/vue-c
 
 ### Inline notifications
 
-Keep the title on one line and the description to one sentence. Say clearly what to do when the notification reports a problem or a required step.
+Keep the title short, and give the details in the description. Say clearly what to do when the notification reports a problem or a required step.
 
 ## Numbers, dates and units
 
 - Format numbers and dates for the user's language.
 - Put a space between a number and its unit: `10 GB`, `30 s`.
 - Use the 24-hour clock in Italian.
+
+## Text for translation
+
+Every text of the interface is translated. Write it so that translators can work on it, and so that a change in the code or in a label doesn't require changing the translations.
+
+- **Put values in parameters.** A value that is not text to translate, such as a number, a size, a minimum length, a name or an address, goes in the text as a parameter, never written into it: `Password must contain at least {min} characters`. Translators can't change or mistype the value, and when it changes in the code, no translation has to change.
+- **Link the labels you name.** A text that names another element of the interface, such as a button, a menu item, a filter or a page, links that element's label instead of repeating its words. When the label changes, every text that names it changes too, in every language. Link the label as the interface shows it, without changing its case (see [Capitalization](#capitalization)).
+- **Keep parameters and links in the translation.** Translate the text around them, and don't translate, rename or remove a parameter or a link.
+
+| Do | Don't |
+| --- | --- |
+| Password must contain at least {min} characters | Password must contain at least 8 characters |
+| Then choose *Change manager* again (with *Change manager* linked to the button's label) | Then choose Change manager again (with the label copied) |
+| La password deve contenere almeno {min} caratteri | La password deve contenere almeno {minimo} caratteri |
 
 ## Italian translation
 

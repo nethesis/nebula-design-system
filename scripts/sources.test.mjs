@@ -56,7 +56,9 @@ const ANCHORS = {
   typography: { anchors: [] },
   'spacing-and-border': { anchors: [] },
   'elevation-and-shadow': { anchors: [] },
-  accessibility: { anchors: headings('content/accessibility.md') }
+  accessibility: { anchors: headings('content/accessibility.md') },
+  'loading-and-errors': { anchors: headings('content/loading-and-errors.md') },
+  layout: { anchors: headings('content/layout.md') }
 }
 
 test('every page has a published file and its anchors', () => {

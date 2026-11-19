@@ -176,6 +176,20 @@
 </tig>
 </langSet>
 </termEntry>
+<termEntry id="renewal">
+<descrip>The extension of an add-on for a new period, when the current one ends.</descrip>
+<descrip type="Usage note">&quot;Valid until 31/12/2027, renewal continues&quot; (&quot;Valido fino al 31/12/2027, il rinnovo continua&quot;).</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Renewal</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Rinnovo</term>
+</tig>
+</langSet>
+</termEntry>
 <termEntry id="tier">
 <descrip>The size of an add-on sold by size, that is how many devices or applications it covers.</descrip>
 <descrip type="Usage note">A system that goes beyond its tier is &quot;Over the tier&quot; (&quot;Oltre la fascia&quot;). For the level of a subscription, such as Community or Enterprise, use &quot;Plan&quot; (&quot;Piano&quot;).</descrip>
@@ -236,6 +250,72 @@
 <langSet xml:lang="it">
 <tig>
 <term>Organizzazione</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="distributor">
+<descrip>The first level of the companies in My Nethesis, which manages resellers and customers.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Distributor</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Distributore</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="reseller">
+<descrip>The second level of the companies in My Nethesis, managed by a distributor, which manages its customers.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Reseller</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Rivenditore</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="customer">
+<descrip>The last level of the companies in My Nethesis, managed by a reseller or a distributor.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Customer</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Cliente</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="manager">
+<descrip>The distributor or the reseller that manages a reseller or a customer in My Nethesis.</descrip>
+<descrip type="Usage note">&quot;Managed by&quot; (&quot;Gestito da&quot;), &quot;Change manager&quot; (&quot;Cambia gestore&quot;). &quot;Owner&quot; is another concept: the owner company, at the top of the hierarchy.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Manager</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Gestore</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="manager--forbidden-azienda-madre">
+<langSet xml:lang="en">
+<tig>
+<term>Manager</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Azienda madre</term>
 </tig>
 </langSet>
 </termEntry>
@@ -352,9 +432,45 @@
 </tig>
 </langSet>
 </termEntry>
+<termEntry id="feed">
+<descrip>A list kept up to date by its provider, such as a blocklist of malicious IP addresses, that a security service downloads regularly.</descrip>
+<descrip type="Usage note">Example: &quot;Blocklist feed&quot;, &quot;Threat Intelligence Feed&quot;. &quot;Source&quot; is right for the source of traffic, such as a source address or a source zone, or of a backup. The Italian plural does not change: &quot;i feed&quot;.</descrip>
+<descrip type="Translation needed">No</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Feed</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="feed--forbidden-sorgente">
+<langSet xml:lang="en">
+<tig>
+<term>Feed</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Sorgente</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="feed--forbidden-sorgente-blocklist">
+<langSet xml:lang="en">
+<tig>
+<term>Feed</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Sorgente blocklist</term>
+</tig>
+</langSet>
+</termEntry>
 <termEntry id="create">
 <descrip>Make a new object that did not exist before, such as a user, a group or a firewall rule.</descrip>
-<descrip type="Usage note">Name the object: &quot;Create user&quot;. Use &quot;Add&quot; when the object already exists and is only associated with another one.</descrip>
+<descrip type="Usage note">Name the object in the button that starts the action: &quot;Create user&quot;. The button that confirms it, at the end of the drawer, is only &quot;Create&quot;. Use &quot;Add&quot; when the object already exists and is only associated with another one.</descrip>
 <langSet xml:lang="en">
 <tig>
 <term>Create</term>
@@ -435,8 +551,8 @@
 </langSet>
 </termEntry>
 <termEntry id="delete">
-<descrip>Permanently destroy an object, such as a contact, a firewall rule or a user.</descrip>
-<descrip type="Usage note">Use &quot;Remove&quot; when the object only leaves a list or an association and still exists, for example a user removed from a group. For applications, use &quot;Uninstall&quot;. When the deletion has consequences beyond the object itself, ask for confirmation first: see Delete confirmation in the guidelines. In My Nethesis, which archives objects before deleting them, the permanent action is &quot;Destroy&quot;.</descrip>
+<descrip>Delete an object, such as a contact, a firewall rule or a user.</descrip>
+<descrip type="Usage note">Use &quot;Remove&quot; when the object only leaves a list or an association and still exists, for example a user removed from a group. For applications, use &quot;Uninstall&quot;. When the deletion has consequences beyond the object itself, ask for confirmation first: see Delete confirmation in the guidelines. In My Nethesis, &quot;Delete&quot; is a soft delete: the object is kept, marked as deleted, and can be restored; &quot;Destroy&quot; deletes it for good. &quot;Archive&quot; is avoided only as an action on an object: it stays right for a file, such as a backup archive.</descrip>
 <langSet xml:lang="en">
 <tig>
 <term>Delete</term>
@@ -471,6 +587,19 @@
 <langSet xml:lang="it">
 <tig>
 <term>Rimuovi</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="delete--forbidden-archivia">
+<langSet xml:lang="en">
+<tig>
+<term>Delete</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Archivia</term>
 </tig>
 </langSet>
 </termEntry>
@@ -541,23 +670,9 @@
 </tig>
 </langSet>
 </termEntry>
-<termEntry id="archive">
-<descrip>Take an object out of use without destroying it, so that it can be restored, such as a user, a system or a company.</descrip>
-<descrip type="Usage note">Only in products that keep archived objects. Its opposite is &quot;Restore&quot;; the action that removes an archived object for good is &quot;Destroy&quot;.</descrip>
-<langSet xml:lang="en">
-<tig>
-<term>Archive</term>
-</tig>
-</langSet>
-<langSet xml:lang="it">
-<tig>
-<term>Archivia</term>
-</tig>
-</langSet>
-</termEntry>
 <termEntry id="restore">
-<descrip>Bring back something kept earlier, such as an archived object or the configuration saved in a backup.</descrip>
-<descrip type="Usage note">&quot;Restore user&quot; (&quot;Ripristina utente&quot;), &quot;Restore backup&quot; (&quot;Ripristina backup&quot;). For default values, use &quot;Reset&quot;.</descrip>
+<descrip>Bring back something kept earlier, such as a soft-deleted object (deleted but kept, as in My Nethesis) or the configuration saved in a backup.</descrip>
+<descrip type="Usage note">&quot;Restore user&quot; (&quot;Ripristina utente&quot;), &quot;Restore backup&quot; (&quot;Ripristina backup&quot;). For default values, use &quot;Reset&quot;. In My Nethesis, &quot;Reactivate&quot; undoes a suspension, not a deletion.</descrip>
 <langSet xml:lang="en">
 <tig>
 <term>Restore</term>
@@ -570,8 +685,8 @@
 </langSet>
 </termEntry>
 <termEntry id="destroy">
-<descrip>Permanently delete an archived object, which can no longer be restored.</descrip>
-<descrip type="Usage note">Only in products that archive objects before deleting them, where it takes the place of &quot;Delete&quot;. In Italian, drop &quot;definitivamente&quot; when the object follows: &quot;Destroy user&quot; (&quot;Elimina utente&quot;).</descrip>
+<descrip>Permanently delete an object, also one already soft-deleted (deleted but kept so that it can be restored), which can then no longer be restored.</descrip>
+<descrip type="Usage note">Only in products where &quot;Delete&quot; is a soft delete, which keeps the object so that it can be restored, today My Nethesis. Elsewhere, &quot;Delete&quot; is already permanent: use it instead. &quot;Destroy user&quot; (&quot;Distruggi utente&quot;), &quot;User destroyed&quot; (&quot;Utente distrutto&quot;).</descrip>
 <langSet xml:lang="en">
 <tig>
 <term>Destroy</term>
@@ -579,7 +694,141 @@
 </langSet>
 <langSet xml:lang="it">
 <tig>
+<term>Distruggi</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="destroy--forbidden-elimina">
+<langSet xml:lang="en">
+<tig>
+<term>Destroy</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Elimina</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="destroy--forbidden-elimina-definitivamente">
+<langSet xml:lang="en">
+<tig>
+<term>Destroy</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
 <term>Elimina definitivamente</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="destroy--forbidden-cancella-definitivamente">
+<langSet xml:lang="en">
+<tig>
+<term>Destroy</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Cancella definitivamente</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="suspend">
+<descrip>Block a company, a user or a system until it is reactivated: a suspended user cannot sign in, a suspended system gets no updates or support.</descrip>
+<descrip type="Usage note">Suspending a company also suspends its users and systems. The resulting state is &quot;Suspended&quot; (&quot;Sospeso&quot;). To undo it, use &quot;Reactivate&quot;.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Suspend</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Sospendi</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="reactivate">
+<descrip>Undo a suspension or a revocation, such as a suspended user or a revoked add-on, which works again.</descrip>
+<descrip type="Usage note">For a soft-deleted object, use &quot;Restore&quot;. In Italian, &quot;Riattiva&quot; also translates &quot;Unmute&quot;, for alerts.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Reactivate</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Riattiva</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="assign">
+<descrip>Give an object to a user, a company or an application, such as an alert to a user or a license of an add-on to an application.</descrip>
+<descrip type="Usage note">The resulting state is &quot;Assigned&quot; (&quot;Assegnato&quot;), and &quot;Unassigned&quot; (&quot;Non assegnato&quot;) when there is none. To undo it, use &quot;Release&quot;.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Assign</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Assegna</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="assign--forbidden-attribuisci">
+<langSet xml:lang="en">
+<tig>
+<term>Assign</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Attribuisci</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="release">
+<descrip>Undo an assignment, such as an alert taken by a user or a license of an add-on given to an application, which becomes available again.</descrip>
+<descrip type="Usage note">In English, &quot;Free&quot; reads as &quot;free of charge&quot;: &quot;Release license&quot;, not &quot;Free license&quot;. &quot;Free&quot; stays right in other meanings, such as free disk space. In Italian, a license is &quot;Libera licenza&quot;, because &quot;rilasciare una licenza&quot; means granting one. The state &quot;Unassigned&quot; is fine.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Release</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Rilascia</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="release--forbidden-disassegna">
+<langSet xml:lang="en">
+<tig>
+<term>Release</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Disassegna</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="release--forbidden-annulla-assegnazione">
+<langSet xml:lang="en">
+<tig>
+<term>Release</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Annulla assegnazione</term>
 </tig>
 </langSet>
 </termEntry>
@@ -714,6 +963,60 @@
 <langSet xml:lang="it">
 <tig>
 <term>Ripristina</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="refresh">
+<descrip>Get the latest data of a container, such as a table, a dashboard or a widget, without resetting the rest of the page, its filters or its scroll position.</descrip>
+<descrip type="Usage note">When there is room, name what is refreshed: &quot;Refresh data&quot; (&quot;Aggiorna dati&quot;), &quot;Refresh table&quot; (&quot;Aggiorna tabella&quot;). For the whole page, use &quot;Reload&quot;.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Refresh</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Aggiorna</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="refresh--forbidden-ricarica">
+<langSet xml:lang="en">
+<tig>
+<term>Refresh</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Ricarica</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="reload">
+<descrip>Load the whole page or view again from scratch, which resets its state, for example after a network error.</descrip>
+<descrip type="Usage note">&quot;Reload page&quot; (&quot;Ricarica pagina&quot;). To get the latest data of a table or a widget only, use &quot;Refresh&quot;.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Reload</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Ricarica</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="reload--forbidden-aggiorna">
+<langSet xml:lang="en">
+<tig>
+<term>Reload</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Aggiorna</term>
 </tig>
 </langSet>
 </termEntry>
@@ -1092,6 +1395,34 @@
 </tig>
 </langSet>
 </termEntry>
+<termEntry id="mute">
+<descrip>Stop the notifications of an alert until a date, without solving its cause.</descrip>
+<descrip type="Usage note">The resulting state is &quot;Muted&quot; (&quot;Silenziato&quot;): &quot;Mute alert&quot; (&quot;Silenzia allarme&quot;).</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Mute</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Silenzia</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="unmute">
+<descrip>Restart the notifications of a muted alert.</descrip>
+<descrip type="Usage note">&quot;Unmute alert&quot; (&quot;Riattiva allarme&quot;). &quot;Riattiva&quot; also translates &quot;Reactivate&quot;.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Unmute</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Riattiva</term>
+</tig>
+</langSet>
+</termEntry>
 <termEntry id="backup-destination">
 <descrip>A storage location where backups are saved.</descrip>
 <langSet xml:lang="en">
@@ -1354,6 +1685,86 @@
 <langSet xml:lang="it">
 <tig>
 <term>Istanza</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="clone">
+<descrip>Make a copy of an application and its data on a node of the cluster, also the same node. The original application is left untouched.</descrip>
+<descrip type="Usage note">&quot;Clone application&quot; (&quot;Clona applicazione&quot;). The copy is a new instance, with its own name.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Clone</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Clona</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="clone--forbidden-copia">
+<langSet xml:lang="en">
+<tig>
+<term>Clone</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Copia</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="clone--forbidden-duplica">
+<langSet xml:lang="en">
+<tig>
+<term>Clone</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Duplica</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="move">
+<descrip>Bring an application and its data to another node of the cluster. The application on the old node is removed.</descrip>
+<descrip type="Usage note">&quot;Move application&quot; (&quot;Sposta applicazione&quot;). &quot;Migrate&quot; is for the migration from NethServer 7 and to the new My Nethesis. The moved application is a new instance, with its own name.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Move</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Sposta</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="move--forbidden-migra">
+<langSet xml:lang="en">
+<tig>
+<term>Move</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Migra</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="move--forbidden-trasferisci">
+<langSet xml:lang="en">
+<tig>
+<term>Move</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Trasferisci</term>
 </tig>
 </langSet>
 </termEntry>

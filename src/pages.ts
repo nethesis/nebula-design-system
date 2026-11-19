@@ -9,9 +9,11 @@ import {
   faHouse,
   faIcons,
   faLayerGroup,
+  faTableColumns,
   faPalette,
   faPenNib,
   faRulerCombined,
+  faSpinner,
   faUniversalAccess
 } from '@fortawesome/free-solid-svg-icons'
 import IntroductionView from './components/IntroductionView.vue'
@@ -60,7 +62,7 @@ export const PAGE_GROUPS: PageGroup[] = [
         title: 'Writing guidelines',
         navLabel: 'Guidelines',
         description:
-          'How to write the text of user interfaces: voice and tone, capitalization and punctuation, and the text of buttons, forms, empty states, modals and notifications.',
+          'How to write the text of user interfaces: voice and tone, capitalization and punctuation, the text of buttons, forms, empty states, modals and notifications, and text ready for translation.',
         icon: faPenNib,
         component: GuidelinesView
       },
@@ -116,12 +118,28 @@ export const PAGE_GROUPS: PageGroup[] = [
         component: defineAsyncComponent(() => import('./components/ElevationView.vue'))
       },
       {
+        id: 'layout',
+        title: 'Layout',
+        description:
+          'Where the parts of a page go: the app shell with the side menu and the top bar, the page header, the buttons of cards and dialogs, forms in a page, small screens, toasts.',
+        icon: faTableColumns,
+        component: defineAsyncComponent(() => import('./components/LayoutView.vue'))
+      },
+      {
         id: 'accessibility',
         title: 'Accessibility',
         description:
           'The choices that Nebula makes to meet WCAG: contrast, color, keyboard, focus and screen readers.',
         icon: faUniversalAccess,
         component: defineAsyncComponent(() => import('./components/AccessibilityView.vue'))
+      },
+      {
+        id: 'loading-and-errors',
+        title: 'Loading and errors',
+        description:
+          'How a page shows that its data is loading, could not be loaded or is empty, and the state of an action.',
+        icon: faSpinner,
+        component: defineAsyncComponent(() => import('./components/LoadingAndErrorsView.vue'))
       }
     ]
   }

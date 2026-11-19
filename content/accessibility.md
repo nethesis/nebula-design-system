@@ -15,22 +15,23 @@ your own markup or build with another stack.
   depends on the background behind it and can't be checked once for the token. Use a lighter Text
   token instead. Opacity is only for disabled controls (`disabled:opacity-50`), which WCAG doesn't
   require to meet a contrast ratio.
-- **An archived item is not disabled**, and neither is an item that is turned off, such as a
-  disabled rule. Its row still has actions, such as restore or destroy, and its text is still
-  read. Don't dim it with opacity: use the `Text/Tertiary neutral` token for its text and
-  `Icon/Tertiary neutral` for its icons, and say its status in the status column, such as
-  `Archived` with its icon.
+- **A soft-deleted item is not disabled**: an item that is deleted but kept, so that it can be
+  restored, as in My Nethesis, where only staff users see it. Neither is an item that is turned
+  off, such as a disabled rule. Its row still has actions, such as restore or destroy, and its
+  text is still read. Don't dim it with opacity: use the `Text/Tertiary neutral` token for its
+  text and `Icon/Tertiary neutral` for its icons, and say its status in the status column, such
+  as `Deleted` with its icon.
 - **The placeholder is not enough**: `Text/Placeholder` is lighter than the other Text tokens.
   Never put information only in a placeholder (see [Forms](?page=writing-guidelines#forms)).
 - **Color is never the only signal.** A status also has a text or an icon: a badge has a label, a
   notification has an icon and a title, a field with an error has its validation message, not just
   a red border.
 
-| Do | Don't |
-| --- | --- |
-| `text-gray-600 dark:text-gray-400` for less important text | `text-gray-900/60`, `opacity-70` |
-| A badge that says `Expired` | A red dot alone |
-| An archived row in `Text/Tertiary neutral`, with the `Archived` status | An archived row with `opacity-50` |
+| Where | Do | Don't |
+| --- | --- | --- |
+| Less important text | `text-gray-600 dark:text-gray-400` | `text-gray-900/60`, `opacity-70` |
+| Status | A badge that says `Expired` | A red dot alone |
+| Soft-deleted row | `Text/Tertiary neutral`, with the `Deleted` status | `opacity-50` |
 
 ## Keyboard and focus
 
@@ -45,6 +46,9 @@ your own markup or build with another stack.
 - **Modals and drawers keep the focus inside** while they are open, close with Esc and give the
   focus back to the element that opened them. `NeModal` and `NeSideDrawer` already do it: use them
   instead of your own overlay.
+- **A failed validation moves the focus to the first invalid field**, so that keyboard and screen
+  reader users reach the error at once. Use `focusElement` of `@nethesis/vue-components`, as in the
+  [*Create item drawer* pattern](https://nethesis.github.io/vue-components/?path=/story/patterns-create-item-drawer--standard).
 
 ## Screen readers
 

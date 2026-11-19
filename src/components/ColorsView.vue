@@ -63,6 +63,10 @@ const label = (value: ColorValue) => value.ref ?? value.hex
       link tokens use <code>primary-*</code> classes. Tokens without classes use a color that is not
       in Tailwind CSS.
     </p>
+    <p>
+      Text in the primary color looks like a link: use it only for text that does something when
+      clicked.
+    </p>
     <p class="text-xs text-gray-500 dark:text-gray-400">
       Exported from the Nebula Figma file on {{ EXPORTED_AT }}.
     </p>

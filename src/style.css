@@ -49,27 +49,29 @@
   }
 }
 
-/* content/*.md rendered to HTML */
+/* content/*.md rendered to HTML. The examples that the views put in its
+   [data-example] elements keep the styles of their components: the rules of
+   the text don't reach them. */
 .markdown {
   @apply max-w-3xl text-sm leading-6 text-gray-700 dark:text-gray-200;
 
   h1 {
     @apply hidden;
   }
-  h2 {
+  h2:not([data-example] *) {
     @apply mt-10 mb-3 scroll-mt-20 text-lg font-medium text-gray-900 dark:text-gray-50;
   }
-  h3 {
+  h3:not([data-example] *) {
     @apply mt-6 mb-2 scroll-mt-20 font-medium text-gray-900 dark:text-gray-50;
   }
-  p,
-  ul {
+  p:not([data-example] *),
+  ul:not([data-example] *) {
     @apply mb-4;
   }
-  ul {
+  ul:not([data-example] *) {
     @apply list-disc space-y-1 pl-5;
   }
-  a {
+  a:not([data-example] *) {
     @apply text-primary-700 underline dark:text-primary-500;
   }
   code {
@@ -103,23 +105,29 @@
   table.do-dont {
     @apply table-fixed;
 
-    th:first-child {
+    &:not(.with-where) th:first-child,
+    &.with-where th:nth-child(2) {
       @apply bg-green-50 text-green-800 dark:bg-green-950/40 dark:text-green-300;
     }
-    th:nth-child(2) {
+    &:not(.with-where) th:nth-child(2),
+    &.with-where th:nth-child(3) {
       @apply bg-rose-50 text-rose-800 dark:bg-rose-950/40 dark:text-rose-300;
     }
-    td:first-child::before,
-    td:nth-child(2)::before {
+    &:not(.with-where) td:first-child::before,
+    &:not(.with-where) td:nth-child(2)::before,
+    &.with-where td:nth-child(2)::before,
+    &.with-where td:nth-child(3)::before {
       @apply mr-2 inline-block size-4 shrink-0 align-[-0.1875rem];
       content: '';
       mask: no-repeat center / contain;
     }
-    td:first-child::before {
+    &:not(.with-where) td:first-child::before,
+    &.with-where td:nth-child(2)::before {
       @apply bg-green-600 dark:bg-green-500;
       mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%20512A256%20256%200%201%200%20256%200a256%20256%200%201%200%200%20512zM369%20209L241%20337c-9.4%209.4-24.6%209.4-33.9%200l-64-64c-9.4-9.4-9.4-24.6%200-33.9s24.6-9.4%2033.9%200l47%2047L335%20175c9.4-9.4%2024.6-9.4%2033.9%200s9.4%2024.6%200%2033.9z%27%2F%3E%3C%2Fsvg%3E");
     }
-    td:nth-child(2)::before {
+    &:not(.with-where) td:nth-child(2)::before,
+    &.with-where td:nth-child(3)::before {
       @apply bg-rose-500 dark:bg-rose-400;
       mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%20512A256%20256%200%201%200%20256%200a256%20256%200%201%200%200%20512zM175%20175c9.4-9.4%2024.6-9.4%2033.9%200l47%2047%2047-47c9.4-9.4%2024.6-9.4%2033.9%200s9.4%2024.6%200%2033.9l-47%2047%2047%2047c9.4%209.4%209.4%2024.6%200%2033.9s-24.6%209.4-33.9%200l-47-47-47%2047c-9.4%209.4-24.6%209.4-33.9%200s-9.4-24.6%200-33.9l47-47-47-47c-9.4-9.4-9.4-24.6%200-33.9z%27%2F%3E%3C%2Fsvg%3E");
     }

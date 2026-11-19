@@ -21,7 +21,7 @@
 # - id: delete
 #   en: Delete
 #   it: Elimina
-#   definition: Permanently destroy an object, such as a contact, a firewall rule or a user.
+#   definition: Delete an object, such as a contact, a firewall rule or a user.
 #   products: [all]
 #   avoid:
 #     it: [Cancella]
@@ -73,6 +73,13 @@
     it: [Servizio aggiuntivo]
   notes: 'The Italian plural does not change: "gli add-on".'
 
+- id: renewal
+  en: Renewal
+  it: Rinnovo
+  definition: The extension of an add-on for a new period, when the current one ends.
+  products: [my]
+  notes: '"Valid until 31/12/2027, renewal continues" ("Valido fino al 31/12/2027, il rinnovo continua").'
+
 - id: tier
   en: Tier
   it: Fascia
@@ -101,6 +108,36 @@
     en: [Organization]
     it: [Organizzazione]
   notes: 'Use "Company" for the generic case; use "Distributor", "Reseller" or "Customer" when the level matters.'
+
+- id: distributor
+  en: Distributor
+  it: Distributore
+  definition: The first level of the companies in My Nethesis, which manages resellers and customers.
+  products: [my]
+
+- id: reseller
+  en: Reseller
+  it: Rivenditore
+  definition: The second level of the companies in My Nethesis, managed by a distributor, which manages its customers.
+  products: [my]
+
+- id: customer
+  en: Customer
+  it: Cliente
+  definition: The last level of the companies in My Nethesis, managed by a reseller or a distributor.
+  products: [my]
+
+- id: manager
+  en: Manager
+  it: Gestore
+  definition: The distributor or the reseller that manages a reseller or a customer in My Nethesis.
+  products: [my]
+  avoid:
+    en: [Parent, Parent company, Owner]
+    it: [Azienda madre]
+  notes: >-
+    "Managed by" ("Gestito da"), "Change manager" ("Cambia gestore"). "Owner" is another
+    concept: the owner company, at the top of the hierarchy.
 
 # Features
 
@@ -150,6 +187,21 @@
     it: [Whitelist, Allow list, Lista bianca]
   notes: 'Its opposite is "Blocklist".'
 
+- id: feed
+  en: Feed
+  untranslatable: true
+  definition: >-
+    A list kept up to date by its provider, such as a blocklist of malicious IP addresses, that a
+    security service downloads regularly.
+  products: [nethsecurity, ns8]
+  avoid:
+    en: [Source, Blocklist source]
+    it: [Sorgente, Sorgente blocklist]
+  notes: >-
+    Example: "Blocklist feed", "Threat Intelligence Feed". "Source" is right for the source of
+    traffic, such as a source address or a source zone, or of a backup. The Italian plural does
+    not change: "i feed".
+
 # Actions
 
 - id: create
@@ -160,8 +212,9 @@
   avoid:
     en: [New, Add]
   notes: >-
-    Name the object: "Create user". Use "Add" when the object already exists and is only
-    associated with another one.
+    Name the object in the button that starts the action: "Create user". The button that
+    confirms it, at the end of the drawer, is only "Create". Use "Add" when the object already
+    exists and is only associated with another one.
 
 - id: add
   en: Add
@@ -197,17 +250,18 @@
 - id: delete
   en: Delete
   it: Elimina
-  definition: Permanently destroy an object, such as a contact, a firewall rule or a user.
+  definition: Delete an object, such as a contact, a firewall rule or a user.
   products: [all]
   avoid:
-    en: [Remove]
-    it: [Cancella, Rimuovi]
+    en: [Remove, Archive]
+    it: [Cancella, Rimuovi, Archivia]
   notes: >-
     Use "Remove" when the object only leaves a list or an association and still exists, for
     example a user removed from a group. For applications, use "Uninstall". When the deletion
     has consequences beyond the object itself, ask for confirmation first: see Delete confirmation
-    in the guidelines. In My Nethesis, which archives objects before deleting them, the permanent
-    action is "Destroy".
+    in the guidelines. In My Nethesis, "Delete" is a soft delete: the object is kept, marked as
+    deleted, and can be restored; "Destroy" deletes it for good. "Archive" is avoided only as an action on an object: it
+    stays right for a file, such as a backup archive.
 
 - id: remove
   en: Remove
@@ -229,37 +283,75 @@
     it: [Elimina, Rimuovi]
   notes: 'Name the application: "Uninstall mail1".'
 
-- id: archive
-  en: Archive
-  it: Archivia
-  definition: Take an object out of use without destroying it, so that it can be restored, such as a user, a system or a company.
-  products: [my]
-  avoid:
-    en: [Deactivate, Trash, Move to trash]
-  notes: >-
-    Only in products that keep archived objects. Its opposite is "Restore"; the action that
-    removes an archived object for good is "Destroy".
-
 - id: restore
   en: Restore
   it: Ripristina
-  definition: Bring back something kept earlier, such as an archived object or the configuration saved in a backup.
+  definition: Bring back something kept earlier, such as a soft-deleted object (deleted but kept, as in My Nethesis) or the configuration saved in a backup.
   products: [all]
   avoid:
-    en: [Unarchive, Recover, Reactivate, Undelete]
-  notes: '"Restore user" ("Ripristina utente"), "Restore backup" ("Ripristina backup"). For default values, use "Reset".'
+    en: [Recover, Reactivate, Undelete]
+  notes: >-
+    "Restore user" ("Ripristina utente"), "Restore backup" ("Ripristina backup"). For default
+    values, use "Reset". In My Nethesis, "Reactivate" undoes a suspension, not a deletion.
 
 - id: destroy
   en: Destroy
-  it: Elimina definitivamente
-  definition: Permanently delete an archived object, which can no longer be restored.
+  it: Distruggi
+  definition: Permanently delete an object, also one already soft-deleted (deleted but kept so that it can be restored), which can then no longer be restored.
   products: [my]
   avoid:
     en: [Purge, Erase, Delete permanently, Permanently delete]
+    it: [Elimina, Elimina definitivamente, Cancella definitivamente]
   notes: >-
-    Only in products that archive objects before deleting them, where it takes the place of
-    "Delete". In Italian, drop "definitivamente" when the object follows: "Destroy user"
-    ("Elimina utente").
+    Only in products where "Delete" is a soft delete, which keeps the object so that it can be
+    restored, today My Nethesis. Elsewhere, "Delete" is already permanent: use it instead.
+    "Destroy user" ("Distruggi utente"), "User destroyed" ("Utente distrutto").
+
+- id: suspend
+  en: Suspend
+  it: Sospendi
+  definition: >-
+    Block a company, a user or a system until it is reactivated: a suspended user cannot sign in,
+    a suspended system gets no updates or support.
+  products: [my]
+  notes: >-
+    Suspending a company also suspends its users and systems. The resulting state is
+    "Suspended" ("Sospeso"). To undo it, use "Reactivate".
+
+- id: reactivate
+  en: Reactivate
+  it: Riattiva
+  definition: Undo a suspension or a revocation, such as a suspended user or a revoked add-on, which works again.
+  products: [my]
+  notes: >-
+    For a soft-deleted object, use "Restore". In Italian, "Riattiva" also translates "Unmute", for
+    alerts.
+
+- id: assign
+  en: Assign
+  it: Assegna
+  definition: Give an object to a user, a company or an application, such as an alert to a user or a license of an add-on to an application.
+  products: [my]
+  avoid:
+    en: [Allocate]
+    it: [Attribuisci]
+  notes: >-
+    The resulting state is "Assigned" ("Assegnato"), and "Unassigned" ("Non assegnato") when
+    there is none. To undo it, use "Release".
+
+- id: release
+  en: Release
+  it: Rilascia
+  definition: Undo an assignment, such as an alert taken by a user or a license of an add-on given to an application, which becomes available again.
+  products: [my]
+  avoid:
+    en: [Free, Unassign]
+    it: [Disassegna, Annulla assegnazione]
+  notes: >-
+    In English, "Free" reads as "free of charge": "Release license", not "Free license". "Free"
+    stays right in other meanings, such as free disk space. In Italian, a license is "Libera
+    licenza", because "rilasciare una licenza" means granting one. The state "Unassigned" is
+    fine.
 
 - id: enable
   en: Enable
@@ -305,6 +397,34 @@
   notes: >-
     "Reset filters" ("Reimposta filtri"), "Reset selection" ("Reimposta selezione"), "Reset
     password" ("Reimposta password"). In Italian, "Ripristina" is for restoring a backup.
+
+- id: refresh
+  en: Refresh
+  it: Aggiorna
+  definition: >-
+    Get the latest data of a container, such as a table, a dashboard or a widget, without
+    resetting the rest of the page, its filters or its scroll position.
+  products: [all]
+  avoid:
+    en: [Reload]
+    it: [Ricarica]
+  notes: >-
+    When there is room, name what is refreshed: "Refresh data" ("Aggiorna dati"), "Refresh
+    table" ("Aggiorna tabella"). For the whole page, use "Reload".
+
+- id: reload
+  en: Reload
+  it: Ricarica
+  definition: >-
+    Load the whole page or view again from scratch, which resets its state, for example after a
+    network error.
+  products: [all]
+  avoid:
+    en: [Refresh]
+    it: [Aggiorna]
+  notes: >-
+    "Reload page" ("Ricarica pagina"). To get the latest data of a table or a widget only, use
+    "Refresh".
 
 - id: cancel
   en: Cancel
@@ -439,6 +559,24 @@
   products: [all]
   avoid:
     en: [Alarm]
+
+- id: mute
+  en: Mute
+  it: Silenzia
+  definition: Stop the notifications of an alert until a date, without solving its cause.
+  products: [my]
+  avoid:
+    en: [Silence]
+  notes: 'The resulting state is "Muted" ("Silenziato"): "Mute alert" ("Silenzia allarme").'
+
+- id: unmute
+  en: Unmute
+  it: Riattiva
+  definition: Restart the notifications of a muted alert.
+  products: [my]
+  avoid:
+    en: [Unsilence]
+  notes: '"Unmute alert" ("Riattiva allarme"). "Riattiva" also translates "Reactivate".'
 
 # Backup
 
@@ -588,6 +726,32 @@
     Use "Instance" only when the context strictly requires one specific copy of an application,
     and "Application" would be misleading: for example, to choose among several copies of the
     same application ("Choose a NethVoice instance"). In every other case, use "Application".
+
+- id: clone
+  en: Clone
+  it: Clona
+  definition: >-
+    Make a copy of an application and its data on a node of the cluster, also the same node. The
+    original application is left untouched.
+  products: [ns8]
+  avoid:
+    en: [Copy, Duplicate]
+    it: [Copia, Duplica]
+  notes: '"Clone application" ("Clona applicazione"). The copy is a new instance, with its own name.'
+
+- id: move
+  en: Move
+  it: Sposta
+  definition: >-
+    Bring an application and its data to another node of the cluster. The application on the old
+    node is removed.
+  products: [ns8]
+  avoid:
+    en: [Migrate, Transfer]
+    it: [Migra, Trasferisci]
+  notes: >-
+    "Move application" ("Sposta applicazione"). "Migrate" is for the migration from NethServer 7
+    and to the new My Nethesis. The moved application is a new instance, with its own name.
 
 - id: webtop
   en: WebTop
