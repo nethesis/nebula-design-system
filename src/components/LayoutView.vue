@@ -6,16 +6,14 @@
 <script setup lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import {
+  faArrowRight,
   faBars,
   faBell,
   faChevronDown,
   faCircleCheck,
   faCircleQuestion,
   faCircleXmark,
-  faEye,
   faHouse,
-  faPenToSquare,
-  faTrash,
   faXmark
 } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -24,17 +22,21 @@ import {
   faTriangleExclamation as falTriangleExclamation,
   faUserGroup as falUserGroup
 } from '@nethesis/nethesis-light-svg-icons'
-import { NeButton, NeCard } from '@nethesis/vue-components'
+import {
+  NeButton,
+  NeCard,
+  NeRoundedIcon,
+  NeTextInput,
+  NeToastNotificationV2,
+  type NeNotificationV2
+} from '@nethesis/vue-components'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { reactive } from 'vue'
 import Layout from '../../content/layout.md'
 
 // The rules are in content/layout.md, also published for agents. Its
 // ```example blocks become empty elements, filled here with examples built
 // with the real components. The examples only show: their buttons do nothing.
-
-const cardMenu = [
-  { id: 'edit', label: 'Edit', icon: faPenToSquare },
-  { id: 'delete', label: 'Delete', icon: faTrash, danger: true }
-]
 
 // the app shell example, as in My Nethesis: the items of its side menu, with
 // the section labels, and the parts of its top bar
@@ -65,6 +67,82 @@ const iconButton = 'flex rounded-full p-2 text-gray-700 dark:text-gray-200'
 const avatar =
   'flex size-6 items-center justify-center rounded-full bg-gray-200 text-xs font-medium text-gray-700 dark:bg-gray-700 dark:text-gray-200'
 
+// the form in a page example, as FormLayout of My Nethesis and NethSecurity:
+// the wide frame follows the md breakpoint, the small one is always stacked
+const formSections = reactive([
+  {
+    title: 'Profile',
+    description: 'Your name and the address that receives the notifications.',
+    fields: [
+      { label: 'Name', value: 'Alice Fox' },
+      { label: 'Email', value: 'alice@example.com' }
+    ]
+  },
+  {
+    title: 'Support',
+    description: 'Who Nethesis contacts about your support requests.',
+    fields: [{ label: 'Phone number', value: '+39 0000 000000' }]
+  }
+])
+const formScreens = [
+  {
+    caption: 'Wide screens',
+    width: 'min-w-0',
+    row: 'flex flex-col md:flex-row',
+    side: 'sm:mr-6 md:w-5/12',
+    fields: 'md:w-7/12'
+  },
+  { caption: 'Small screens', width: 'max-w-xs', row: 'flex flex-col', side: '', fields: '' }
+]
+
+// the buttons example: a copy of NeModal, open in its place, with the classes
+// of its backdrop and panel, so that the two versions show side by side
+const modalBackdrop = 'rounded-md bg-gray-500/75 p-4 sm:p-6 dark:bg-gray-700/75'
+const modalPanel = 'rounded-lg bg-gray-50 px-4 pt-5 pb-4 shadow-xl sm:p-6 dark:bg-gray-900'
+const modalExamples = [
+  {
+    caption: 'Do',
+    icon: faCircleCheck,
+    captionClass: 'text-green-800 dark:text-green-300',
+    cancel: 'tertiary',
+    confirm: 'danger'
+  },
+  {
+    caption: "Don't",
+    icon: faCircleXmark,
+    captionClass: 'text-rose-800 dark:text-rose-300',
+    cancel: 'primary',
+    confirm: 'primary'
+  }
+] as const
+
+// the toasts example, as My Nethesis shows them: on the screen, below the top
+// bar, and in its notifications drawer. NeToastNotificationV2 names its close
+// icon by string, so it must be in the icon library.
+library.add(faXmark)
+const minutesAgo = (minutes: number) => new Date(Date.now() - minutes * 60_000)
+const toasts: NeNotificationV2[] = [
+  {
+    id: 'user',
+    kind: 'success',
+    title: 'User created',
+    description: 'User Alice Fox has been created',
+    timestamp: minutesAgo(1)
+  },
+  {
+    id: 'contact',
+    kind: 'error',
+    title: 'Cannot save phonebook contact',
+    description: 'Request failed',
+    timestamp: minutesAgo(5),
+    firstButtonLabel: 'Details',
+    firstButtonAction: 'details',
+    firstButtonKind: 'secondary'
+  }
+]
+const drawerPanel =
+  'relative ml-auto w-[calc(100%-4rem)] bg-gray-50 p-6 shadow-[0px_20px_40px_0_rgba(0,0,0,0.2)] sm:w-100 dark:bg-gray-900 dark:shadow-[0px_20px_40px_0_rgba(0,0,0,0.6)]'
+
 const frame = 'rounded-md border border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-900'
 const placeholder =
   'mt-6 flex h-24 items-center justify-center rounded-md border border-dashed border-gray-300 text-sm text-gray-500 dark:border-gray-600 dark:text-gray-400'
@@ -94,8 +172,6 @@ const caption = 'mb-2 flex items-center gap-2 text-xs font-medium'
             <div class="min-w-0 flex-1">
               <div :class="topBar">
                 <span class="flex-1" />
-                <span class="text-sm text-gray-600 dark:text-gray-300">State of the product</span>
-                <span :class="separator" />
                 <span class="-mr-2 flex items-center gap-x-1">
                   <span v-for="icon in topBarIcons" :key="icon.iconName" :class="iconButton">
                     <FontAwesomeIcon :icon="icon" class="size-5" />
@@ -199,13 +275,13 @@ const caption = 'mb-2 flex items-center gap-2 text-xs font-medium'
           <FontAwesomeIcon :icon="faCircleCheck" class="size-4" aria-hidden="true" />
           Do
         </p>
-        <NeCard title="Subscription" :menu-items="cardMenu">
-          <p class="text-gray-600 dark:text-gray-300">Enterprise, valid until 31/12/2027.</p>
-          <NeButton kind="tertiary" class="mt-4">
+        <NeCard title="Users">
+          <p class="text-gray-600 dark:text-gray-300">12 users, 2 of them suspended.</p>
+          <NeButton kind="secondary" class="mt-6">
             <template #prefix>
-              <FontAwesomeIcon :icon="faEye" aria-hidden="true" />
+              <FontAwesomeIcon :icon="faArrowRight" aria-hidden="true" />
             </template>
-            Details
+            Go to Users
           </NeButton>
         </NeCard>
       </div>
@@ -214,14 +290,14 @@ const caption = 'mb-2 flex items-center gap-2 text-xs font-medium'
           <FontAwesomeIcon :icon="faCircleXmark" class="size-4" aria-hidden="true" />
           Don't
         </p>
-        <NeCard title="Subscription" :menu-items="cardMenu">
-          <p class="text-gray-600 dark:text-gray-300">Enterprise, valid until 31/12/2027.</p>
-          <div class="mt-4 flex justify-end">
-            <NeButton kind="tertiary">
+        <NeCard title="Users">
+          <p class="text-gray-600 dark:text-gray-300">12 users, 2 of them suspended.</p>
+          <div class="mt-6 flex justify-end">
+            <NeButton kind="secondary">
               <template #prefix>
-                <FontAwesomeIcon :icon="faEye" aria-hidden="true" />
+                <FontAwesomeIcon :icon="faArrowRight" aria-hidden="true" />
               </template>
-              Details
+              Go to Users
             </NeButton>
           </div>
         </NeCard>
@@ -229,26 +305,129 @@ const caption = 'mb-2 flex items-center gap-2 text-xs font-medium'
     </div>
   </Teleport>
 
-  <Teleport defer to="[data-example='one-primary']">
-    <div class="my-6 grid max-w-3xl gap-x-4 gap-y-8 sm:grid-cols-2">
-      <div>
-        <p :class="[caption, 'text-green-800 dark:text-green-300']">
-          <FontAwesomeIcon :icon="faCircleCheck" class="size-4" aria-hidden="true" />
-          Do
-        </p>
-        <div :class="[frame, 'flex justify-end gap-3']">
-          <NeButton kind="tertiary">Cancel</NeButton>
-          <NeButton kind="danger">Delete</NeButton>
+  <Teleport defer to="[data-example='form-in-page']">
+    <div class="my-6 grid max-w-3xl gap-8">
+      <div v-for="screen in formScreens" :key="screen.caption" :class="screen.width">
+        <p :class="[caption, 'text-gray-600 dark:text-gray-300']">{{ screen.caption }}</p>
+        <div :class="[frame, 'space-y-8']">
+          <template v-for="section in formSections" :key="section.title">
+            <div :class="screen.row">
+              <div :class="screen.side">
+                <p class="mb-2 text-lg font-medium text-gray-900 dark:text-gray-50">
+                  {{ section.title }}
+                </p>
+                <p class="mb-8 text-sm text-gray-500 dark:text-gray-400">
+                  {{ section.description }}
+                </p>
+              </div>
+              <div :class="[screen.fields, 'space-y-6']">
+                <NeTextInput
+                  v-for="field in section.fields"
+                  :key="field.label"
+                  v-model="field.value"
+                  :label="field.label"
+                />
+              </div>
+            </div>
+            <hr class="border-gray-200 dark:border-gray-700" />
+          </template>
+          <div :class="screen.row">
+            <div :class="screen.side"></div>
+            <div :class="screen.fields">
+              <NeButton kind="primary">Save</NeButton>
+            </div>
+          </div>
         </div>
       </div>
-      <div>
-        <p :class="[caption, 'text-rose-800 dark:text-rose-300']">
-          <FontAwesomeIcon :icon="faCircleXmark" class="size-4" aria-hidden="true" />
-          Don't
+    </div>
+  </Teleport>
+
+  <Teleport defer to="[data-example='one-primary']">
+    <div class="my-6 grid max-w-3xl gap-x-4 gap-y-8 sm:grid-cols-2">
+      <div v-for="modal in modalExamples" :key="modal.caption">
+        <p :class="[caption, modal.captionClass]">
+          <FontAwesomeIcon :icon="modal.icon" class="size-4" aria-hidden="true" />
+          {{ modal.caption }}
         </p>
-        <div :class="[frame, 'flex justify-end gap-3']">
-          <NeButton kind="primary">Cancel</NeButton>
-          <NeButton kind="primary">Delete</NeButton>
+        <div :class="modalBackdrop" aria-hidden="true">
+          <div :class="[modalPanel, 'relative']">
+            <span class="absolute top-4 right-4 p-1 text-gray-600 dark:text-gray-300">
+              <FontAwesomeIcon :icon="faXmark" class="size-5" />
+            </span>
+            <div class="flex items-start pr-6">
+              <NeRoundedIcon kind="warning" class="mr-4 shrink-0" />
+              <div>
+                <p class="mb-4 text-base leading-6 font-medium text-gray-900 dark:text-gray-50">
+                  Delete user
+                </p>
+                <p class="text-sm text-gray-700 dark:text-gray-200">
+                  User Alice Fox will be permanently deleted.
+                </p>
+              </div>
+            </div>
+            <div class="mt-6 flex justify-end gap-3">
+              <NeButton :kind="modal.cancel" size="lg">Cancel</NeButton>
+              <NeButton :kind="modal.confirm" size="lg">Delete</NeButton>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Teleport>
+
+  <Teleport defer to="[data-example='toasts']">
+    <div class="my-6 grid max-w-3xl gap-8">
+      <div class="min-w-0">
+        <p :class="[caption, 'text-gray-600 dark:text-gray-300']">Toasts on the screen</p>
+        <div :class="[shellFrame, 'relative h-80']">
+          <div :class="topBar">
+            <span class="flex-1" />
+            <span v-for="icon in topBarIcons" :key="icon.iconName" :class="iconButton">
+              <FontAwesomeIcon :icon="icon" class="size-5" />
+            </span>
+          </div>
+          <div class="p-4">
+            <p class="text-xl font-medium text-gray-900 dark:text-gray-50">Users</p>
+            <p :class="placeholder">Page</p>
+          </div>
+          <div class="absolute inset-x-0 top-14 flex flex-col items-end space-y-4 p-4">
+            <NeToastNotificationV2
+              v-for="toast in toasts"
+              :key="toast.id"
+              :notification="toast"
+              sr-close-label="Close"
+              show-close-button
+            />
+          </div>
+        </div>
+      </div>
+      <div class="min-w-0">
+        <p :class="[caption, 'text-gray-600 dark:text-gray-300']">Notifications drawer</p>
+        <div :class="[shellFrame, 'relative']">
+          <div :class="[topBar, 'absolute inset-x-0 top-0']">
+            <span class="flex-1" />
+            <span v-for="icon in topBarIcons" :key="icon.iconName" :class="iconButton">
+              <FontAwesomeIcon :icon="icon" class="size-5" />
+            </span>
+          </div>
+          <div class="absolute inset-0 bg-gray-500/75 dark:bg-gray-700/75" />
+          <div :class="drawerPanel">
+            <div class="flex items-center justify-between">
+              <p class="text-lg font-medium text-gray-900 dark:text-gray-50">Notifications</p>
+              <FontAwesomeIcon :icon="faXmark" class="size-4 text-gray-700 dark:text-gray-200" />
+            </div>
+            <hr class="my-6 border-gray-200 dark:border-gray-700" />
+            <div class="space-y-4">
+              <NeToastNotificationV2
+                v-for="toast in toasts"
+                :key="toast.id"
+                :notification="toast"
+                sr-close-label="Close"
+                full-width
+                show-timestamp
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

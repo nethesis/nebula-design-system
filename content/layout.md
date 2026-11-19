@@ -90,6 +90,27 @@ page-header
 card-actions
 ```
 
+## Forms
+
+- A form that creates or edits an object of a list goes in a side drawer, opened by the create
+  button of the page or the Edit action of a row: follow the
+  [*Create item drawer* pattern](https://nethesis.github.io/vue-components/?path=/story/patterns-create-item-drawer--standard).
+- A form that is the page itself, such as a settings page or the account page, goes in the page,
+  with the layout of `FormLayout` in My Nethesis and NethSecurity: copy it from
+  `src/components/common/FormLayout.vue` of My Nethesis.
+  - The form is at most 768 px wide (`max-w-3xl`) and split into sections, one for each subject,
+    with a divider (`<hr>`) between them and `space-y-8` around it.
+  - Each section has its title (`text-lg`, `font-medium`) and, when needed, a description
+    (`text-sm`, `gray-500`, `gray-400` in the dark theme) on the left, 5/12 of the width
+    (`md:w-5/12`), and its fields on the right (`md:w-7/12`), one below the other. Below `md`,
+    the title and the description go above the fields.
+  - One `primary` *Save* button saves the whole page. It goes after the last section and its
+    divider, aligned with the fields, with the error of a failed save above it.
+
+```example
+form-in-page
+```
+
 ## Buttons
 
 - Only one `primary` button in a view or a dialog: the others are `secondary` or `tertiary`.
@@ -98,14 +119,6 @@ card-actions
 ```example
 one-primary
 ```
-
-## Small screens
-
-- Write the layout mobile first, with the Tailwind breakpoints (`sm:`, `md:`, `lg:`…), and check
-  it at a phone width.
-- `NeTable` shows each row as a card below its `cardBreakpoint`. Follow the
-  [*Table page* pattern](https://nethesis.github.io/vue-components/?path=/story/patterns-table-page--standard)
-  for a page that lists objects.
 
 ## Toasts
 
@@ -116,3 +129,15 @@ one-primary
   the user can read them again later. The drawer is optional.
 - After closing a modal or a drawer, show the toast once the closing animation has ended, about
   500 ms later: otherwise it appears while the dialog is still moving.
+
+```example
+toasts
+```
+
+## Small screens
+
+- Write the layout mobile first, with the Tailwind breakpoints (`sm:`, `md:`, `lg:`…), and check
+  it at a phone width.
+- `NeTable` shows each row as a card below its `cardBreakpoint`. Follow the
+  [*Table page* pattern](https://nethesis.github.io/vue-components/?path=/story/patterns-table-page--standard)
+  for a page that lists objects.
