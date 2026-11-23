@@ -350,6 +350,29 @@
   category: interface
   use: Switch to the light theme.
 
+- id: favorite
+  meaning: Favorite
+  icon: star
+  category: interface
+  use: >-
+    The button that adds an object to the favorites of the user or removes it, next to the name
+    of the object, and the mark of a favorite. The solid star marks a favorite; an object that is
+    not a favorite has the star of the Nethesis Light icons.
+  avoid: [heart, bookmark]
+  glossary: [favorite]
+  products: [my, nethvoice]
+
+- id: notes
+  meaning: Notes
+  icon: comment-dots
+  category: interface
+  use: >-
+    Next to the name of an object in a list, it shows that the object has notes; its tooltip
+    shows them.
+  notFor: A chat or the comments of an alert, which use comment.
+  glossary: [notes]
+  products: [my]
+
 # Status
 
 - id: info
