@@ -357,7 +357,10 @@
   use: >-
     The button that adds an object to the favorites of the user or removes it, next to the name
     of the object, and the mark of a favorite. The solid star marks a favorite; an object that is
-    not a favorite has the star of the Nethesis Light icons.
+    not a favorite has the star of the Nethesis Light icons. Both stars have the Icon/Favourite
+    color, the outline one too: a favorite differs by its shape, not by its color. On hover, the
+    star moves away from the background, with no background of its own: the Icon/Favourite hover
+    color, Indigo/900 in the light theme and Indigo/300 in the dark one.
   avoid: [heart, bookmark]
   glossary: [favorite]
   products: [my, nethvoice]

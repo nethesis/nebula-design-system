@@ -48,6 +48,10 @@ so that it agrees with this guide. Remove an item once it is done.
 - [ ] **Semantic colors** variables: the `Product Primary/<product>/Focus` tokens are shade 200 in
   the dark theme, while vue-components and My Nethesis use shade 300
   (`dark:focus:ring-primary-300`), as the site does. Change them to shade 300.
+- [ ] **Semantic colors** variables: add `Icon/Favourite hover`, Indigo/900 in the light theme
+  and Indigo/300 in the dark one, the hover color of the favorite star (see the `favorite` icon),
+  and give `Icon/Favourite` a description: "The favorite star, solid and outline". My Nethesis
+  already uses both, as `--icon-favourite` and `--icon-favourite-hover`.
 - [ ] **Elevation and shadow** page: the variables include `Elevation/L4` (gray-300, dark gray-600),
   which the page does not show.
 - [ ] **Elevation and shadow** page, Shadow Dark table: the second shadow of sm, md, lg and xl is
