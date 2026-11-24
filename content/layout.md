@@ -109,6 +109,9 @@ card-actions
     the title and the description go above the fields.
   - One `primary` *Save* button saves the whole page. It goes after the last section and its
     divider, aligned with the fields, with the error of a failed save above it.
+- An inline notification about one field, such as a missing prerequisite or a warning on its
+  value, goes right above that field, never below it: users read it before they fill in the
+  field.
 
 ```example
 form-in-page
