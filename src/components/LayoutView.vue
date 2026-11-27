@@ -25,13 +25,20 @@ import {
 import {
   NeButton,
   NeCard,
+  NePaginator,
   NeRoundedIcon,
+  NeTable,
+  NeTableBody,
+  NeTableCell,
+  NeTableHead,
+  NeTableHeadCell,
+  NeTableRow,
   NeTextInput,
   NeToastNotificationV2,
   type NeNotificationV2
 } from '@nethesis/vue-components'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { reactive } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import Layout from '../../content/layout.md'
 
 // The rules are in content/layout.md, also published for agents. Its
@@ -94,6 +101,36 @@ const formScreens = [
   },
   { caption: 'Small screens', width: 'max-w-xs', row: 'flex flex-col', side: '', fields: '' }
 ]
+
+// the tables example: a table of users with NePaginator, 10 rows by default.
+// A new number of rows brings it back to the first page.
+const users = [
+  'Alice Fox',
+  'Bruno Rossi',
+  'Carla Bianchi',
+  'Daniel Weber',
+  'Elena Conti',
+  'Franco Neri',
+  'Giulia Romano',
+  'Hugo Martin',
+  'Irene Galli',
+  'Jonas Berg',
+  'Laura Ferri',
+  'Marco Greco'
+].map((name, index) => ({
+  name,
+  email: `${name.split(' ')[0].toLowerCase()}@example.com`,
+  role: index % 4 === 0 ? 'Admin' : 'Support'
+}))
+const pageSize = ref(10)
+const currentPage = ref(1)
+const usersPage = computed(() =>
+  users.slice((currentPage.value - 1) * pageSize.value, currentPage.value * pageSize.value)
+)
+function selectPageSize(size: number) {
+  pageSize.value = size
+  currentPage.value = 1
+}
 
 // the buttons example: a copy of NeModal, open in its place, with the classes
 // of its backdrop and panel, so that the two versions show side by side
@@ -337,6 +374,40 @@ const caption = 'mb-2 flex items-center gap-2 text-xs font-medium'
           </div>
         </div>
       </div>
+    </div>
+  </Teleport>
+
+  <Teleport defer to="[data-example='table-pagination']">
+    <div class="my-6 max-w-3xl">
+      <NeTable aria-label="Users" card-breakpoint="sm">
+        <NeTableHead>
+          <NeTableHeadCell>Name</NeTableHeadCell>
+          <NeTableHeadCell>Email</NeTableHeadCell>
+          <NeTableHeadCell>Role</NeTableHeadCell>
+        </NeTableHead>
+        <NeTableBody>
+          <NeTableRow v-for="user in usersPage" :key="user.email">
+            <NeTableCell data-label="Name">{{ user.name }}</NeTableCell>
+            <NeTableCell data-label="Email">{{ user.email }}</NeTableCell>
+            <NeTableCell data-label="Role">{{ user.role }}</NeTableCell>
+          </NeTableRow>
+        </NeTableBody>
+        <template #paginator>
+          <NePaginator
+            :current-page="currentPage"
+            :total-rows="users.length"
+            :page-size="pageSize"
+            :page-sizes="[5, 10, 25, 50, 100]"
+            previous-label="Go to previous page"
+            next-label="Go to next page"
+            nav-pagination-label="Pagination"
+            range-of-total-label="of"
+            page-size-label="Show"
+            @select-page="currentPage = $event"
+            @select-page-size="selectPageSize"
+          />
+        </template>
+      </NeTable>
     </div>
   </Teleport>
 

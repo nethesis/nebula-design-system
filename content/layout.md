@@ -117,6 +117,23 @@ card-actions
 form-in-page
 ```
 
+## Tables
+
+- A page that lists objects follows the
+  [*Table page* pattern](https://nethesis.github.io/vue-components/?path=/story/patterns-table-page--standard):
+  the toolbar with search and filters above the table, the actions of each row on its right.
+- A table that can hold more rows than fit in a page has `NePaginator` in the `paginator` slot
+  of `NeTable`. It shows 10 rows by default, and the user can choose 5, 10, 25, 50 or 100.
+- The number of rows the user chooses is kept for that user and that table, also after signing
+  out: save it in the browser with `savePreference` of `@nethesis/vue-components`, named after the
+  table (`usersPageSize`), and read it with `getPreference` when the page opens. Both keep it in
+  the local storage entry `preferences-<username>`.
+- A new number of rows, a search or a filter brings the table back to its first page.
+
+```example
+table-pagination
+```
+
 ## Buttons
 
 - Buttons are left-aligned, like the content they belong to, as in cards and in forms in a page.
