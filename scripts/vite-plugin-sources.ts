@@ -241,7 +241,7 @@ The pages of the site (${SITE}) are built in the browser. Read these files inste
 
 ## Rules
 
-- [Writing guidelines](writing-guidelines.md): how to write interface text, from voice and tone to buttons, forms, empty states, modals and notifications, and text ready for translation (parameters, links to other labels)
+- [Writing guidelines](writing-guidelines.md): how to write interface text, from voice and tone to buttons, forms, table filters, empty states, modals and notifications, numbers and dates, and text ready for translation (parameters, links to other labels)
 - [Glossary](glossary.json): approved terms, Italian translations and terms to avoid
 - [Icons](icons.json): which icon to use for each meaning, and the icons to avoid
 - [Accessibility](accessibility.md): the choices Nebula makes to meet WCAG, for contrast, color, keyboard, focus and screen readers

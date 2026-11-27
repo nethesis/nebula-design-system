@@ -376,6 +376,22 @@
   glossary: [notes]
   products: [my]
 
+- id: date
+  meaning: Date
+  icon: calendar
+  category: interface
+  use: >-
+    A date field, or a field with a date and a time: the button that opens the calendar, as in
+    NeDatePicker.
+  avoid: [calendar-days]
+
+- id: time
+  meaning: Time
+  icon: clock
+  category: interface
+  use: A time field, the button that opens the time selector, as in NeDatePicker.
+  notes: My Nethesis also uses clock for a status that waits, such as an alert being processed.
+
 # Status
 
 - id: info

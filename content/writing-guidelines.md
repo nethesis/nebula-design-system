@@ -159,30 +159,32 @@ From the [*Table page* pattern](https://nethesis.github.io/vue-components/?path=
 
 ## Table filters
 
-From the [*Table page* pattern](https://nethesis.github.io/vue-components/?path=/story/patterns-table-page--standard) and My Nethesis. A table can have a text filter and some dropdown filters. A filter can have a default value: for example, a status filter that shows only the active users when the page opens.
+From the [*Table page* pattern](https://nethesis.github.io/vue-components/?path=/story/patterns-table-page--standard) and My Nethesis. A table can have a text filter, some dropdown filters and a date range filter. A filter can have a default value: for example, a status filter that shows only the active users when the page opens.
 
 - **Reset** brings filters back to their default values. Use it in every case except the two below, even when all the defaults are empty.
-- **Clear** empties a selection or a text. Use it only inside a single dropdown filter that has nothing selected by default, and when the only filter of a table or a collection is a text filter: there, resetting means emptying, and "Clear" says it better.
+- **Clear** empties a selection or a text. Use it only inside a single dropdown or date range filter that has nothing selected by default, and when the only filter of a table or a collection is a text filter: there, resetting means emptying, and "Clear" says it better.
 
 | Applies to | Label | Italian |
 | --- | --- | --- |
 | All the filters of a table, from the toolbar or the empty state | Reset filters | Reimposta filtri |
-| One dropdown filter that has something selected by default | Reset selection | Reimposta selezione |
-| One dropdown filter that has nothing selected by default | Clear selection | Azzera selezione |
+| One dropdown or date range filter that has something selected by default | Reset selection | Reimposta selezione |
+| One dropdown or date range filter that has nothing selected by default | Clear selection | Azzera selezione |
 | The only filter of a table or a collection, a text filter, from the empty state | Clear filter | Azzera filtro |
 | The clear button of the text filter (screen readers only) | Clear search | Azzera ricerca |
 
-The label of a dropdown filter names the data category, with a noun and the same term used in the table. Keep its options parallel in grammar and level of detail.
+The label of a dropdown filter names the data category, with a noun and the same term used in the table. Keep its options parallel in grammar and level of detail. The label of a date range filter names the date that it filters, with the term of the table column. Name its presets as in [Numbers, dates and units](#numbers-dates-and-units).
 
 | Where | Do | Don't |
 | --- | --- | --- |
 | Table with several filters | Reset filters | Clear filters |
 | Dropdown filter with something selected by default | Reset selection | Clear selection |
 | Dropdown filter with nothing selected by default | Clear selection | Reset selection |
+| Date range filter with nothing selected by default | Clear selection | Clear dates |
 | Table with only a text filter | Clear filter | Reset filters |
 | Collection with only a text filter | Clear filter | Clear filters |
 | Label of a dropdown filter | Company | Filter by company |
 | Label of a dropdown filter | Status | Select status |
+| Label of a date range filter | Creation date | Filter by date |
 
 ## Empty states
 
@@ -268,6 +270,14 @@ Keep the title short, and give the details in the description. Say clearly what 
 - Format numbers and dates for the user's language.
 - Put a space between a number and its unit: `10 GB`, `30 s`.
 - Use the 24-hour clock in Italian.
+- Don't ask users to type a date or a time in a given format, such as `dd/mm/yyyy`. Use a date field (NeDatePicker), which shows them in the user's language.
+- Name a preset period, in a date field or in a date range filter, after its length or its calendar unit: `Today`, `Last 7 days`, `Last 30 days`, `This month` (`Oggi`, `Ultimi 7 giorni`, `Ultimi 30 giorni`, `Questo mese`). A period of the last days includes today.
+
+| Do | Don't |
+| --- | --- |
+| Last 7 days | Past week |
+| Last 30 days | Last month |
+| This month | Current month |
 
 ## Text for translation
 
