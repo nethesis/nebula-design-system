@@ -87,6 +87,8 @@ const iconCases = {
   'icon not in its pack': [{ ...icon, icon: 'bin' }, '"bin" is not in fa-solid'],
   'brand outside ns-brands': [{ ...icon, category: 'brands' }, 'come from ns-brands'],
   'sidebar icon without Light version': [{ ...icon, category: 'sidebar' }, 'need a Light version'],
+  'light icon without Light version': [{ ...icon, light: true }, 'need a Light version'],
+  'light not true': [{ ...icon, icon: 'house', light: 'yes' }, 'light must be true'],
   'avoid as a text': [{ ...icon, avoid: 'plus' }, 'avoid must be a non-empty list'],
   'avoided icon not in fa-solid': [{ ...icon, avoid: ['bin'] }, 'avoided "bin" is not in fa-solid'],
   'used and avoided': [{ ...icon, avoid: ['trash'] }, 'both used and avoided'],

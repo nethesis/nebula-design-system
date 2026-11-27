@@ -20,6 +20,8 @@
 #   glossary  optional: ids of the related glossary terms
 #   products  optional: the products where the meaning applies, when not all
 #   notes     optional: exceptions and differences between products
+#   light     optional: true when the entry also uses the ns-light icon of the
+#             same name, as its use says. Implied in the sidebar category.
 #
 # Example:
 #
@@ -228,6 +230,15 @@
   avoid: [right-from-bracket]
   glossary: [sign-out]
 
+- id: comment
+  meaning: Comment
+  icon: comment
+  category: actions
+  use: Add a comment to an alert, the Add comment item of its menu.
+  notFor: The notes of an object, which use comment-dots.
+  avoid: [message]
+  products: [my]
+
 # Navigation
 
 - id: go-to
@@ -356,14 +367,16 @@
   category: interface
   use: >-
     The button that adds an object to the favorites of the user or removes it, next to the name
-    of the object, and the mark of a favorite. The solid star marks a favorite; an object that is
-    not a favorite has the star of the Nethesis Light icons. Both stars have the Icon/Favourite
+    of the object, the mark of a favorite, and the Add to favorites and Remove from favorites
+    items of a menu, with the solid star. The solid star marks a favorite; an object that is not
+    a favorite has the star of the Nethesis Light icons. Both stars have the Icon/Favourite
     color, the outline one too: a favorite differs by its shape, not by its color. On hover, the
     star moves away from the background, with no background of its own: the Icon/Favourite hover
     color, Indigo/900 in the light theme and Indigo/300 in the dark one.
   avoid: [heart, bookmark]
   glossary: [favorite]
   products: [my, nethvoice]
+  light: true
 
 - id: notes
   meaning: Notes
@@ -371,7 +384,8 @@
   category: interface
   use: >-
     Next to the name of an object in a list, it shows that the object has notes; its tooltip
-    shows them.
+    shows them. It is a button with the Notes label and the Icon/Secondary color; on hover it
+    takes Indigo/900 in the light theme and Indigo/300 in the dark one, as the favorite star.
   notFor: A chat or the comments of an alert, which use comment.
   glossary: [notes]
   products: [my]

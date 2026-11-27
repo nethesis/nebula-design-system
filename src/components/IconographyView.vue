@@ -131,7 +131,7 @@ onBeforeUnmount(() => window.removeEventListener('hashchange', readHash))
 const customMeanings = new Map<string, IconEntry[]>()
 for (const entry of entries) {
   const keys = [`${entry.pack}:${entry.icon}`]
-  if (entry.category === 'sidebar') keys.push(`ns-light:${entry.icon}`)
+  if (entry.light) keys.push(`ns-light:${entry.icon}`)
   for (const key of keys) customMeanings.set(key, [...(customMeanings.get(key) ?? []), entry])
 }
 
@@ -194,8 +194,9 @@ const PACKAGES = ICON_PACKAGES.map(({ name, version }) => `"${name}": "${version
         />
         <p class="mb-1 font-medium text-gray-900 dark:text-gray-50">Light</p>
         <p class="mb-0">
-          Only for custom icons, and only for the inactive sections of the main sidebar. The active
-          section shows the Solid version of the same icon.
+          Only for custom icons, and only where the meaning says so: the inactive sections of the
+          main sidebar, whose active section shows the Solid version of the same icon, and the
+          outline star of an object that is not a favorite.
         </p>
       </div>
     </div>
@@ -305,7 +306,7 @@ const PACKAGES = ICON_PACKAGES.map(({ name, version }) => `"${name}": "${version
             <NeTableCell data-label="Icon">
               <div class="flex items-center gap-3">
                 <FontAwesomeIcon
-                  v-if="entry.category === 'sidebar'"
+                  v-if="entry.light"
                   :icon="svg('ns-light', entry.icon)"
                   class="size-5 text-gray-900 dark:text-gray-50"
                   aria-hidden="true"
@@ -319,7 +320,7 @@ const PACKAGES = ICON_PACKAGES.map(({ name, version }) => `"${name}": "${version
                   <code class="whitespace-nowrap">{{ entry.icon }}</code>
                   <p class="mb-0 text-xs text-gray-500 dark:text-gray-400">
                     {{
-                      entry.category === 'sidebar'
+                      entry.light
                         ? `${ICON_PACK_LABELS['ns-light']} and ${ICON_PACK_LABELS[entry.pack]}`
                         : ICON_PACK_LABELS[entry.pack]
                     }}

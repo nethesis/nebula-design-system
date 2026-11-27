@@ -148,7 +148,7 @@ function foundations() {
     },
     iconography: {
       source: page('iconography'),
-      note: 'Which icon to use for each meaning, from which package: icons.json. Font Awesome Solid icons, and Nethesis custom icons where icons.json uses them; Light custom icons only for the inactive sections of the main sidebar. Import each icon by name from its package and pass the imported object to FontAwesomeIcon, from @fortawesome/vue-fontawesome; do not register icons with library.add() to use them by name. Hide icons next to a text label with aria-hidden="true"; an icon without text needs a label and a tooltip.',
+      note: 'Which icon to use for each meaning, from which package: icons.json. Font Awesome Solid icons, and Nethesis custom icons where icons.json uses them; Light custom icons only for the icons.json entries with light: true, such as the inactive sections of the main sidebar. Import each icon by name from its package and pass the imported object to FontAwesomeIcon, from @fortawesome/vue-fontawesome; do not register icons with library.add() to use them by name. Hide icons next to a text label with aria-hidden="true"; an icon without text needs a label and a tooltip.',
       packages: ICON_PACKAGES,
       sizes: ICON_SIZES
     },
@@ -188,11 +188,11 @@ function glossary() {
 function icons() {
   const entries: IconEntry[] = JSON.parse(file('src/generated/icons.json'))
   const terms = new Map(glossaryTerms().map((term) => [term.id, term]))
-  // the custom icons with a meaning: sidebar sections also use the Light icon
+  // the custom icons with a meaning, Light ones included
   const named = new Set(
     entries.flatMap((entry) => [
       `${entry.pack}:${entry.icon}`,
-      ...(entry.category === 'sidebar' ? [`ns-light:${entry.icon}`] : [])
+      ...(entry.light ? [`ns-light:${entry.icon}`] : [])
     ])
   )
   const withoutMeaning = (pack: string, icons: object) =>
@@ -202,7 +202,7 @@ function icons() {
       .sort()
   return {
     source: page('iconography', 'icon-meanings'),
-    note: 'Use the same icon for the same meaning in every product; NethServer 8 modules, which follow the Carbon Design System, are excluded. icon is the kebab-case name: import it as fa + PascalCase (circle-plus: faCirclePlus) from the package of its pack, and pass the imported object to FontAwesomeIcon. Sidebar entries use the ns-light icon for the inactive section and the solid one for the active section. avoid lists the Font Awesome Solid icons not to use for that meaning. products lists the products that use the entry; without it, the entry applies to every product. glossary lists the terms of the glossary for the actions and objects of the entry. link is the entry in the Iconography page, to cite in reviews. When a meaning is missing, choose a Font Awesome Solid icon that no other meaning uses. Do not use the custom icons listed in customIconsWithoutMeaning: they have no agreed meaning yet. Inside a badge, do not use the circle-* icons: use the same icon without the circle, such as check instead of circle-check.',
+    note: 'Use the same icon for the same meaning in every product; NethServer 8 modules, which follow the Carbon Design System, are excluded. icon is the kebab-case name: import it as fa + PascalCase (circle-plus: faCirclePlus) from the package of its pack, and pass the imported object to FontAwesomeIcon. light: true means that the entry also uses the ns-light icon of the same name, as its use says: sidebar entries, for example, use it for the inactive section and the solid one for the active section. avoid lists the Font Awesome Solid icons not to use for that meaning. products lists the products that use the entry; without it, the entry applies to every product. glossary lists the terms of the glossary for the actions and objects of the entry. link is the entry in the Iconography page, to cite in reviews. When a meaning is missing, choose a Font Awesome Solid icon that no other meaning uses. Do not use the custom icons listed in customIconsWithoutMeaning: they have no agreed meaning yet. Inside a badge, do not use the circle-* icons: use the same icon without the circle, such as check instead of circle-check.',
     packs: Object.fromEntries(
       ICON_PACKAGES.map(({ pack, name }) => [pack, { label: ICON_PACK_LABELS[pack], package: name }])
     ),
