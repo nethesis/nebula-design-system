@@ -51,8 +51,12 @@ app-shell
     right, which lists the [toasts](#toasts) shown so far. The bell shakes when a notification
     arrives, and shows no dot.
   - **Account**: the avatar of the user and a chevron. It opens a menu aligned to the right, with
-    the name and the email of the user at the top, then items such as the account page and the
-    theme, and last, after a divider, *Sign out*.
+    the name and the email of the user at the top, then items such as the account page, the view
+    and the theme, and last, after a divider, *Sign out*.
+    - The view: *Switch to compact view* tightens every spacing of the interface, such as
+      paddings, margins and gaps, to 0.2 rem units instead of 0.25 (`--spacing`), keeping the
+      font sizes, for small screens or a scaled display. *Switch to standard view* goes back. As
+      in My Nethesis, the choice is kept for that user in the browser.
 
 ### Page
 
@@ -93,6 +97,31 @@ page-header
 card-actions
 ```
 
+## Dashboard
+
+- The home page of a product can be a dashboard: a grid of cards, each an `NeCard` about one
+  subject. A card can count one kind of object, such as the systems or the users, as in My
+  Nethesis, or show a chart or other statistics.
+- The grid has one column on phones, two from `sm`, and three or four on wide screens (`xl`,
+  `2xl`), with `gap-6` between the cards.
+- In the title of every card, the icon of its subject and the title, in sentence case like every
+  title, both in Text/Secondary neutral (`text-base`, `font-medium`).
+- A card can lead to the page of the product with the details of its subject, such as the list
+  of the objects that it counts.
+- A counter card has the number in its top right corner: `text-4xl`, `font-medium`, in
+  Text/Secondary.
+  - From 10,000 the number is abbreviated, such as *12.5K* (*12,5K* in Italian), with the full
+    number in a tooltip.
+  - The number links to the page that lists the objects it counts. Its accessible name holds the
+    title and the number, such as *Users: 12*.
+- The cards load and refresh as [Loading and errors](?page=loading-and-errors) says: on the first
+  load, each card shows its skeleton; on a refresh, such as an automatic one every 30 seconds,
+  their content stays on screen. A failed load shows one error above the grid.
+
+```example
+dashboard
+```
+
 ## Forms
 
 - A form that creates or edits an object of a list goes in a side drawer, opened by the create
@@ -109,9 +138,29 @@ card-actions
     the title and the description go above the fields.
   - One `primary` *Save* button saves the whole page. It goes after the last section and its
     divider, aligned with the fields, with the error of a failed save above it.
+- An inline notification about one field, such as a missing prerequisite or a warning on its
+  value, goes right above that field, never below it: users read it before they fill in the
+  field.
 
 ```example
 form-in-page
+```
+
+## Tables
+
+- A page that lists objects follows the
+  [*Table page* pattern](https://nethesis.github.io/vue-components/?path=/story/patterns-table-page--standard):
+  the toolbar with search and filters above the table, the actions of each row on its right.
+- A table that can hold more rows than fit in a page has `NePaginator` in the `paginator` slot
+  of `NeTable`. It shows 10 rows by default, and the user can choose 5, 10, 25, 50 or 100.
+- The number of rows the user chooses is kept for that user and that table, also after signing
+  out: save it in the browser with `savePreference` of `@nethesis/vue-components`, named after the
+  table (`usersPageSize`), and read it with `getPreference` when the page opens. Both keep it in
+  the local storage entry `preferences-<username>`.
+- A new number of rows, a search or a filter brings the table back to its first page.
+
+```example
+table-pagination
 ```
 
 ## Buttons

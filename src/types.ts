@@ -53,6 +53,9 @@ export type IconEntry = {
   glossary?: string[]
   products?: Product[]
   notes?: string
+  // the entry also uses the ns-light icon of the same name; always true in the
+  // sidebar category
+  light?: boolean
 }
 
 export const ICON_CATEGORIES: { id: IconCategory; title: string; description: string }[] = [

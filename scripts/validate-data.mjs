@@ -27,7 +27,8 @@ const ICON_FIELDS = [
   'avoid',
   'glossary',
   'products',
-  'notes'
+  'notes',
+  'light'
 ]
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/
 
@@ -152,8 +153,11 @@ export function validateIcons(icons, { glossaryIds, iconNames }) {
     if ((entry.category === 'brands') !== (pack === 'ns-brands')) {
       errors.push(`${where}: brand icons, and only them, come from ns-brands`)
     }
-    if (entry.category === 'sidebar' && !iconNames['ns-light'].has(entry.icon)) {
-      errors.push(`${where}: sidebar icons need a Light version, but "${entry.icon}" is not in ns-light`)
+    if ('light' in entry && entry.light !== true) {
+      errors.push(`${where}: light must be true, or left out`)
+    }
+    if ((entry.category === 'sidebar' || entry.light === true) && !iconNames['ns-light'].has(entry.icon)) {
+      errors.push(`${where}: sidebar and light entries need a Light version, but "${entry.icon}" is not in ns-light`)
     }
 
     for (const field of ['avoid', 'glossary']) {

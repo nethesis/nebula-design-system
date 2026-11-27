@@ -9,11 +9,15 @@ import {
   faArrowRight,
   faBars,
   faBell,
+  faBuilding,
   faChevronDown,
   faCircleCheck,
   faCircleQuestion,
   faCircleXmark,
   faHouse,
+  faServer,
+  faTriangleExclamation,
+  faUserGroup,
   faXmark
 } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -25,13 +29,21 @@ import {
 import {
   NeButton,
   NeCard,
+  NePaginator,
   NeRoundedIcon,
+  NeTable,
+  NeTableBody,
+  NeTableCell,
+  NeTableHead,
+  NeTableHeadCell,
+  NeTableRow,
   NeTextInput,
   NeToastNotificationV2,
+  NeTooltip,
   type NeNotificationV2
 } from '@nethesis/vue-components'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { reactive } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import Layout from '../../content/layout.md'
 
 // The rules are in content/layout.md, also published for agents. Its
@@ -94,6 +106,50 @@ const formScreens = [
   },
   { caption: 'Small screens', width: 'max-w-xs', row: 'flex flex-col', side: '', fields: '' }
 ]
+
+// the dashboard example, as the counter cards of My Nethesis, with titles in
+// sentence case: the numbers link to their lists
+// From 10,000 the number is abbreviated, such as 12.5K, with the full
+// number in a tooltip
+const COMPACT_FROM = 10_000
+const compact = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 })
+const full = new Intl.NumberFormat('en')
+const counters = [
+  { title: 'Alerts', counter: 3, icon: faTriangleExclamation },
+  { title: 'Systems', counter: 12480, icon: faServer },
+  { title: 'Customers', counter: 34, icon: faBuilding },
+  { title: 'Users', counter: 12, icon: faUserGroup }
+]
+
+// the tables example: a table of users with NePaginator, 10 rows by default.
+// A new number of rows brings it back to the first page.
+const users = [
+  'Alice Fox',
+  'Bruno Rossi',
+  'Carla Bianchi',
+  'Daniel Weber',
+  'Elena Conti',
+  'Franco Neri',
+  'Giulia Romano',
+  'Hugo Martin',
+  'Irene Galli',
+  'Jonas Berg',
+  'Laura Ferri',
+  'Marco Greco'
+].map((name, index) => ({
+  name,
+  email: `${name.split(' ')[0].toLowerCase()}@example.com`,
+  role: index % 4 === 0 ? 'Admin' : 'Support'
+}))
+const pageSize = ref(10)
+const currentPage = ref(1)
+const usersPage = computed(() =>
+  users.slice((currentPage.value - 1) * pageSize.value, currentPage.value * pageSize.value)
+)
+function selectPageSize(size: number) {
+  pageSize.value = size
+  currentPage.value = 1
+}
 
 // the buttons example: a copy of NeModal, open in its place, with the classes
 // of its backdrop and panel, so that the two versions show side by side
@@ -303,6 +359,34 @@ const caption = 'mb-2 flex items-center gap-2 text-xs font-medium'
     </div>
   </Teleport>
 
+  <Teleport defer to="[data-example='dashboard']">
+    <div :class="['my-6 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2', frame]">
+      <NeCard v-for="card in counters" :key="card.title">
+        <template #title>
+          <span class="flex items-start gap-3 text-base text-gray-700 dark:text-gray-200">
+            <FontAwesomeIcon :icon="card.icon" class="size-5 shrink-0" aria-hidden="true" />
+            {{ card.title }}
+          </span>
+        </template>
+        <template #topRight>
+          <a
+            href="#dashboard"
+            :aria-label="`${card.title}: ${full.format(card.counter)}`"
+            class="focus-visible:ring-primary-500 rounded-md px-1 text-4xl font-medium text-indigo-700 focus-visible:ring-2 focus-visible:outline-none dark:text-indigo-500"
+          >
+            <NeTooltip v-if="card.counter >= COMPACT_FROM" trigger-event="mouseenter focus" placement="auto">
+              <template #trigger>
+                <span>{{ compact.format(card.counter) }}</span>
+              </template>
+              <template #content>{{ full.format(card.counter) }}</template>
+            </NeTooltip>
+            <span v-else>{{ card.counter }}</span>
+          </a>
+        </template>
+      </NeCard>
+    </div>
+  </Teleport>
+
   <Teleport defer to="[data-example='form-in-page']">
     <div class="my-6 grid max-w-3xl gap-8">
       <div v-for="screen in formScreens" :key="screen.caption" :class="screen.width">
@@ -337,6 +421,40 @@ const caption = 'mb-2 flex items-center gap-2 text-xs font-medium'
           </div>
         </div>
       </div>
+    </div>
+  </Teleport>
+
+  <Teleport defer to="[data-example='table-pagination']">
+    <div class="my-6 max-w-3xl">
+      <NeTable aria-label="Users" card-breakpoint="sm">
+        <NeTableHead>
+          <NeTableHeadCell>Name</NeTableHeadCell>
+          <NeTableHeadCell>Email</NeTableHeadCell>
+          <NeTableHeadCell>Role</NeTableHeadCell>
+        </NeTableHead>
+        <NeTableBody>
+          <NeTableRow v-for="user in usersPage" :key="user.email">
+            <NeTableCell data-label="Name">{{ user.name }}</NeTableCell>
+            <NeTableCell data-label="Email">{{ user.email }}</NeTableCell>
+            <NeTableCell data-label="Role">{{ user.role }}</NeTableCell>
+          </NeTableRow>
+        </NeTableBody>
+        <template #paginator>
+          <NePaginator
+            :current-page="currentPage"
+            :total-rows="users.length"
+            :page-size="pageSize"
+            :page-sizes="[5, 10, 25, 50, 100]"
+            previous-label="Go to previous page"
+            next-label="Go to next page"
+            nav-pagination-label="Pagination"
+            range-of-total-label="of"
+            page-size-label="Show"
+            @select-page="currentPage = $event"
+            @select-page-size="selectPageSize"
+          />
+        </template>
+      </NeTable>
     </div>
   </Teleport>
 

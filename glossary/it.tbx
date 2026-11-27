@@ -468,6 +468,47 @@
 </tig>
 </langSet>
 </termEntry>
+<termEntry id="favorite">
+<descrip>An object that users mark to find it quickly, such as a system or an operator. Favorites are personal: each user has their own.</descrip>
+<descrip type="Usage note">The actions are &quot;Add to favorites&quot; (&quot;Aggiungi ai preferiti&quot;) and &quot;Remove from favorites&quot; (&quot;Rimuovi dai preferiti&quot;), the filter of a list is &quot;Favorites&quot; (&quot;Preferiti&quot;). Name the object when there is room: &quot;Favorite operator&quot; (&quot;Operatore preferito&quot;).</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Favorite</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Preferito</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="favorite--forbidden-segnalibro">
+<langSet xml:lang="en">
+<tig>
+<term>Favorite</term>
+<termNote type="administrativeStatus">forbidden</termNote>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Segnalibro</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="notes">
+<descrip>Free text that users write on an object, such as a system, a company or a contact, to keep information about it for themselves and their colleagues.</descrip>
+<descrip type="Usage note">Notes belong to the object and change with it. A comment, as on an alert, is a message of a conversation, with its author and its date.</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Notes</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Note</term>
+</tig>
+</langSet>
+</termEntry>
 <termEntry id="create">
 <descrip>Make a new object that did not exist before, such as a user, a group or a firewall rule.</descrip>
 <descrip type="Usage note">Name the object in the button that starts the action: &quot;Create user&quot;. The button that confirms it, at the end of the drawer, is only &quot;Create&quot;. Use &quot;Add&quot; when the object already exists and is only associated with another one.</descrip>
@@ -963,6 +1004,20 @@
 <langSet xml:lang="it">
 <tig>
 <term>Ripristina</term>
+</tig>
+</langSet>
+</termEntry>
+<termEntry id="compact-view">
+<descrip>A view of the interface with tighter spacing and the same font sizes, chosen by the user from the account menu. Its opposite is the standard view (&quot;vista standard&quot;).</descrip>
+<descrip type="Usage note">Menu items: &quot;Switch to compact view&quot; (&quot;Passa alla vista compatta&quot;) and &quot;Switch to standard view&quot; (&quot;Passa alla vista standard&quot;).</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Compact view</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Vista compatta</term>
 </tig>
 </langSet>
 </termEntry>

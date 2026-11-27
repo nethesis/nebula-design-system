@@ -171,6 +171,10 @@ if (checkOnly) {
 
 // data for the web page
 
+// sidebar entries always use the Light icon too: the page and icons.json read
+// only the light field
+for (const entry of icons) if (entry.category === 'sidebar') entry.light = true
+
 const generated = join(root, 'src', 'generated')
 mkdirSync(generated, { recursive: true })
 writeFileSync(join(generated, 'glossary.json'), JSON.stringify(entries, null, 2))
@@ -187,7 +191,7 @@ const addSvg = (pack, name) => {
 }
 for (const entry of icons) {
   addSvg(entry.pack, entry.icon)
-  if (entry.category === 'sidebar') addSvg('ns-light', entry.icon)
+  if (entry.light) addSvg('ns-light', entry.icon)
   for (const icon of entry.avoid ?? []) addSvg('fa-solid', icon)
 }
 writeFileSync(join(generated, 'icon-svgs.json'), JSON.stringify(svgs))

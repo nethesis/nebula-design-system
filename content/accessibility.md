@@ -50,6 +50,18 @@ your own markup or build with another stack.
   reader users reach the error at once. Use `focusElement` of `@nethesis/vue-components`, as in the
   [*Create item drawer* pattern](https://nethesis.github.io/vue-components/?path=/story/patterns-create-item-drawer--standard).
 
+## Pointer and touch
+
+- **A target is at least 24 × 24 px** (WCAG 2.5.8), such as an icon button with a 16 px icon and
+  `p-1`. Bigger is better where there is room: fingers need about 44 px.
+- **A control does the same with every input.** A click, a tap, the keyboard and a screen reader
+  get the same result: users can't predict a control that changes with the input, and screen
+  readers on phones send taps.
+- **A control that shows on hover also shows with the focus**, and its action is also somewhere
+  that touch screens reach, such as the menu of the row. While hidden, it takes no clicks. For
+  example, the star of an object that is not a favorite appears when the pointer is on its row,
+  and the row menu has **Add to favorites**.
+
 ## Screen readers
 
 - **Every form field has a visible label**, linked to the field: the `label` prop of the `Ne*`
@@ -57,6 +69,9 @@ your own markup or build with another stack.
 - **An icon button has an accessible name** that matches its tooltip, as in
   [Buttons and actions](?page=writing-guidelines#buttons-and-actions). An icon next to a text is
   decoration: hide it from screen readers with `aria-hidden="true"`.
+- **An icon whose tooltip shows data**, such as the notes of an object, is named after what it
+  shows (`Notes`), not after the data. Keep the tooltip short: crop long text, at 10 lines for
+  notes, and show it in full in the page of the object.
 - **The accessible name includes the visible text**, best at its start, so that people who use
   voice control can say what they see. An `aria-label` replaces the text of the element: don't
   put one on a link or a button that already shows text, such as `3 active alerts`. To add

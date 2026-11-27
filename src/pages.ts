@@ -62,7 +62,7 @@ export const PAGE_GROUPS: PageGroup[] = [
         title: 'Writing guidelines',
         navLabel: 'Guidelines',
         description:
-          'How to write the text of user interfaces: voice and tone, capitalization and punctuation, the text of buttons, forms, empty states, modals and notifications, and text ready for translation.',
+          'How to write the text of user interfaces: voice and tone, capitalization and punctuation, the text of buttons, forms, table filters, empty states, modals and notifications, numbers and dates, and text ready for translation.',
         icon: faPenNib,
         component: GuidelinesView
       },
@@ -121,7 +121,7 @@ export const PAGE_GROUPS: PageGroup[] = [
         id: 'layout',
         title: 'Layout',
         description:
-          'Where the parts of a page go: the app shell with the side menu and the top bar, the page header, the buttons of cards and dialogs, forms in a page, small screens, toasts.',
+          'Where the parts of a page go: the app shell with the side menu and the top bar, the page header, the buttons of cards and dialogs, dashboards of cards, forms and the notifications about a field, the pagination of tables, small screens, toasts.',
         icon: faTableColumns,
         component: defineAsyncComponent(() => import('./components/LayoutView.vue'))
       },

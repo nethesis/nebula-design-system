@@ -202,6 +202,32 @@
     traffic, such as a source address or a source zone, or of a backup. The Italian plural does
     not change: "i feed".
 
+- id: favorite
+  en: Favorite
+  it: Preferito
+  definition: >-
+    An object that users mark to find it quickly, such as a system or an operator. Favorites are
+    personal: each user has their own.
+  products: [my, nethvoice]
+  avoid:
+    en: [Bookmark, Starred]
+    it: [Segnalibro]
+  notes: >-
+    The actions are "Add to favorites" ("Aggiungi ai preferiti") and "Remove from favorites"
+    ("Rimuovi dai preferiti"), the filter of a list is "Favorites" ("Preferiti"). Name the object
+    when there is room: "Favorite operator" ("Operatore preferito").
+
+- id: notes
+  en: Notes
+  it: Note
+  definition: >-
+    Free text that users write on an object, such as a system, a company or a contact, to keep
+    information about it for themselves and their colleagues.
+  products: [my, nethvoice]
+  notes: >-
+    Notes belong to the object and change with it. A comment, as on an alert, is a message of a
+    conversation, with its author and its date.
+
 # Actions
 
 - id: create
@@ -397,6 +423,17 @@
   notes: >-
     "Reset filters" ("Reimposta filtri"), "Reset selection" ("Reimposta selezione"), "Reset
     password" ("Reimposta password"). In Italian, "Ripristina" is for restoring a backup.
+
+- id: compact-view
+  en: Compact view
+  it: Vista compatta
+  definition: >-
+    A view of the interface with tighter spacing and the same font sizes, chosen by the user from
+    the account menu. Its opposite is the standard view ("vista standard").
+  products: [my]
+  notes: >-
+    Menu items: "Switch to compact view" ("Passa alla vista compatta") and "Switch to standard
+    view" ("Passa alla vista standard").
 
 - id: refresh
   en: Refresh

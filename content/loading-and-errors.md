@@ -16,11 +16,17 @@ application, such as an expired session, needs no message of its own.
   of the page stays visible, such as the page header and its primary action. Don't cover the
   page with a spinner.
 - **Refresh**: when the data is already on screen and loads again, such as with an automatic
-  refresh, the **Refresh** button, a filter or a page of a table, keep showing it. Show a small
-  `NeSpinner` with `Updating…` next to the toolbar or the title. Show it only when the refresh
-  takes more than 500 ms, and keep it visible for at least 500 ms: a quicker one would only
-  flash, too fast to read. Don't go back to the skeleton, which makes the content jump and loses
-  the scroll position.
+  refresh, the **Refresh** button, a filter or a page of a table, keep showing it. Don't go back
+  to the skeleton, which makes the content jump, loses the scroll position and, in a table, takes
+  the focus away from the sort button that started the load. Show only refreshes that take more
+  than 500 ms: a quicker one ends before anyone needs to be told.
+  - **A table**: an indeterminate `NeProgressBar` of size `sm` over the top border of the table,
+    out of the layout, so that showing it never moves the table or its toolbar, with `Updating…`
+    as text for screen readers only. It fades in after 500 ms; it has no text to read, so it
+    needs no minimum time on screen.
+  - **Other content**, such as a timeline or a grid of cards: a small `NeSpinner` with
+    `Updating…` next to the toolbar or the title. It appears after 500 ms and, once shown, stays
+    at least 500 ms: a quicker one would only flash, too fast to read.
 - **Actions**: the button that starts an action, such as **Save**, **Create** or **Delete**,
   takes its `loading` state until the server answers, and can't be pressed again meanwhile. The
   other fields and buttons of the form stay as they are.
@@ -46,9 +52,15 @@ Show `NeEmptyState` only after a load that succeeded with no items, as in
 [Empty states](?page=writing-guidelines#empty-states). Never show it while the data is loading
 or after an error: users would believe that there is nothing.
 
+On the page, in place of a table or a list, the empty state has the background of a card,
+Elevation/L0 (white, Gray/950 in the dark theme), as in the
+[*Empty state* pattern](https://nethesis.github.io/vue-components/?path=/story/patterns-empty-state--no-items).
+Its default background, Elevation/L2, is for an empty state inside a card.
+
 | Where | Do | Don't |
 | --- | --- | --- |
 | First load | A skeleton in place of the table | A spinner over the whole page |
-| Refresh | The table stays, with `Updating…` | The table goes back to the skeleton |
+| Refresh | The table stays, with the bar over its top border | The table goes back to the skeleton |
 | Load that failed | `Cannot retrieve customers`, with the cause | `No customers` |
+| Empty state on the page | The background of a card, Elevation/L0 | The default gray background, Elevation/L2 |
 | Save | **Save** shows its loading state until the server answers | **Save** can be pressed again while the first save runs |
