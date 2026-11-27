@@ -52,9 +52,15 @@ Show `NeEmptyState` only after a load that succeeded with no items, as in
 [Empty states](?page=writing-guidelines#empty-states). Never show it while the data is loading
 or after an error: users would believe that there is nothing.
 
+On the page, in place of a table or a list, the empty state has the background of a card,
+Elevation/L0 (white, Gray/950 in the dark theme), as in the
+[*Empty state* pattern](https://nethesis.github.io/vue-components/?path=/story/patterns-empty-state--no-items).
+Its default background, Elevation/L2, is for an empty state inside a card.
+
 | Where | Do | Don't |
 | --- | --- | --- |
 | First load | A skeleton in place of the table | A spinner over the whole page |
 | Refresh | The table stays, with the bar over its top border | The table goes back to the skeleton |
 | Load that failed | `Cannot retrieve customers`, with the cause | `No customers` |
+| Empty state on the page | The background of a card, Elevation/L0 | The default gray background, Elevation/L2 |
 | Save | **Save** shows its loading state until the server answers | **Save** can be pressed again while the first save runs |
