@@ -93,6 +93,31 @@ page-header
 card-actions
 ```
 
+## Dashboard
+
+- The home page of a product can be a dashboard: a grid of cards, each an `NeCard` about one
+  subject. A card can count one kind of object, such as the systems or the users, as in My
+  Nethesis, or show a chart or other statistics.
+- The grid has one column on phones, two from `sm`, and three or four on wide screens (`xl`,
+  `2xl`), with `gap-6` between the cards.
+- In the title of every card, the icon of its subject and the title, in sentence case like every
+  title, both in Text/Secondary neutral (`text-base`, `font-medium`).
+- A card can lead to the page of the product with the details of its subject, such as the list
+  of the objects that it counts.
+- A counter card has the number in its top right corner: `text-4xl`, `font-medium`, in
+  Text/Secondary.
+  - From 10,000 the number is abbreviated, such as *12.5K* (*12,5K* in Italian), with the full
+    number in a tooltip.
+  - The number links to the page that lists the objects it counts. Its accessible name holds the
+    title and the number, such as *Users: 12*.
+- The cards load and refresh as [Loading and errors](?page=loading-and-errors) says: on the first
+  load, each card shows its skeleton; on a refresh, such as an automatic one every 30 seconds,
+  their content stays on screen. A failed load shows one error above the grid.
+
+```example
+dashboard
+```
+
 ## Forms
 
 - A form that creates or edits an object of a list goes in a side drawer, opened by the create

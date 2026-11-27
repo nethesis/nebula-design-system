@@ -9,11 +9,15 @@ import {
   faArrowRight,
   faBars,
   faBell,
+  faBuilding,
   faChevronDown,
   faCircleCheck,
   faCircleQuestion,
   faCircleXmark,
   faHouse,
+  faServer,
+  faTriangleExclamation,
+  faUserGroup,
   faXmark
 } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -35,6 +39,7 @@ import {
   NeTableRow,
   NeTextInput,
   NeToastNotificationV2,
+  NeTooltip,
   type NeNotificationV2
 } from '@nethesis/vue-components'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -100,6 +105,20 @@ const formScreens = [
     fields: 'md:w-7/12'
   },
   { caption: 'Small screens', width: 'max-w-xs', row: 'flex flex-col', side: '', fields: '' }
+]
+
+// the dashboard example, as the counter cards of My Nethesis, with titles in
+// sentence case: the numbers link to their lists
+// From 10,000 the number is abbreviated, such as 12.5K, with the full
+// number in a tooltip
+const COMPACT_FROM = 10_000
+const compact = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 })
+const full = new Intl.NumberFormat('en')
+const counters = [
+  { title: 'Alerts', counter: 3, icon: faTriangleExclamation },
+  { title: 'Systems', counter: 12480, icon: faServer },
+  { title: 'Customers', counter: 34, icon: faBuilding },
+  { title: 'Users', counter: 12, icon: faUserGroup }
 ]
 
 // the tables example: a table of users with NePaginator, 10 rows by default.
@@ -337,6 +356,34 @@ const caption = 'mb-2 flex items-center gap-2 text-xs font-medium'
           </div>
         </NeCard>
       </div>
+    </div>
+  </Teleport>
+
+  <Teleport defer to="[data-example='dashboard']">
+    <div :class="['my-6 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2', frame]">
+      <NeCard v-for="card in counters" :key="card.title">
+        <template #title>
+          <span class="flex items-start gap-3 text-base text-gray-700 dark:text-gray-200">
+            <FontAwesomeIcon :icon="card.icon" class="size-5 shrink-0" aria-hidden="true" />
+            {{ card.title }}
+          </span>
+        </template>
+        <template #topRight>
+          <a
+            href="#dashboard"
+            :aria-label="`${card.title}: ${full.format(card.counter)}`"
+            class="focus-visible:ring-primary-500 rounded-md px-1 text-4xl font-medium text-indigo-700 focus-visible:ring-2 focus-visible:outline-none dark:text-indigo-500"
+          >
+            <NeTooltip v-if="card.counter >= COMPACT_FROM" trigger-event="mouseenter focus" placement="auto">
+              <template #trigger>
+                <span>{{ compact.format(card.counter) }}</span>
+              </template>
+              <template #content>{{ full.format(card.counter) }}</template>
+            </NeTooltip>
+            <span v-else>{{ card.counter }}</span>
+          </a>
+        </template>
+      </NeCard>
     </div>
   </Teleport>
 
