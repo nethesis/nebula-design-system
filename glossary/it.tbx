@@ -1007,6 +1007,20 @@
 </tig>
 </langSet>
 </termEntry>
+<termEntry id="compact-view">
+<descrip>A view of the interface with tighter spacing and the same font sizes, chosen by the user from the account menu. Its opposite is the standard view (&quot;vista standard&quot;).</descrip>
+<descrip type="Usage note">Menu items: &quot;Switch to compact view&quot; (&quot;Passa alla vista compatta&quot;) and &quot;Switch to standard view&quot; (&quot;Passa alla vista standard&quot;).</descrip>
+<langSet xml:lang="en">
+<tig>
+<term>Compact view</term>
+</tig>
+</langSet>
+<langSet xml:lang="it">
+<tig>
+<term>Vista compatta</term>
+</tig>
+</langSet>
+</termEntry>
 <termEntry id="refresh">
 <descrip>Get the latest data of a container, such as a table, a dashboard or a widget, without resetting the rest of the page, its filters or its scroll position.</descrip>
 <descrip type="Usage note">When there is room, name what is refreshed: &quot;Refresh data&quot; (&quot;Aggiorna dati&quot;), &quot;Refresh table&quot; (&quot;Aggiorna tabella&quot;). For the whole page, use &quot;Reload&quot;.</descrip>

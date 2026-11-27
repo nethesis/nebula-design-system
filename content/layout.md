@@ -51,8 +51,12 @@ app-shell
     right, which lists the [toasts](#toasts) shown so far. The bell shakes when a notification
     arrives, and shows no dot.
   - **Account**: the avatar of the user and a chevron. It opens a menu aligned to the right, with
-    the name and the email of the user at the top, then items such as the account page and the
-    theme, and last, after a divider, *Sign out*.
+    the name and the email of the user at the top, then items such as the account page, the view
+    and the theme, and last, after a divider, *Sign out*.
+    - The view: *Switch to compact view* tightens every spacing of the interface, such as
+      paddings, margins and gaps, to 0.2 rem units instead of 0.25 (`--spacing`), keeping the
+      font sizes, for small screens or a scaled display. *Switch to standard view* goes back. As
+      in My Nethesis, the choice is kept for that user in the browser.
 
 ### Page
 

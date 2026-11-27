@@ -361,6 +361,18 @@
   category: interface
   use: Switch to the light theme.
 
+- id: compact-view
+  meaning: Compact view
+  icon: table-cells
+  category: interface
+  use: Switch to the compact view, with tighter spacing.
+
+- id: standard-view
+  meaning: Standard view
+  icon: table-cells-large
+  category: interface
+  use: Switch back to the standard view.
+
 - id: favorite
   meaning: Favorite
   icon: star

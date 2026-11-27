@@ -424,6 +424,17 @@
     "Reset filters" ("Reimposta filtri"), "Reset selection" ("Reimposta selezione"), "Reset
     password" ("Reimposta password"). In Italian, "Ripristina" is for restoring a backup.
 
+- id: compact-view
+  en: Compact view
+  it: Vista compatta
+  definition: >-
+    A view of the interface with tighter spacing and the same font sizes, chosen by the user from
+    the account menu. Its opposite is the standard view ("vista standard").
+  products: [my]
+  notes: >-
+    Menu items: "Switch to compact view" ("Passa alla vista compatta") and "Switch to standard
+    view" ("Passa alla vista standard").
+
 - id: refresh
   en: Refresh
   it: Aggiorna

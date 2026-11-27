@@ -153,9 +153,14 @@ Validation messages:
 From the [*Table page* pattern](https://nethesis.github.io/vue-components/?path=/story/patterns-table-page--standard).
 
 - Title: the name of the page in the menu, so users recognize where they are. For a list, it is usually the plural object (`Users`).
-- Description: one sentence that says what the page shows or is for. For a list, a good pattern is `List of <objects>, including <main attributes>.`
+- Description: one sentence that says what the page shows or is for. For a list, a good pattern is `List of <objects>, including <main attributes>.` It is optional: leave it out when the title says it all, as for `Dashboard` or `Settings`, rather than repeating the title or listing what the page contains.
 - Primary action: `Create <object>`. Where it goes is in [Layout](?page=layout#page-header).
 - Text filter placeholder: `Filter <objects>`.
+
+| Where | Do | Don't |
+| --- | --- | --- |
+| Description of a list | List of users, including role and status. | This page shows the users. |
+| Page whose title says it all | No description | Data retention, automatic check-out and tablet. |
 
 ## Table filters
 
